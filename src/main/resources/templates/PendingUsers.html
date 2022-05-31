@@ -222,7 +222,7 @@
                         <td th:text="${user.lastname}">Last Name</td>
                         <td th:text="${user.email}">Email ID</td>
                         <td>
-                            <a th:href="@{'/users/approveFile/'+${user.username}+'/'+${user.photos}}" onclick="confirm('Are you sure you want to Approve?');"><button  class="thm-btn static-banner-one__form-btn" style="padding: 10px;">Approve</button> </a>
+                            <a th:href="@{'/users/approveFile/'+${user.username}+'/'+${user.photos}}" onclick="return confirm('Are you sure you want to Approve?');"><button  class="thm-btn static-banner-one__form-btn" style="padding: 10px;">Approve</button> </a>
                             
                         </td>
 

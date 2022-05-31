@@ -8,8 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class User {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "id")
 	private String username; // Adhar ID
 
 	private String firstname;
@@ -21,6 +19,7 @@ public class User {
 	
 	private Date birthday;
 	private String mobileno;
+	private String wardno;
 	
 	private String photos;
 	
@@ -31,6 +30,14 @@ public class User {
 
 	private String role;
 	
+	
+	public String getWardno() {
+		return wardno;
+	}
+
+	public void setWardno(String wardno) {
+		this.wardno = wardno;
+	}
 
 	public String getMobileno() {
 		return mobileno;
@@ -109,7 +116,7 @@ public class User {
 	@Transient
     public String getPhotosImagePath() {
         if (photos == null || username == null) return null;
-         
+        
         return "/user-photos/" + username + "/" + photos;
     }
 
@@ -159,11 +166,7 @@ public class User {
 		return "User [address=" + address + ", birthday=" + birthday + ", city=" + city + ", email=" + email
 				+ ", firstname=" + firstname + ", gender=" + gender + ", lastname=" + lastname + ", mobileno="
 				+ mobileno + ", password=" + password + ", photos=" + photos + ", role=" + role + ", state=" + state
-				+ ", username=" + username + ", zip=" + zip + "]";
+				+ ", username=" + username + ", wardno=" + wardno + ", zip=" + zip + "]";
 	}
-
-	
-
-
 
 }

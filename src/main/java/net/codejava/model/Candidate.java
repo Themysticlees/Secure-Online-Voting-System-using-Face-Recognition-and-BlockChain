@@ -9,11 +9,12 @@ import javax.persistence.Id;
 public class Candidate{
 
     @Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private String username;
     
     private String firstname;
     private String lastname;
-    private int ward;
+  
     private String party;
 
     private String partypic;
@@ -37,12 +38,8 @@ public class Candidate{
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-    public int getWard() {
-        return ward;
-    }
-    public void setWard(int ward) {
-        this.ward = ward;
-    }
+   
+    
     public String getParty() {
         return party;
     }

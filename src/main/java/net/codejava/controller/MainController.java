@@ -62,7 +62,7 @@ public class MainController {
 	@RequestMapping("/default")
 	public String defaultAfterLogin(HttpServletRequest request) {
 		if (request.isUserInRole("ROLE_ADMIN")) {
-			return "redirect:/users/";
+			return "redirect:/admin/";
 		}
 
 		return "redirect:/public/home";

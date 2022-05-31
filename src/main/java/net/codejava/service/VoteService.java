@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,19 +48,7 @@ public class VoteService {
         System.out.println("*************** Vote Saved*********************");
         voterepo.save(vote);
         voterepo.copyData(vote.getUsername(), vote.getCurrhash(), vote.getDate(), vote.getPrevhash());
-        //voterepo.copyData();
-        //copy table to clone table
-        
-        // return true;
-        
-        // }
-        // // Implement database copy function
-        // else{
-            
-        //     System.out.println("*************** Vote Not Saved*********************");
-        //     return false;
-        // }
-    
+
         return true;
     }
 
@@ -69,6 +58,11 @@ public class VoteService {
             return true;
         }
         return false;
+    }
+
+    public int countVotes() {
+        
+        return 0;
     }
 
     // public static void pollVotes(String choiced, String adhaarid, String uname) {

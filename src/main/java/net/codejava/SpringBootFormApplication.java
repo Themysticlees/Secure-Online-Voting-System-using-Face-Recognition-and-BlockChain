@@ -7,14 +7,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import net.codejava.model.Block;
 import net.codejava.model.User;
 import net.codejava.model.Votedata;
 import net.codejava.repository.UserRepo;
 import net.codejava.repository.VoteRepo;
-
 
 @SpringBootApplication
 public class SpringBootFormApplication implements CommandLineRunner {
@@ -44,7 +42,7 @@ public class SpringBootFormApplication implements CommandLineRunner {
 		user1.setPassword(passwordEncoder.encode("1234"));
 		user1.setRole("ROLE_ADMIN");
 
-		this.userRepo.save(user1);
+		//this.userRepo.save(user1);
 
 		// -------------------first block --------------------- //
 

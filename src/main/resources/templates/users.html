@@ -148,7 +148,7 @@
                     >
                     <img
                       src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg"
-                     
+                    
                       alt="Avatar"
                       style="width: 50px; border-radius: 60%"
                     />
@@ -180,7 +180,7 @@
                             <img th:src="${currentUser.photosImagePath}" alt="Avatar" style=" width: 50px; border-radius: 60%" />
 
                         </div>
-                         /.header-social
+                        /.header-social
                     </div> -->
             <!-- /.right-side-box -->
           </div>
@@ -188,7 +188,7 @@
         </nav>
       </header>
 
-     <section class="inner-banner">
+    <section class="inner-banner">
             <div class="container">
                 <h2 class="inner-banner__title">Users Details</h2><!-- /.inner-banner__title -->
                 <ul class="list-unstyled thm-breadcrumb">
@@ -222,7 +222,7 @@
                         <td th:text="${user.lastname}">Last Name</td>
                         <td th:text="${user.email}">Email ID</td>
                         <td>
-                            <a th:href="@{'/users/removeFile/'+${user.username}+'/'+${user.photos}}" onclick="confirm('Are you sure you want to delete?');"><button  class="thm-btn static-banner-one__form-btn" style="padding: 10px;">Delete</button> </a>
+                            <a th:href="@{'/users/removeFile/'+${user.username}+'/'+${user.photos}}" onclick="return confirm('Are you sure you want to delete?');"><button  class="thm-btn static-banner-one__form-btn" style="padding: 10px;">Delete</button> </a>
                             
                         </td>
 

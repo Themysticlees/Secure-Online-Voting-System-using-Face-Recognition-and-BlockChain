@@ -124,11 +124,11 @@ public class HomeController {
 		// write code for send otp to email...
 		String subject = "OTP from SOVS";
 		String message = " " +
-				"Hi " + "<b>" + firstName + "</b>" + " Your OTP is " +
-				"<b>" +
+				"<h2>Hi " + "<b>" + firstName + ",</b><br>" + "Thank you for your successfull face verfication."+
+				"Your OTP is " +
+				"<h1>" +
 				otp +
-				"</b>" +
-				" ";
+				"</h1></h2>";
 		String to = email;
 		boolean flag = this.emailservice.sendEmail(subject, message, to);
 

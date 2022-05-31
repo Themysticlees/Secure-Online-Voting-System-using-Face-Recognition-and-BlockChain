@@ -21,7 +21,8 @@ public class Pending {
 	
 	private Date birthday;
 	private String mobileno;
-	
+	private String wardno;
+
 	private String photos;
 	
 	private String address;
@@ -31,6 +32,14 @@ public class Pending {
 
 	private String role;
 	
+	
+	public String getWardno() {
+		return wardno;
+	}
+
+	public void setWardno(String wardno) {
+		this.wardno = wardno;
+	}
 
 	public String getMobileno() {
 		return mobileno;
@@ -156,10 +165,10 @@ public class Pending {
 
 	@Override
 	public String toString() {
-		return "User [address=" + address + ", birthday=" + birthday + ", city=" + city + ", email=" + email
+		return "Pending [address=" + address + ", birthday=" + birthday + ", city=" + city + ", email=" + email
 				+ ", firstname=" + firstname + ", gender=" + gender + ", lastname=" + lastname + ", mobileno="
 				+ mobileno + ", password=" + password + ", photos=" + photos + ", role=" + role + ", state=" + state
-				+ ", username=" + username + ", zip=" + zip + "]";
+				+ ", username=" + username + ", wardno=" + wardno + ", zip=" + zip + "]";
 	}
 
 	

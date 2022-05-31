@@ -1,48 +1,95 @@
 package net.codejava.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.security.Principal;
-import java.util.List;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
 
+import net.codejava.model.Candidate;
 import net.codejava.model.Pending;
 import net.codejava.model.User;
+import net.codejava.repository.CandidateRepo;
 import net.codejava.repository.PendingRepo;
 import net.codejava.repository.UserRepo;
 import net.codejava.service.UserService;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/admin")
 public class UserSecurityController {
 	
 	@Autowired
 	UserService userService;
 
-	//all users
-	@GetMapping("/")
-	public String getUsers(Principal principle,Model model){
+	@Autowired
+	CandidateRepo candidateRepo;
 
-		String username = principle.getName();
-		User user = userService.getUser(username);
-		model.addAttribute("currentUser", user);
+	//all users
+	// @GetMapping("/")
+	// public String getUsers(Principal principle,Model model){
+
+	// 	String username = principle.getName();
+	// 	User user = userService.getUser(username);
+	// 	model.addAttribute("currentUser", user);
+	// 	List<User> users = userService.getAllUsers();
+	// 	model.addAttribute("users", users);
+	// 	return "users.html";
+	// }
+
+	@GetMapping("/")
+	public String admin(){
+		return "admin.html";
+	}
+
+	@GetMapping("/users")
+	public String users(Model model){
 		List<User> users = userService.getAllUsers();
 		model.addAttribute("users", users);
-		return "users.html";
+		return "databasepart.html";
 	}
 
-	@GetMapping("/pending")
-	public String getPendingUsers(Model model){
-
-		
+	@GetMapping("/pendingrequest")
+	public String pending(Model model){
 		List<Pending> users = userService.getAllPendingUsers();
 		model.addAttribute("pendingUsers", users);
-		return "PendingUsers.html";
+		return "pendingrequest.html";
 	}
+
+	@GetMapping("/notifications")
+	public String notifications(){
+		return "notifications.html";
+	}
+
+	@GetMapping("/candidates")
+    public String candidates(Model model) {
+		
+		Candidate candidate = new Candidate();
+		model.addAttribute("candidate", candidate);
+		
+        List<String> listparty = Arrays.asList("Choose party name","cpm","aap","bjp","tmc");
+		model.addAttribute("listparty", listparty);
+        
+        return "candidatesetting.html";
+    }
+
+
+	// @GetMapping("/pending")
+	// public String getPendingUsers(Model model){
+
+		
+	// 	List<Pending> users = userService.getAllPendingUsers();
+	// 	model.addAttribute("pendingUsers", users);
+	// 	return "PendingUsers.html";
+	// }
 
 	
 	//return single user
@@ -117,6 +164,30 @@ public class UserSecurityController {
 			e.printStackTrace();
 		}
 		return "redirect:/users/";
+	}
+
+
+
+	@PostMapping("/candidates/register")
+	public String candidateRegister(@ModelAttribute("candidate") Candidate candidate,
+	@RequestParam("image") MultipartFile multipartFile) throws IOException {
+
+		
+		String fileName = multipartFile.getOriginalFilename();
+		
+
+		String link="/images/"+candidate.getParty()+".jpeg";
+		
+		candidate.setPartypic(link);
+
+		String uploadDir = "candidate-photos/" + candidate.getUsername();
+		FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+		candidate.setCandidatepic(fileName);
+		Candidate candidateTemp = candidateRepo.save(candidate);
+
+
+		return "redirect:/admin/candidates";
+	
 	}
 		
 }

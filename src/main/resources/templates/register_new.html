@@ -141,6 +141,10 @@
                     <input type="text" th:field="*{mobileno}" required class="form-control" id="inputmobile" placeholder="Enter your Mobile Number" minlength="10" />
                 </div>
                 <div class="col-12">
+                    <label for="inputWard" class="form-label">Ward Number</label>
+                    <input type="text" th:field="*{wardno}" required class="form-control" id="inputward" placeholder="Enter your Ward Number" maxlength="3" />
+                </div>
+                <div class="col-12">
                     <label for="inputEmail" class="form-label">Email</label>
                     <input type="text" th:field="*{email}" required class="form-control" id="inputEmail" placeholder="Enter your email" />
                 </div>
@@ -313,6 +317,7 @@
             var city = $("#inputCity").val();
             var zip = $("#inputZip").val();
             var phone = $("#inputmobile").val();
+            var ward = $("#inputward").val();
             var gridcheck = document.getElementById("gridCheck").checked;
 
             if (
@@ -328,6 +333,7 @@
                 city == "" ||
                 zip == "" ||
                 phone == "" ||
+                ward == "" ||
                 gridcheck == false
             ) {
                 swal({
@@ -357,7 +363,15 @@
                     icon: "warning",
                     button: "ok",
                 });
-            } else {
+            }
+            else if (ward.length > 3) {
+                swal({
+                    title: "Please enter a proper ward number",
+                    text: "Please check your details",
+                    icon: "warning",
+                    button: "ok",
+                });
+            }else {
                 swal({
                     title: "Are you sure ?",
                     text: "Click OK to continue and CANCEL to go back.",

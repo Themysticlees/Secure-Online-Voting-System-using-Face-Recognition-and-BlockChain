@@ -32,7 +32,7 @@ public class VoteSmartContract {
         Sort sort = Sort.by(Sort.Direction.ASC, "date");
         List<Votedata> data = vrepo.findAll(sort);
         String[] party={"cpm","bjp","aap","tmc"};
-
+        
         String tempPrevHash="0";
         for(Votedata d:data){
             String adhaar=d.getUsername();
@@ -74,5 +74,12 @@ public class VoteSmartContract {
         vrepo.copyData();
         System.out.println("Data is now rectified ! Enjoy");
     }
+
+    // public  
+    // kibhabe vote count
+    // individual
+    // votecount according
+    // ton their party
+    // return object(party name list,)
 
 }

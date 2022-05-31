@@ -1,186 +1,143 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Account Settings UI Design</title>
-    <meta
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-      name="viewport"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="/css/style1.css" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/images/favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/images/favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/images/favicons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/images/favicons/site.webmanifest" />
 
-    <!-- plugin scripts -->
+<head>
+  <meta charset="UTF-8" />
+  <title>Account Settings UI Design</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png" />
+  <link rel="manifest" href="/images/favicons/site.webmanifest" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- plugin scripts -->
 
-    <link rel="stylesheet" href="/css/animate.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="/css/magnific-popup.css" />
-    <link rel="stylesheet" href="/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/css/swiper.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
-    <link rel="stylesheet" href="/css/vegas.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
+    rel="stylesheet" />
 
-    <!-- template styles -->
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
-  </head>
+  <link rel="stylesheet" href="/css/animate.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="/css/magnific-popup.css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/swiper.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
+  <link rel="stylesheet" href="/css/vegas.min.css" />
 
-  <body>
-    <header class="site-header site-header__header-one">
-      <nav
-        class="navbar navbar-expand-lg navbar-light header-navigation stricky"
-      >
-        <div class="container clearfix">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="logo-box clearfix">
-            <a class="navbar-brand" th:href="@{'/index'}">
-              <img
-                src="/images/logo-dark.png"
-                class="main-logo"
-                width="177"
-                alt="Awesome image"
-              />
-            </a>
-            <button class="menu-toggler" data-target=".main-navigation">
-              <span class="fa fa-bars"></span>
-            </button>
-          </div>
-          <!-- /.logo-box -->
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="main-navigation">
-            <ul class="navigation-box">
-              <li class="current" style="margin-left: 150px">
-                <a href="/public/home">Home</a>
-                <!-- /.sub-menu -->
-              </li>
-              <li>
-                <a href="about.html">About</a>
-                <ul class="sub-menu">
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="history.html">History</a></li>
-                  <li><a href="history.html">History</a></li>
-                </ul>
-                <!-- /.sub-menu -->
-              </li>
+  <!-- template styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
 
-              <li>
-                <a th:href="@{/public/home/faceverification}">Vote</a>
-                <!-- /.sub-menu -->
-              </li>
+<body>
+  <header class="site-header site-header__header-one">
+    <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+      <div class="container clearfix">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="logo-box clearfix">
+          <a class="navbar-brand" th:href="@{'/index'}">
+            <img src="/images/loader.png" class="main-logo" width="80" alt="Awesome image" />
+          </a>
+          <button class="menu-toggler" data-target=".main-navigation">
+            <span class="fa fa-bars"></span>
+          </button>
+        </div>
+        <!-- /.logo-box -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="main-navigation">
+          <ul class="navigation-box">
+            <li class="current" style="margin-left: 150px">
+              <a href="/public/home">Home</a>
+              <!-- /.sub-menu -->
+            </li>
+            <li>
+              <a href="about.html">About</a>
+              <ul class="sub-menu">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="history.html">History</a></li>
+              </ul>
+              <!-- /.sub-menu -->
+            </li>
 
-              <li>
-                <a href="#news">News</a>
-                <ul class="sub-menu">
-                  <li><a th:href="@{'/news'}">News Page</a></li>
-                  <!-- <li><a href="news-details.html">News Details</a></li> -->
-                </ul>
-                <!-- /.sub-menu -->
-              </li>
-              <li>
-                <a href="contact.html">Contact</a>
-              </li>
-              <!-- <li>
+            <li>
+              <a th:href="@{/public/home/faceverification}">Vote</a>
+              <!-- /.sub-menu -->
+            </li>
+
+            <li>
+              <a href="#news">News</a>
+              <ul class="sub-menu">
+                <li><a th:href="@{'/news'}">News Page</a></li>
+                <!-- <li><a href="news-details.html">News Details</a></li> -->
+              </ul>
+              <!-- /.sub-menu -->
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+            <!-- <li>
               
                 
                                 
                             </li> -->
 
-              <!-- Shows Username -->
-              <li style="margin-left: 300px">
-                <a href="#news">
-                  Welcome
-                  <span
-                    href="#"
-                    style="
+            <!-- Shows Username -->
+            <li style="margin-left: 300px">
+              <a href="#news">
+                Welcome
+                <span href="#" style="
                       margin-right: 10px;
                       margin-top: 10px;
                       font-weight: bolder;
-                    "
-                    th:text="${currentUser.Firstname}"
-                    >&npsp</span
-                  >
+                    " th:text="${currentUser.Firstname}">&npsp</span>
 
-                  <!-- Shows Photo -->
-                  <img
-                    th:src="${currentUser.photosImagePath}"
-                    alt="Avatar"
-                    style="width: 50px; border-radius: 60%"
-                  />
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a th:href="@{'/public/home/account'}">Account Settings</a>
-                  </li>
-                  <li><a th:href="@{'/logout'}">Logout</a></li>
-                </ul>
-                <!-- /.sub-menu -->
-              </li>
-            </ul>
-          </div>
-
-          <!-- /.right-side-box -->
-        </div>
-        <!-- /.container -->
-      </nav>
-    </header>
-    <section>
-      <section class="inner-banner" style="height: 300px">
-        <div class="container">
-          <h2 class="inner-banner__title">Account Settings</h2>
-          <!-- /.inner-banner__title -->
-          <ul class="list-unstyled thm-breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li>Account setting</li>
+                <!-- Shows Photo -->
+                <img th:src="${currentUser.photosImagePath}" alt="Avatar" style="width: 50px; border-radius: 60%" />
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a th:href="@{'/public/home/account'}">Account Settings</a>
+                </li>
+                <li><a th:href="@{'/logout'}">Logout</a></li>
+              </ul>
+              <!-- /.sub-menu -->
+            </li>
           </ul>
-          <!-- /.list-unstyled -->
         </div>
-        <!-- Shows Success Message -->
-      </section>
-      <div class="container" style="margin-top: 50px; margin-bottom: 50px">
-        <div th:if="${session.message}">
-          <div
-            th:classappend="${'alert-'+ session.message.type}"
-            class="alert text-center"
-            role="alert"
-          >
-            <span th:text="${session.message.content}"></span>
-          </div>
 
-          <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+        <!-- /.right-side-box -->
+      </div>
+      <!-- /.container -->
+    </nav>
+  </header>
+  <section>
+    <section class="inner-banner" style="height: 300px">
+      <div class="container">
+        <h2 class="inner-banner__title">Account Settings</h2>
+        <!-- /.inner-banner__title -->
+        <ul class="list-unstyled thm-breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Account setting</li>
+        </ul>
+        <!-- /.list-unstyled -->
+      </div>
+      <!-- Shows Success Message -->
+    </section>
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px">
+      <div th:if="${session.message}">
+        <div th:classappend="${'alert-'+ session.message.type}" class="alert text-center" role="alert">
+          <span th:text="${session.message.content}"></span>
+        </div>
+
+        <th:block th:text="${#session.removeAttribute('message')}"></th:block>
         </div>
 
         <div class="bg-white shadow rounded-lg d-block d-sm-flex">
@@ -193,8 +150,8 @@
                   class="shadow"
                 />
               </div>
-              <h4 class="text-center">
-                <span th:text="${currentUser.firstname}">&npsp </span>
+              <h4 style="text-transform: capitalize;"  class="text-center">
+                <span  th:text="${currentUser.firstname}">&npsp </span>
                 <span th:text="${currentUser.Lastname}"></span>
               </h4>
             </div>
@@ -378,6 +335,17 @@
                         th:name="mobileno"
                         class="form-control"
                         th:value="${currentUser.mobileno}"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label>Ward number</label>
+                      <input
+                        type="text"
+                        th:name="wardno"
+                        class="form-control"
+                        th:value="${currentUser.wardno}"
                       />
                     </div>
                   </div>
