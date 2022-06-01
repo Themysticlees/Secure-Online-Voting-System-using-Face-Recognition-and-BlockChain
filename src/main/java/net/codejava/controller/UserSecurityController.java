@@ -114,13 +114,13 @@ public class UserSecurityController {
 				boolean status = userService.deleteUser(username,fileName,path);
 				List<User> users = userService.getAllUsers();
 				model.addAttribute("users", users);
-				return "redirect:/users/";
+				return "redirect:/admin/";
 			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/users/";
+		return "redirect:/admin/";
 	}
 
 
@@ -157,13 +157,13 @@ public class UserSecurityController {
 			pendingRepo.deleteById(username);
 			List<Pending> users = userService.getAllPendingUsers();
 			model.addAttribute("users", users);
-			return "redirect:/users/pending";
+			return "redirect:/admin/pending";
 			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/users/";
+		return "redirect:/admin/";
 	}
 
 
