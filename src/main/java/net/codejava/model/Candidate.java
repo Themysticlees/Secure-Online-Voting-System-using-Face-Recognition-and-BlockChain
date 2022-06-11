@@ -68,11 +68,13 @@ public class Candidate{
     }
 
     @Transient
-    public String getPartyImagePath() {
-        if (partypic == null || username == null)
+    public String getCandidatePicImagePath() {
+        if (candidatepic == null || username == null)
             return null;
 
-        return "/party-photos/" + username + "/" + partypic;
+        return candidatepic;
     }
+    
+   
     
 }

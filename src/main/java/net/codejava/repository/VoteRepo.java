@@ -29,4 +29,9 @@ public interface VoteRepo extends JpaRepository<Votedata, String> {
 	@Query(value="INSERT INTO votedata SELECT * FROM votecopy;",nativeQuery=true)
 	public void copyData();
 
+	@Query(value = "SELECT count(*) FROM votecopy", nativeQuery = true)
+	public Long findcount();
+
+
+
 }

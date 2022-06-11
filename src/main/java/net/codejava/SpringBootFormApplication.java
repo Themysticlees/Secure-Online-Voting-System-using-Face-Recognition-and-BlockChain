@@ -41,6 +41,7 @@ public class SpringBootFormApplication implements CommandLineRunner {
 		user1.setEmail("admin@gmail.com");
 		user1.setPassword(passwordEncoder.encode("1234"));
 		user1.setRole("ROLE_ADMIN");
+		user1.setVotestatus("0");
 
 		//this.userRepo.save(user1);
 
@@ -57,9 +58,10 @@ public class SpringBootFormApplication implements CommandLineRunner {
 		initialvote.setCurrhash(candidateHash);
 		Date date = new Date();
 		initialvote.setDate(date);
+		
 		// this.voteRepo.save(initialvote);
 		// voteRepo.copyData();
-		//voteRepo.copyData(initialvote.getUsername(), initialvote.getCurrhash(), initialvote.getDate(), initialvote.getPrevhash());
+		// voteRepo.copyData(initialvote.getUsername(), initialvote.getCurrhash(), initialvote.getDate(), initialvote.getPrevhash());
 		
 		// System.out.println(firstPartyBlock.hashCode());
 		// blockchain1.add(candidate);

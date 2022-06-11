@@ -13,11 +13,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import net.codejava.helper.EmailTemplate;
 import net.codejava.helper.Message;
 import net.codejava.model.User;
 import net.codejava.repository.UserRepo;
+import net.codejava.repository.VoteRepo;
 import net.codejava.service.EmailService;
 import net.codejava.service.UserService;
+import net.codejava.service.VoteService;
+import net.codejava.smartcontract.VoteSmartContract;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -34,10 +40,22 @@ public class HomeController {
 	EmailService emailservice;
 
 	@Autowired
+	VoteService voteservice;
+
+	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 
 	@Autowired
+	VoteSmartContract voteSmartContract;
+
+	@Autowired
+	EmailTemplate emailTemplate;
+	
+	@Autowired
 	UserRepo repo;
+
+	@Autowired
+	VoteRepo voterepo;
 
 	// ---------------------------USER HOME
 	// PAGE--------------------------------------//
@@ -45,13 +63,24 @@ public class HomeController {
 	// Returns the user home of the user when this url is encountered,
 	// however this page can only be accesed by registered users
 	@GetMapping("/home")
-	public String getHome(Principal principle, Model model) {
+	public String getHome(Principal principle, Model model, HttpSession session) {
 
 		String username = principle.getName();
 		User user = userservice.getUser(username);
 
 		// storing the user details in model so that we can use it in the html page
 		model.addAttribute("currentUser", user);
+		
+		if(userservice.getUser("admin").getVotestatus().equals("1") && !voteservice.userExists(username)){
+			
+			session.setAttribute("status", new Message("Voting is Live!", "success"));
+		}
+
+		if(userservice.getUser("admin").getVotestatus().equals("2")){
+			
+			session.setAttribute("status", new Message("Voting has finished! You can check the results!", "info"));
+		}
+		
 		return "index2.html";
 	}
 	// ------------------------------------------------ //
@@ -65,7 +94,39 @@ public class HomeController {
 		return "account.html";
 	}
 
-	// ----------------------------------------------- //
+	// ------------------Check if user exists in vote data----------------------------- //
+
+	@GetMapping("/home/voteprocess")
+	public String checkIfValid(Principal principle, HttpSession session){
+		String name = principle.getName();
+		if(userservice.getUser("admin").getVotestatus().equals("0")){
+			session.removeAttribute("status");
+			session.setAttribute("status", new Message("Voting has not started!", "danger"));
+			return "redirect:/public/home";
+		}
+		// if(userservice.getUser("admin").getVotestatus().equals("2")){
+		// 	session.removeAttribute("status");
+		// 	session.setAttribute("status", new Message("Voting has finished! You can check the results!", "danger"));
+		// 	return "redirect:/public/home";
+		// }
+
+		if (voteservice.userExists(name)) {
+			session.setAttribute("status", new Message("You have already voted. Thanks!", "danger"));
+			return "redirect:/public/home";
+		}
+		if(voterepo.count()!=voterepo.findcount()){
+			System.out.println("------------Records not equal---------------");
+			voteSmartContract.correctTableValues();
+		}
+
+		if (!voteservice.userExists(name)) {
+			return "redirect:/public/home/faceverification";
+		}
+		
+		session.setAttribute("status", new Message("You have already voted. Thanks!", "danger"));
+		return "redirect:/public/home";
+	}
+
 
 	// click vote from navbar which will trigger this URL //
 	@GetMapping("/home/faceverification")
@@ -122,13 +183,13 @@ public class HomeController {
 		Integer otp = (int) (Math.random() * (max - min + 1) + min);
 		System.out.println(otp);
 		// write code for send otp to email...
+
+		String f = "OTP for final verification";
+		String s="Congratultions! Your face verification was successful. Now to proceed futher, please use the following OTP and enter it in the website: ";
+		String t=""+otp;
+
 		String subject = "OTP from SOVS";
-		String message = " " +
-				"<h2>Hi " + "<b>" + firstName + ",</b><br>" + "Thank you for your successfull face verfication."+
-				"Your OTP is " +
-				"<h1>" +
-				otp +
-				"</h1></h2>";
+		String message = emailTemplate.getTemplate(f, s, t);
 		String to = email;
 		boolean flag = this.emailservice.sendEmail(subject, message, to);
 

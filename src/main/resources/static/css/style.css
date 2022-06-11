@@ -1,35 +1,10 @@
-/***************************************************************************************************************
-||||||||||||||||||||||||||||            MASTER STYLESHEET FOR POTISEN       ||||||||||||||||||||||||||||||||||||
-****************************************************************************************************************
-||||||||||||||||||||||||||||              TABLE OF CONTENT                  ||||||||||||||||||||||||||||||||||||
-****************************************************************************************************************
-****************************************************************************************************************
-* 1, common styles
-* 2, header styles
-* 3, slider styles
-* 4, blog styles
-* 5, sidebar styles
-* 6, footer styles
-* 7, inner-banner styles
-* 8, brand styles
-* 9, contact styles
-* 10, cta styles
-* 11, event styles
-* 12, fact styles
-* 13, history styles
-* 14, countdown styles
-* 15, about styles
-* 16, team styles
-* 17, testimonials styles
-* 18, accrodion styles
-* 19, campaign styles
-* 20, social-shares styles
-* 21, service styles
-* 22, video styles
-****************************************************************************************************************
-||||||||||||||||||||||||||||            End TABLE OF CONTENT                ||||||||||||||||||||||||||||||||||||
-****************************************************************************************************************/
 
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
 
 /*
 * 1, common styles

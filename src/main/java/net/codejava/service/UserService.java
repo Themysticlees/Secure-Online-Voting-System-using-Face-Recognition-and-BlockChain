@@ -50,18 +50,18 @@ public class UserService {
 	}
 
 	public boolean userExists(String username) {
-		User user = repo.findByUsername(username);
+		Pending user = pending.findByUsername(username);
 		if (user != null) {
 			return true;
 		}
 		return false;
 	}
 
-	public boolean deleteUser(String username, String filename, String path){
+	public boolean deleteUser(String username, String filename, String path) {
 		boolean status = false;
 		try {
 			if (username != null && filename != null) {
-				System.out.println("deleting user "+username);
+				System.out.println("deleting user " + username);
 
 				repo.deleteById(username);
 				//repo.deleteEmployeeWithFile(username, filename);
@@ -69,7 +69,7 @@ public class UserService {
 				//FileUtils fileToDelete = new FileUtils();
 				//status = fileToDelete.deleteDirectory(path);
 				FileUtils.deleteDirectory(new File(path));
-				System.out.println();	
+				System.out.println();
 				return status;
 			}
 		} catch (Exception e) {
@@ -79,6 +79,24 @@ public class UserService {
 		return status;
 	}
 
+	public boolean deletePendingUser(String username, String filename, String path) {
+		boolean status = false;
+		try {
+			if (username != null && filename != null) {
+				System.out.println("deleting user " + username);
+
+				pending.deleteById(username);
+	
+				FileUtils.deleteDirectory(new File(path));
+				System.out.println();
+				return status;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return status;
+		}
+		return status;
+	}
 	
 	/*//add user
 	public Usersecurity addUser(Usersecurity user) {

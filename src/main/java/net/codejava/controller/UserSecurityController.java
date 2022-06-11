@@ -2,7 +2,7 @@ package net.codejava.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.security.Principal;
+
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
 
+import net.codejava.helper.EmailTemplate;
 import net.codejava.model.Candidate;
 import net.codejava.model.Pending;
 import net.codejava.model.User;
 import net.codejava.repository.CandidateRepo;
 import net.codejava.repository.PendingRepo;
 import net.codejava.repository.UserRepo;
+import net.codejava.service.CandidateService;
 import net.codejava.service.UserService;
+import net.codejava.service.EmailService;
+
 
 @Controller
 @RequestMapping("/admin")
@@ -32,6 +36,21 @@ public class UserSecurityController {
 
 	@Autowired
 	CandidateRepo candidateRepo;
+
+	@Autowired
+	CandidateService candidateService;
+
+	@Autowired
+	EmailService emailservice;
+
+	@Autowired
+	EmailTemplate emailTemplate;
+
+	@Autowired
+	PendingRepo pendingRepo;
+
+	@Autowired
+	UserRepo repo;
 
 	//all users
 	// @GetMapping("/")
@@ -55,6 +74,14 @@ public class UserSecurityController {
 		List<User> users = userService.getAllUsers();
 		model.addAttribute("users", users);
 		return "databasepart.html";
+	}
+
+
+	@GetMapping("/candidatelist")
+	public String candidatelist(Model model) {
+		 List<Candidate> candidates = candidateService.getAllCandidates();
+		 model.addAttribute("allcandidates", candidates);
+		return "candidate.html";
 	}
 
 	@GetMapping("/pendingrequest")
@@ -81,16 +108,6 @@ public class UserSecurityController {
         return "candidatesetting.html";
     }
 
-
-	// @GetMapping("/pending")
-	// public String getPendingUsers(Model model){
-
-		
-	// 	List<Pending> users = userService.getAllPendingUsers();
-	// 	model.addAttribute("pendingUsers", users);
-	// 	return "PendingUsers.html";
-	// }
-
 	
 	//return single user
 	@GetMapping("/{userName}")
@@ -100,35 +117,87 @@ public class UserSecurityController {
 	
 	// when update photo delete previous photo from directory
 	@GetMapping("/removeFile/{username}/{fileName}")
-	public String removeFileHandler (@PathVariable("username") String username, @PathVariable("fileName") String fileName, Model model) {		
+	public String removeFileHandler(@PathVariable("username") String username,
+			@PathVariable("fileName") String fileName, Model model) {
 		//ModelAndView mav = new ModelAndView("redirect:/image-upload/employees");
 		String path = null;
-		File file =null;
+		File file = null;
 
-		try{
+		try {
 			path = "user-photos/" + username;
 			System.out.println(path);
-			file=new File(path);
-			if(file.exists())
-			{
-				boolean status = userService.deleteUser(username,fileName,path);
+			file = new File(path);
+			if (file.exists()) {
+				boolean status = userService.deleteUser(username, fileName, path);
 				List<User> users = userService.getAllUsers();
 				model.addAttribute("users", users);
-				return "redirect:/admin/";
+				return "redirect:/admin/users";
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/admin/";
+		return "redirect:/admin/users";
+	}
+	
+
+
+	// when update photo delete previous photo from directory
+	@GetMapping("/removePendingFile/{username}/{fileName}")
+	public String removePendingFileHandler(@PathVariable("username") String username,
+			@PathVariable("fileName") String fileName, Model model) {
+		// ModelAndView mav = new ModelAndView("redirect:/image-upload/employees");
+		String path = null;
+		File file = null;
+
+		try {
+			path = "user-photos/" + username;
+			System.out.println(path);
+
+				String f="Registration not completed";
+				String s="Your registration is incomplete. Please review your documents and register again. Thank you !";
+				String t="Not Accepted";
+				String message=emailTemplate.getTemplate(f, s, t);
+				String subject="Registration not completed";
+				String email=userService.getPendingUser(username).getEmail();
+				this.emailservice.sendEmail(subject, message, email);
+			file = new File(path);
+			if (file.exists()) {
+				boolean status = userService.deletePendingUser(username, fileName, path);
+				List<User> users = userService.getAllUsers();
+				model.addAttribute("users", users);
+
+				return "redirect:/admin/users";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/admin/users";
 	}
 
+	@GetMapping("/removeCandidateFile/{username}/{fileName}")
+	public String removeCandidateFileHandler(@PathVariable("username") String username,
+			@PathVariable("fileName") String fileName,Model model) {
+		// ModelAndView mav = new ModelAndView("redirect:/image-upload/employees");
+		String path = null;
+		File file = null;
 
-	@Autowired
-	PendingRepo pendingRepo;
+		try {
+			path = "candidate-photos/" + username;
+			System.out.println(path);
+			file = new File(path);
+			if (file.exists()) {
+				boolean status = candidateService.deleteCandidates(username, fileName, path);
+				List<Candidate> candidates = candidateService.getAllCandidates();
+				model.addAttribute("allcandidates", candidates);
+				return "redirect:/admin/candidatelist";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/admin/candidatelist";
+	}
 
-	@Autowired
-	UserRepo repo;
+	
 
 	@GetMapping("/approveFile/{username}/{fileName}")
 	public String approveFileHandler (@PathVariable("username") String username, @PathVariable("fileName") String fileName, Model model) {		
@@ -151,13 +220,24 @@ public class UserSecurityController {
 			user.setZip(puser.getZip());
 			user.setState(puser.getState());
 			user.setRole(puser.getRole());
+			user.setAdhaarpdf(puser.getAdhaarpdf());
 
 			repo.save(user);
 
 			pendingRepo.deleteById(username);
 			List<Pending> users = userService.getAllPendingUsers();
 			model.addAttribute("users", users);
-			return "redirect:/admin/pending";
+
+			String f="Your Registration is Successful!";
+			String s="Your registration has been accepted. You can now login in your account using your adhar id and password used while registration. Thank you !";
+			String t="Accepted";
+
+			String message = emailTemplate.getTemplate(f, s, t);
+			String subject="Registration completed !";
+			String email=userService.getUser(username).getEmail();
+			this.emailservice.sendEmail(subject, message, email);
+
+			return "redirect:/admin/pendingrequest";
 			
 		}
 		catch (Exception e) {
@@ -188,6 +268,32 @@ public class UserSecurityController {
 
 		return "redirect:/admin/candidates";
 	
+	}
+
+	@GetMapping("/startVote")
+	public String startVote(){
+		User admin = userService.getUser("admin");
+		admin.setVotestatus("1");
+		repo.save(admin);
+		return "redirect:/admin/";
+	}
+
+	@GetMapping("/restartVote")
+	public String restartVote(){
+		User admin = userService.getUser("admin");
+		admin.setVotestatus("0");
+		
+		repo.save(admin);
+		return "redirect:/admin/";
+	}
+
+	@GetMapping("/endVote")
+	public String endVote(){
+		User admin = userService.getUser("admin");
+		admin.setVotestatus("2");
+		
+		repo.save(admin);
+		return "redirect:/admin/";
 	}
 		
 }

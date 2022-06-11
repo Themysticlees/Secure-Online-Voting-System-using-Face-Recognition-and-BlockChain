@@ -9,9 +9,9 @@
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="/css/style1.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="//images/loader.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/loader.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/loader.png" />
   <link rel="manifest" href="/images/favicons/site.webmanifest" />
 
   <!-- plugin scripts -->
@@ -34,6 +34,16 @@
   <!-- template styles -->
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .thm-btn{
+      padding: 10px 20px;
+    }
+
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #d41e44;
+    }
+  </style>
 </head>
 
 <body>
@@ -91,7 +101,7 @@
 
             <!-- Shows Username -->
             <li style="margin-left: 300px">
-              <a href="#news">
+              <a href="#">
                 Welcome
                 <span href="#" style="
                       margin-right: 10px;
@@ -124,7 +134,7 @@
         <h2 class="inner-banner__title">Account Settings</h2>
         <!-- /.inner-banner__title -->
         <ul class="list-unstyled thm-breadcrumb">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/public/home">Home</a></li>
           <li>Account setting</li>
         </ul>
         <!-- /.list-unstyled -->
@@ -145,12 +155,14 @@
             <div class="p-4">
               <div class="img-circle text-center mb-3">
                 <img
+                style="border-right: 2px solid blue; border-bottom: 2px solid red; border-left: 2px solid blue
+                ; border-top: 2px solid red;"
                   th:src="${currentUser.photosImagePath}"
                   alt="Image"
                   class="shadow"
                 />
               </div>
-              <h4 style="text-transform: capitalize;"  class="text-center">
+              <h4 style="text-transform: capitalize; padding-top: 10px;"  class="text-center">
                 <span  th:text="${currentUser.firstname}">&npsp </span>
                 <span th:text="${currentUser.Lastname}"></span>
               </h4>
@@ -338,17 +350,7 @@
                       />
                     </div>
                   </div>
-                  <div class="col-md-8">
-                    <div class="form-group">
-                      <label>Ward number</label>
-                      <input
-                        type="text"
-                        th:name="wardno"
-                        class="form-control"
-                        th:value="${currentUser.wardno}"
-                      />
-                    </div>
-                  </div>
+                 
                   <div div class="col-12">
                     <label>Photos: </label>
                     <input
@@ -421,7 +423,7 @@
                  <!-- Update Button -->
 
                 <div>
-                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="submit" class="thm-btn static-banner-one__form-btn">Update</button>
                   <button type="reset" class="btn btn-light">Cancel</button>
                 </div>
               </form>
@@ -488,7 +490,7 @@
                   </div>
                 </div>
                 <div>
-                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="submit" class="thm-btn static-banner-one__form-btn">Update</button>
                   <button type="reset" class="btn btn-light">Cancel</button>
                 </div>
               </form>
@@ -530,7 +532,7 @@
                 </div>
               </div>
               <div>
-                <button class="btn btn-primary">Update</button>
+                <button class="thm-btn static-banner-one__form-btn">Update</button>
                 <button class="btn btn-light">Cancel</button>
               </div>
             </div>
@@ -570,7 +572,7 @@
                 </div>
               </div>
               <div>
-                <button class="btn btn-primary">Update</button>
+                <button class="thm-btn static-banner-one__form-btn">Update</button>
                 <button class="btn btn-light">Cancel</button>
               </div>
             </div>
@@ -624,7 +626,7 @@
                 </div>
               </div>
               <div>
-                <button class="btn btn-primary">Update</button>
+                <button class="thm-btn static-banner-one__form-btn">Update</button>
                 <button class="btn btn-light">Cancel</button>
               </div>
             </div>
@@ -686,5 +688,65 @@
         reader.readAsDataURL(file);
       }
     </script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/TweenMax.min.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<script src="/js/jquery.ajaxchimp.min.js"></script>
+<script src="/js/swiper.min.js"></script>
+<script src="/js/typed-2.0.11.js"></script>
+<script src="/js/vegas.min.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/bootstrap-select.min.js"></script>
+<script src="/js/countdown.min.js"></script>
+
+<!-- template scripts -->
+<script src="/js/theme.js"></script>
+<!-- template scripts -->
+<script src="/js/theme.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    if (localStorage.getItem("popState") != "shown") {
+      setTimeout(function () {
+        $("#popupmain").css("display", "block");
+        localStorage.setItem("popState", "shown");
+        document.querySelector("#videomute").autoplay = false;
+      }, 0000);
+
+      $("#buttonid").click(function () {
+        $("#popupmain").css("display", "none");
+      });
+    }
+
+    if (!localStorage.getItem("videoState")) {
+      disableAutoplay(); // Run the function below.
+    }
+  });
+
+  $("#instruction").click(function () {
+    $("#popupmain").css("display", "block");
+  });
+
+  $("#buttonid").click(function () {
+    $("#popupmain").css("display", "none");
+  });
+
+  var vid = document.getElementById("videomute");
+
+  function enableMute() {
+    vid.muted = true;
+  }
+
+  function disableAutoplay() {
+    vid.autoplay = false;
+    vid.load();
+  }
+</script>
   </body>
 </html>

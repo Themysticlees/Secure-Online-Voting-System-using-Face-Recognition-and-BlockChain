@@ -9,4 +9,6 @@ import net.codejava.model.Candidate;
 public interface CandidateRepo extends JpaRepository<Candidate, String> {
 
     public Candidate findByFirstname(String firstname);
+
+    public Candidate findByParty(String partyname);
 } 

@@ -19,25 +19,23 @@ public class User {
 	
 	private Date birthday;
 	private String mobileno;
-	private String wardno;
+
 	
 	private String photos;
-	
+	private String adhaarpdf;
 	private String address;
 	private String state;
 	private String city;
 	private String zip;
 
 	private String role;
-	
-	
-	public String getWardno() {
-		return wardno;
-	}
 
-	public void setWardno(String wardno) {
-		this.wardno = wardno;
-	}
+	//0=closed
+	//1=open
+	//2=finished
+	// create a service method
+	private String votestatus;
+
 
 	public String getMobileno() {
 		return mobileno;
@@ -113,11 +111,28 @@ public class User {
 		this.photos = photos;
 	}
 	
+
+	public String getVotestatus() {
+		return this.votestatus;
+	}
+
+	public void setVotestatus(String votestatus) {
+		this.votestatus = votestatus;
+	}
+
+
 	@Transient
     public String getPhotosImagePath() {
         if (photos == null || username == null) return null;
         
         return "/user-photos/" + username + "/" + photos;
+    }
+
+	@Transient
+    public String getAdhaarPdfPath() {
+        if (adhaarpdf == null || username == null) return null;
+        
+        return "/user-photos/" + username + "/" + adhaarpdf;
     }
 
 	
@@ -161,12 +176,20 @@ public class User {
 		this.birthday = birthday;
 	}
 
+	public String getAdhaarpdf() {
+		return this.adhaarpdf;
+	}
+
+	public void setAdhaarpdf(String adhaarpdf) {
+		this.adhaarpdf = adhaarpdf;
+	}
+
 	@Override
 	public String toString() {
-		return "User [address=" + address + ", birthday=" + birthday + ", city=" + city + ", email=" + email
-				+ ", firstname=" + firstname + ", gender=" + gender + ", lastname=" + lastname + ", mobileno="
-				+ mobileno + ", password=" + password + ", photos=" + photos + ", role=" + role + ", state=" + state
-				+ ", username=" + username + ", wardno=" + wardno + ", zip=" + zip + "]";
+		return "User [address=" + address + ", adhaarpdf=" + adhaarpdf + ", birthday=" + birthday + ", city=" + city
+				+ ", email=" + email + ", firstname=" + firstname + ", gender=" + gender + ", lastname=" + lastname
+				+ ", mobileno=" + mobileno + ", password=" + password + ", photos=" + photos + ", role=" + role
+				+ ", state=" + state + ", username=" + username + ", votestatus=" + votestatus + ", zip=" + zip + "]";
 	}
 
 }

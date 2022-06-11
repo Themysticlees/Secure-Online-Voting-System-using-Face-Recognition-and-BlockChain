@@ -12,6 +12,7 @@ public interface PendingRepo extends JpaRepository<Pending, String>{
 	/*
 	@Query("delete from User e where e.username =:username and fileName =:fileName")
 	public void deleteEmployeeWithFile(String username, String fileName);
-    */
+	*/
+	
 
 }

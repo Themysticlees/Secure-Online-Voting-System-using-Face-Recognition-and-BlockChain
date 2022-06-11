@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.http.ResponseEntity;
+
 import net.codejava.helper.Message;
 import net.codejava.model.Pending;
 import net.codejava.model.User;
@@ -32,6 +29,8 @@ import net.codejava.repository.PendingRepo;
 import net.codejava.repository.UserRepo;
 import net.codejava.service.EmailService;
 import net.codejava.service.UserService;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 // --------------------------------------------------------------------------------------------- //
@@ -143,12 +142,13 @@ public class MainController {
 
 	@PostMapping("/register")
 	public String submitForm(@ModelAttribute("pending") Pending pending,
-			@RequestParam("image") MultipartFile multipartFile) throws IOException {
+			@RequestParam("image") MultipartFile multipartFile,
+			@RequestParam("pdf") MultipartFile multipartFile2) throws IOException {
 
 		// Checking if username already exists
 		if (!(userservice.userExists(pending.getUsername()))) {
 			String fileName = multipartFile.getOriginalFilename();
-
+			String adhaarfileName = multipartFile2.getOriginalFilename();
 			// String Adhar=user.getUsername();
 
 			pending.setRole("ROLE_USER");
@@ -158,6 +158,7 @@ public class MainController {
 
 			// we are also storing the filename in db and storing the file in our local HD
 			pending.setPhotos(fileName);
+			pending.setAdhaarpdf(adhaarfileName);
 
 			// saving the user in the database
 			// repo is the bean of User repository
@@ -169,6 +170,7 @@ public class MainController {
 			// saving the file
 			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
+			FileUploadUtil.saveFile(uploadDir, adhaarfileName, multipartFile2);
 			System.out.println(pending);
 			
 
@@ -264,6 +266,6 @@ public class MainController {
 		else
 			return "redirect:/contact";
 
-	}
+	}	
 
 }

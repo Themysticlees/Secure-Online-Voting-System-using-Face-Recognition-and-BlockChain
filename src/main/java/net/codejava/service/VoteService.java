@@ -26,11 +26,15 @@ public class VoteService {
     @Autowired
     VoteSmartContract smartcontract;
 
-    public boolean isSuccessfull(String choice, String adhhar, String name) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public boolean isSuccessfull(String choice, String adhhar, String name)
+            throws NoSuchAlgorithmException, UnsupportedEncodingException {
 
+       
         //correct table
-        if(!smartcontract.checkTable())
+        // (voterepo.findcount() != voterepo.count())
+        if (!smartcontract.checkTable()) {
             smartcontract.correctTableValues();
+        }
         
         Votedata lastEntry = voterepo.findLastEntry();
         System.out.println(lastEntry);
@@ -39,7 +43,7 @@ public class VoteService {
         Block candidate = new Block(data, lastEntry.getCurrhash());
 
         Votedata vote = new Votedata();
-        vote.setUsername(adhhar);
+        vote.setUsername(adhhar); 
 
         vote.setCurrhash(candidate.getBlockHash());
         vote.setPrevhash(candidate.getPreviousBlockHash());

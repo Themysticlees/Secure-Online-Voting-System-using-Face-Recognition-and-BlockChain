@@ -1,154 +1,120 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
->
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SVOS User Home Page</title>
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/images/favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/images/favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/images/favicons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/images/favicons/site.webmanifest" />
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
-    <!-- plugin scripts -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>SVOS User Home Page</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/loader.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/loader.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/loader.png" />
+  <link rel="manifest" href="/images/favicons/site.webmanifest" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- plugin scripts -->
 
-    <link rel="stylesheet" href="/css/animate.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="/css/magnific-popup.css" />
-    <link rel="stylesheet" href="/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/css/swiper.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
-    <link rel="stylesheet" href="/css/vegas.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
+    rel="stylesheet" />
 
-    <!-- template styles -->
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
-  </head>
+  <link rel="stylesheet" href="/css/animate.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="/css/magnific-popup.css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/swiper.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
+  <link rel="stylesheet" href="/css/vegas.min.css" />
 
-  <body>
-    <div class="preloader">
-      <img src="/images/loader.png" class="preloader__image" alt="" />
-    </div>
-    <!-- /.preloader -->
-    <div class="page-wrapper">
-      <header class="site-header site-header__header-one">
-        <nav
-          class="navbar navbar-expand-lg navbar-light header-navigation stricky"
-        >
-          <div class="container clearfix">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="logo-box clearfix">
-              <a class="navbar-brand" th:href="@{'/index'}">
-                <img
-                  src="/images/loader.png"
-                  class="main-logo"
-                  width="100"
-                  alt="Awesome image"
-                />
-              </a>
-              <button class="menu-toggler" data-target=".main-navigation">
-                <span class="fa fa-bars"></span>
-              </button>
-            </div>
-            <!-- /.logo-box -->
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="main-navigation">
-              <ul class="navigation-box">
-                <li class="current" style="margin-left: 150px">
-                  <a href="/index">Home</a> 
-                  <!-- /.sub-menu -->
-                </li>
-                <li>
-                  <a href="about.html">About</a>
-                  <ul class="sub-menu">
-                    <li><a th:href="@{/vote/votecasted/cpm}">CPIM</a></li>
-                    <li><a th:href="@{/vote/votecasted/bjp}">BJP</a></li>
-                    <li><a th:href="@{/vote/votecasted/tmc}">TMC</a></li>
-                    <li><a th:href="@{/vote/votecasted/aap}">AAP</a></li>
-                  </ul>
-                  <!-- /.sub-menu -->
-                </li>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 
-                <li>
-                  <a th:href="@{/public/home/faceverification}">Vote</a>
-                  <!-- /.sub-menu -->
-                </li>
+  <!-- template styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
 
-                <li>
-                  <a href="#news">News</a>
-                  <ul class="sub-menu">
-                    <li><a th:href="@{'/news'}">News Page</a></li>
-                    <!-- <li><a href="news-details.html">News Details</a></li> -->
-                  </ul>
-                  <!-- /.sub-menu -->
-                </li>
-                <li>
-                  <a href="contact.html">Contact</a>
-                </li>
-                <!-- <li>
+<body>
+  <div class="preloader">
+    <img src="/images/loader.png" height="250" class="preloader__image" alt="" />
+  </div>
+  <!-- /.preloader -->
+  <div class="page-wrapper">
+    <header class="site-header site-header__header-one">
+      <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+        <div class="container clearfix">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="logo-box clearfix">
+            <a class="navbar-brand" th:href="@{'/index'}">
+              <img src="/images/loader.png" class="main-logo" width="100" alt="Awesome image" />
+            </a>
+            <button class="menu-toggler" data-target=".main-navigation">
+              <span class="fa fa-bars"></span>
+            </button>
+          </div>
+          <!-- /.logo-box -->
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="main-navigation">
+            <ul class="navigation-box">
+              <li class="current" style="margin-left: 150px">
+                <a href="/index">Home</a>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="about.html">About</a>
+
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a th:href="@{/public/home/voteprocess}">Vote</a>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a href="#news">News</a>
+                <ul class="sub-menu">
+                  <li><a th:href="@{'/news'}">News Page</a></li>
+                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+              <!-- <li>
                                 
                                 
                             </li> -->
-                <li style="margin-left: 300px">
-                  <a href="#news">
-                    Welcome
-                    <span
-                      href="#"
-                      style="
+              <li style="margin-left: 300px">
+                <a href="#news">
+                  Welcome
+                  <span href="#" style="
                         margin-right: 10px;
                         margin-top: 10px;
                         font-weight: bolder;
-                      "
-                      th:text="${currentUser.Firstname}"
-                      >&npsp</span
-                    >
-                    <img
-                      th:src="${currentUser.photosImagePath}"
-                      alt="Avatar"
-                      style="width: 50px; border-radius: 60%"
-                    />
-                  </a>
-                  <ul class="sub-menu">
-                    <li>
-                      <a th:href="@{'/public/home/account'}"
-                        >Account Settings</a
-                      >
-                    </li>
-                    <li><a th:href="@{'/logout'}">Logout</a></li>
-                    <!-- <li><a href="news-details.html">News Details</a></li> -->
-                  </ul>
-                  <!-- /.sub-menu -->
-                </li>
-              </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-            <!-- 
+                      " th:text="${currentUser.Firstname}">&npsp</span>
+                  <img th:src="${currentUser.photosImagePath}" alt="Avatar" style="width: 50px; border-radius: 60%" />
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a th:href="@{'/public/home/account'}">Account Settings</a>
+                  </li>
+                  <li><a th:href="@{'/logout'}">Logout</a></li>
+                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+          <!-- 
                     <div class="right-side-box">
                         <div class="header-social">
 
@@ -163,75 +129,97 @@
                         </div>
                         /.header-social
                     </div> -->
-            <!-- /.right-side-box -->
-          </div>
-          <!-- /.container -->
-        </nav>
-      </header>
-      <!-- /.site-header -->
-      
-      <div th:if="${session.status}">
-        <div
-          th:classappend="${'alert-'+ session.status.type}"
-          class="alert text-center"
-          role="alert"
-        >
-          <h1><span th:text="${session.status.content}"></span></h1>
-        </div>
-
-        <th:block th:text="${#session.removeAttribute('status')}"></th:block>
-      </div>
-
-      <section class="static-banner-one">
-
-        <div class="static-banner-one__bg">
-          <div class="static-banner-one__bg-inner"></div>
-          <!-- /.static-banner-one__bg-inner -->
-        </div>
-        <!-- /.static-banner-one__bg -->
-        <div class="container">
-          <h2 class="static-banner-one__title">
-            Let's Embrace <br />
-            a
-            <span
-              class="typed-effect"
-              id="type-1"
-              data-strings="New, Powerful, Developing"
-            ></span>
-            <br />
-            India
-          </h2>
+          <!-- /.right-side-box -->
         </div>
         <!-- /.container -->
-      </section>
-      <div
-        class="site-footer"
-        style="
+      </nav>
+    </header>
+    <!-- /.site-header -->
+    <div th:if="${session.status}">
+      
+        <div th:classappend="${'alert-'+ session.status.type}" class="alert text-center" role="alert">
+          <h1><span th:text="${session.status.content}"></span></h1>
+
+          <span th:if="${session.status.content == 'Voting has not started!'}">
+            <a href="#clock">Check when voting starts</a>
+          </span>
+          <span th:if="${session.status.content == 'Voting has finished! You can check the results!'}">
+            <a href="#clock">Check the results</a>
+          </span>
+
+        </div>
+      
+
+      <!-- <th:block th:text="${#session.removeAttribute('status')}"></th:block> -->
+
+    </div>
+
+    <section class="static-banner-one">
+
+      <div class="static-banner-one__bg">
+        <div class="static-banner-one__bg-inner"></div>
+        <!-- /.static-banner-one__bg-inner -->
+      </div>
+      <!-- /.static-banner-one__bg -->
+      <div class="container">
+        <h2 class="static-banner-one__title">
+          Let's Embrace <br />
+          a
+          <span class="typed-effect" id="type-1" data-strings="New, Powerful, Developing"></span>
+          <br />
+          India
+        </h2>
+      </div>
+      <!-- /.container -->
+    </section>
+    <div class="site-footer" id="clock" style="
           background-color: white;
           background-image: url(https://www.solidbackgrounds.com/images/3508x2480/3508x2480-white-solid-color-background.jpg);
-        "
-      ></div>
-      <section class="countdown-one thm-gray-bg countdown-one__home-one">
-        <div class="container">
-          <div class="inner-container">
-            <div class="row align-items-xl-center align-items-lg-center">
-              <div class="col-xl-6">
-                <h3 class="countdown-one__title">
-                  The next Voting session starts in:
-                </h3>
-                <!-- /.countdown-one__title -->
-              </div>
-              <!-- /.col-lg-6 -->
-              <div
-                class="col-xl-6 d-flex justify-content-xl-end justify-content-lg-center justify-content-sm-center"
-              >
-                <div class="countdown-one__right">
-                  <ul class="countdown-one__list list-unstyled"></ul>
-                  <!-- /.coundown-one__list -->
+        "></div>
+    <section class="countdown-one thm-gray-bg countdown-one__home-one">
+      <div class="container">
+        <div class="inner-container">
+
+          <div th:if="${session.status}">
+            <span th:if="${session.status.content == 'Voting has not started!'}">
+
+              <div class="row align-items-xl-center align-items-lg-center">
+                <div class="col-xl-6">
+                  <h3 class="countdown-one__title">
+                    The next Voting session starts in:
+                  </h3>
+                  <!-- /.countdown-one__title -->
                 </div>
-                <!-- /.countdown-one__right -->
+                <!-- /.col-lg-6 -->
+                <div class="col-xl-6 d-flex justify-content-xl-end justify-content-lg-center justify-content-sm-center">
+                  <div class="countdown-one__right">
+                    <ul class="countdown-one__list list-unstyled"></ul>
+                    <!-- /.coundown-one__list -->
+                  </div>
+                  <!-- /.countdown-one__right -->
+                </div>
+                <!-- /.col-lg-6 -->
               </div>
-              <!-- /.col-lg-6 -->
+            </span>
+
+            <span th:if="${session.status.content == 'Voting has finished! You can check the results!'}">
+              <div class="container"
+                style=" justify-content: center;align-items: center; ">
+                <a th:href="${'/vote/showResults'}" target="_blank">
+                  <button class="thm-btn static-banner-one__form-btn shadow-success" style="width: 100%;">Check Results
+                    Here</button>
+                </a>
+              </div>
+            </span>
+
+
+            <!-- <span th:if="${session.status.content == 'Voting is Live!'}">
+                <h2>Voting is Live</h2>
+              </span> -->
+
+
+
+            <th:block th:text="${#session.removeAttribute('status')}"></th:block> 
             </div>
             <!-- /.row -->
           </div>
@@ -419,26 +407,18 @@
         <!-- /.container -->
       </section>
       <!-- /.campaing-one -->
-      <section class="fact-one">
-        <div class="container text-center">
-          <img
-            src="/images/resources/decor-star-1-1.png"
-            class="fact-one__star-1"
-            alt=""
-          />
-          <h3 class="fact-one__title counter">911,955,734</h3>
-          <p class="fact-one__text">
-            People cast their vote in
-            <span style="font-weight: bold; color: rgb(9, 9, 109)">INDIA</span>
-          </p>
-          <img
-            src="/images/resources/decor-star-1-1.png"
-            class="fact-one__star-2"
-            alt=""
-          />
-        </div>
-        <!-- /.container -->
-      </section>
+       <section class="fact-one">
+         <div class="container text-center">
+           <img src="/images/resources/decor-star-1-1.png" class="fact-one__star-1" alt="" />
+           <h3 class="fact-one__title counter">911,955,734</h3>
+           <p class="fact-one__text">
+             People cast their vote in
+             <span style="font-weight: bold; color: rgb(9, 9, 109)">INDIA</span>
+           </p>
+           <img src="/images/resources/decor-star-1-1.png" class="fact-one__star-2" alt="" />
+         </div>
+         <!-- /.container -->
+       </section>
       <!-- /.fact-one -->
       <section class="about-three thm-gray-bg">
         <div class="container">
@@ -1349,5 +1329,66 @@
 
     <!-- template scripts -->
     <script src="/js/theme.js"></script>
+    <!-- template scripts -->
+    <script src="/js/theme.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        if (localStorage.getItem("popState") != "shown") {
+          setTimeout(function () {
+            $("#popupmain").css("display", "block");
+            localStorage.setItem("popState", "shown");
+            document.querySelector("#videomute").autoplay = false;
+          }, 0000);
+
+          $("#buttonid").click(function () {
+            $("#popupmain").css("display", "none");
+          });
+        }
+
+        if (!localStorage.getItem("videoState")) {
+          disableAutoplay(); // Run the function below.
+        }
+      });
+
+      $("#instruction").click(function () {
+        $("#popupmain").css("display", "block");
+      });
+
+      $("#buttonid").click(function () {
+        $("#popupmain").css("display", "none");
+      });
+
+      var vid = document.getElementById("videomute");
+
+      function enableMute() {
+        vid.muted = true;
+      }
+
+      function disableAutoplay() {
+        vid.autoplay = false;
+        vid.load();
+      }
+    </script>
+<script>
+  window.scroll({
+    top: 2500,
+    left: 0,
+    behavior: 'smooth'
+  });
+
+  // Scroll certain amounts from current position
+  window.scrollBy({
+    top: 100, // could be negative value
+    left: 0,
+    behavior: 'smooth'
+  });
+
+  // Scroll to a certain element
+  document.querySelector('.hello').scrollIntoView({
+    behavior: 'smooth'
+  })
+</script>
+     
   </body>
 </html>

@@ -182,9 +182,6 @@ body.dark .sidebar header .toggle {
   transform: translateY(-50%) rotate(0deg);
 }
 
-.sidebar .menu {
-  margin-top: 40px;
-}
 
 .sidebar li.search-box {
   border-radius: 6px;
@@ -240,10 +237,10 @@ body.dark .sidebar li a:hover .text {
 
 
 .sidebar .menu-bar .bottom-content {
-  margin-top: 105px;
+  margin-top: 80px;
 }
 .sidebar.close .menu-bar .bottom-content {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 .menu-bar::-webkit-scrollbar {
   display: none;
@@ -335,4 +332,10 @@ body.dark .switch::before {
 }
 body.dark .home .text {
   color: var(--text-color);
+}
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
 }

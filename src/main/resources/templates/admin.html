@@ -15,7 +15,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
-  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/loader.png">
   <title>
     Admin Page Dashboard
   </title>
@@ -32,33 +32,38 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
 
+
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .inner-banner {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  </style>
+
 </head>
 
 <body>
-  <nav class="sidebar close">
+
+
+
+  <nav class="sidebar close toggleover"
+    style="background-image: url(../images/background/inner-banner-bg.jpg); box-shadow: 0 1rem 3rem rgba(0, 0, 255, 0.975)!important;">
+    <!-- <div class="toggleover"> -->
     <header>
       <div class="image-text">
-        <span class="image">
-          <img src="/images/loader.png" alt="" height="80px" width="80px">
+        <span class="image" style="height: 110px;">
+          <!-- <img src="/images/loader.png" alt="" height="80px" width="80px"> -->
         </span>
-        <!--
-                  <div class="text logo-text">
-                    <span class="name">SOVS</span>
-                
-                </div>-->
-      </div>
-
-      <i class='bx bx-chevron-right toggle'></i>
+        <i class='bx bx-chevron-right toggle'></i>
     </header>
 
     <div class="menu-bar">
       <div class="menu">
-
         <li class="search-box" style="visibility: hidden">
-
-
         </li>
-
         <ul class="menu-links">
           <li class="nav-link">
             <!-- Attach thymeleaf -->
@@ -67,42 +72,43 @@
               <span class="text nav-text" title="Dashboard">Dashboard</span>
             </a>
           </li>
-
           <li class="nav-link">
             <a th:href="@{'/admin/users'}">
-              <i class='bx bx-bar-chart-alt-2 icon' title="Database Part"></i>
-              <span class="text nav-text" title="Database Part">Database Part</span>
+              <i class='bx bxs-user-detail icon' title="Database Part"></i>
+              <span class="text nav-text" title="Database Part">List of Users</span>
             </a>
           </li>
-
-
-
           <li class="nav-link">
             <a th:href="@{'/admin/pendingrequest'}">
               <i class='bx bx-hourglass icon' title="Pending Request"></i>
-              <span class="text nav-text" title="Pending Request">Pending request</span>
+              <span class="text nav-text" title="Pending Request">Pending requests</span>
             </a>
           </li>
-
           <li class="nav-link">
             <a class="nav-link text-white " th:href="@{'/admin/notifications'}">
-
               <i class='bx bx-bell icon' title="Notification"></i>
               <span class="text nav-text" title="Notification">Notifications</span>
             </a>
           </li>
-
           <li class="nav-link">
             <a th:href="@{'/admin/candidates'}">
-              <i class='bx bx-user icon' title="Candidate"></i>
-              <span class="text nav-text" title="Candidates">Candidates</span>
+              <i class='bx bx-user-plus icon' title="Candidate"></i>
+
+
+              <span class="text nav-text" title=" Candidate Register" style="font-size:1rem;">
+                Candidate Register
+              </span>
             </a>
           </li>
+          <li class="nav-link">
+            <a th:href="@{'/admin/candidatelist'}">
+              <i class='bx bx-user icon' style='font-size:18px;'></i>
 
-
+              <span class="text nav-text" title="List of candidates">List of candidates</span>
+            </a>
+          </li>
         </ul>
       </div>
-
       <div class="bottom-content">
         <li class="">
           <a th:href="@{'/logout'}">
@@ -110,99 +116,131 @@
             <span class="text nav-text" title="Logout">Logout</span>
           </a>
         </li>
-
-
-
       </div>
     </div>
+    <!-- </div> -->
 
   </nav>
 
+
+
+
+
+
   <section class="home">
-    <div class="text">
 
-      <!--items of Right Side to be included here-->
+    <header class="site-header site-header__header-one">
+
+      <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+        <div class="container clearfix">
+
+
+          <div class="logo-box clearfix">
+            <a class="navbar-brand" th:href="@{'/index'}">
+              <img src="/images/loader.png" class="main-logo" width="80" alt="Awesome image" />
+            </a>
+            <button class="menu-toggler" data-target=".main-navigation">
+              <span class="fa fa-bars"></span>
+            </button>
+          </div>
 
 
 
-      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-        navbar-scroll="true">
-        <div class="container-fluid py-1 px-3">
-          <nav aria-label="breadcrumb">
 
-            <h3 class="font-weight-bolder mb-0">Dashboard</h3>
-          </nav>
-          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-              <div class="">
-
-                <input type="text" class="form-control">
-              </div>
-            </div>
-            <ul class="navbar-nav  justify-content-end" style="padding-top: -40px;">
-              <li class="nav-item d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-              <li style="margin-left: 100px">
-                <!-- connect thymleaf -->
-                <a href="index.html" class="font-weight-bolder mb-0">
-
-                  <div class="abc">
-                    Welcome Admin
-
-                    <img src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg" alt="Avatar"
-                      style="width: 50px; border-radius: 60%" /></div>
-                </a>
-
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="main-navigation">
+            <ul class="navigation-box" style="text-align: left;">
+              <li class="current" style="margin-left: 150px">
+                <a th:href="@{/index}">Home</a>
                 <!-- /.sub-menu -->
-              </li></a>
               </li>
-              <!-- <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-            <div class="sidenav-toggler-inner">
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
-            </div>
-          </a>
-        </li> -->
-              <li class="nav-item px-3 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0">
-                  <i class="fa fa- fixed-plugin-button-nav cursor-pointer"></i>
-                </a>
-              </li>
-              <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="fa fa- cursor-pointer"></i>
-                </a>
-                <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                  <li class="mb-2">
-
-                  </li>
-                  <li class="mb-2">
-                    <a class="dropdown-item border-radius-md" href="javascript:;">
-
-                    </a>
-                  </li>
-
+              <li>
+                <a href="about.html">About</a>
+                <ul class="sub-menu">
+                  <li><a href="about.html">About Us</a></li>
                 </ul>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a th:href="@{/public/home/faceverification}">Vote</a>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a href="#news">News</a>
+                <ul class="sub-menu">
+                  <li><a th:href="@{'/news'}">News Page</a></li>
+                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+              <!-- Shows Username -->
+              <li style="margin-left: 100px;">
+                <a href="#">
+                  Welcome
+                  <span href="#" style="
+                      margin-right: 10px;
+                      margin-top: 10px;
+                      font-weight: bolder;
+                    ">Admin&nbsp</span>
+                  <!-- Shows Photo -->
+                  <img src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg" alt="Avatar"
+                    style="width: 50px; border-radius: 60%" />
+                </a>
+                <!-- /.sub-menu -->
               </li>
             </ul>
           </div>
+          <!-- /.right-side-box -->
         </div>
+        <!-- /.container -->
       </nav>
+    </header>
+    <section class="inner-banner">
+      <div class="container">
+        <h2 class="inner-banner__title">Dashboard</h2>
+        <!-- /.inner-banner__title -->
+        <ul class="list-unstyled thm-breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Dashboard</li>
+        </ul>
+        <!-- /.list-unstyled -->
+      </div>
+      <!-- Shows Success Message -->
+    </section>
+
+
+    <div class="text">
+      <!--items of Right Side to be included here-->
+      <div class="row" style="margin:20px 100px ;">
+        <div class="col-md-4">
+          <a th:href="@{'/admin/startVote'}"><button type="submit"
+              class="thm-btn static-banner-one__form-btn  shadow-success border-radius-xl"
+              style=" text-align: center;">Start Voting</button>
+          </a>
+        </div>
+        
+        <div class="col-md-4">
+          <a th:href="@{'/admin/restartVote'}">
+            <button type="submit"
+              class="thm-btn static-banner-one__form-btn shadow-success border-radius-xl" >Restart Voting</button>
+          </a>
+        </div>
+        
+        <div class="col-md-4">
+          <a th:href="@{'/admin/endVote'}">
+          <button type="submit"
+            class="thm-btn static-banner-one__form-btn shadow-success border-radius-xl">Finish Voting</button>
+        </a>
+        </div>
+      </div>
 
 
       <br>
-
-
-
-
-
-
-
-
-
 
 
       <div class="row">
@@ -285,121 +323,6 @@
 
 
 
-      <!-- <div class="row mt-4">
-
-          <div class="row mt-4">
-          
-          
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load("current", { packages: ['corechart'] });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ["Element", "Density", { role: "style" }],
-          ["Copper", 8.94, "#b87333"],
-          ["Silver", 10.49, "silver"],
-          ["Gold", 19.30, "gold"],
-          ["Platinum", 21.45, "color: #e5e4e2"]
-        ]);
-
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-          {
-            calc: "stringify",
-            sourceColumn: 1,
-            type: "string",
-            role: "annotation"
-          },
-          2]);
-
-        var options = {
-          title: "Density of Precious Metals, in g/cm^3",
-          width: 600,
-          height: 400,
-          bar: { groupWidth: "20%" },
-          legend: { position: "none" },
-        };
-        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-        chart.draw(view, options);
-      }
-
-</script>
-
-
-<div id="columnchart_values" style="width: 90px; height: 30px;"></div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="row mt-4" style="width: 90px; height: 100px;padding-left: 100px;">
- 
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load("current", { packages: ['corechart'] });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ["Element", "Density", { role: "style" }],
-          ["Copper", 8.94, "#b87333"],
-          ["Silver", 10.49, "silver"],
-          ["gold2", 19.30, "gold"],
-          ["Platinum", 21.45, "color: #e5e4e2"]
-        ]);
-
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-          {
-            calc: "stringify",
-            sourceColumn: 1,
-            type: "string",
-            role: "annotation"
-          },
-          2]);
-
-        var options = {
-          title: "Density of Precious Metals, in g/cm^3",
-          width: 600,
-          height: 400,
-          bar: { groupWidth: "20%" },
-          legend: { position: "none" },
-        };
-        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-        chart.draw(view, options);
-      }
-
-</script>
-
-
-<div id="columnchart_values" ></div>
-
-
-    
-  </div> 
-
-
-
-  
-
-
-
-
-
-
-
-
-</div> -->
-
-
-
-
       <div class="row mt-4">
 
         <div class="col-lg-4 col-md-6 mt-4 mb-4">
@@ -468,7 +391,7 @@
 
 
       <script src="/js/scriptadmin.js"></script>
-      
+
 
       <!--   Core JS Files   -->
       <script src="/js/core/popper.min.js"></script>
@@ -476,6 +399,11 @@
       <script src="/js/plugins/perfect-scrollbar.min.js"></script>
       <script src="/js/plugins/smooth-scrollbar.min.js"></script>
       <script src="/js/plugins/chartjs.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
       <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -736,7 +664,6 @@
       <script async defer src="https://buttons.github.io/buttons.js"></script>
       <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
       <script src="/js/material-dashboard.min.js?v=3.0.0"></script>
-
 
 
 

@@ -1,33 +1,27 @@
-body {
-    background-image: url(https://i.pinimg.com/736x/96/7b/92/967b92f0d679139ef0e3ec42202448d8.jpg);
+.backpic {
+    background-image: url(https://drive.google.com/file/d/1NVtTQfVj7-6659Yh8mSjSOA6FHiqiF59/view?usp=sharing);
     background-size: cover;
-    margin: 30px;
-    height: auto;
-    width: auto;
+    /* margin: 30px; */
+    /* height: auto; */
+    /* width: auto; */
+   
 }
 
 .voting-img {
     position: relative;
-    width: 120%;
-    margin: 40% 0%;
+    width: 100%;
+    height: 100%;
+    margin-top: 400px;
 }
 
 .row {
     margin: 100px 20px;
 }
 
-.col-lg-5 {
-    /*background-color:#9D9D9D;*/
-    /*border-radius: 3%;
-    box-shadow:
-    inset 0 -3em 3em rgba(0,0,0,0.1),
-             0 0  0 2px #9D9D9D,
-             0.3em 0.3em 1em rgba(0,0,0,0.3);
-             */
-}
+
 
 .col-lg-7 {
-    padding: 7%;
+    padding: 4%;
 }
 
 h3 {
@@ -67,11 +61,10 @@ h3 {
     color: black;
 }
 
-#buttonid {
+#btnid {
     border: none;
     font-size: 1rem;
     padding: 0.6rem 1rem;
-    color: white;
     width: 50%;
 }
 
@@ -115,4 +108,19 @@ h3 {
     position: relative;
     left: -35px;
     content: "❌";
+}
+
+input,select{
+    border-radius: 2%;
+    /* border-right: 1px solid blue !important; */
+    /* border-bottom: 1px solid blue !important; */
+    border-right: 1px solid blue !important;
+    border-top: 1px solid red !important;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
 }

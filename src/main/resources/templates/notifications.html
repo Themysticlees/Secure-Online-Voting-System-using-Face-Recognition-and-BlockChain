@@ -16,7 +16,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
-  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/loader.png">
   <title>
     Notifications
   </title>
@@ -33,22 +33,26 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
 
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .inner-banner {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  </style>
 
 </head>
 
 <body>
-  <nav class="sidebar close">
+  <nav class="sidebar close toggleover"
+    style="background-image: url(../images/background/inner-banner-bg.jpg);  box-shadow: 0 1rem 3rem rgba(0, 0, 255, 0.975)!important;">
     <header>
       <div class="image-text">
-        <span class="image">
-          <img src="/images/loader.png" alt="" height="80px" width="80px">
+        <span class="image" style="height: 110px;">
+          <!-- <img src="/images/loader.png" alt="" height="80px" width="80px"> -->
         </span>
-        <!--Welcome Admin
-  ===========================================
-                <div class="text logo-text">
-                  <span class="name"><i>WELCOME </i></span>
-                  <span class="profession">ADMIN</span>
-                </div>-->
+
       </div>
 
       <i class='bx bx-chevron-right toggle'></i>
@@ -72,8 +76,8 @@
 
           <li class="nav-link">
             <a th:href="@{'/admin/users'}">
-              <i class='bx bx-bar-chart-alt-2 icon' title="Database Part"></i>
-              <span class="text nav-text" title="Database Part">Database Part</span>
+              <i class='bx bxs-user-detail icon' title="Database Part"></i>
+              <span class="text nav-text" title="Database Part">List of Users</span>
             </a>
           </li>
 
@@ -82,7 +86,7 @@
           <li class="nav-link">
             <a th:href="@{'/admin/pendingrequest'}">
               <i class='bx bx-hourglass icon' title="Pending Requset"></i>
-              <span class="text nav-text" title="Pending Requset">Pending request</span>
+              <span class="text nav-text" title="Pending Requset">Pending requests</span>
             </a>
           </li>
 
@@ -95,8 +99,18 @@
 
           <li class="nav-link">
             <a th:href="@{'/admin/candidates'}">
-              <i class='bx bx-user icon' title="Candidate"></i>
-              <span class="text nav-text" title="Candidates">Candidates</span>
+              <i class='bx bx-user-plus icon' title="Candidate"></i>
+              <span class="text nav-text" title=" Candidate Register" style="font-size:1rem;">
+                Candidate Register
+              </span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/candidatelist'}">
+              <i class='bx bx-user icon' style='font-size:18px;'></i>
+
+              <span class="text nav-text" title="List of candidates">List of candidates</span>
             </a>
           </li>
 
@@ -107,7 +121,7 @@
 
       <div class="bottom-content">
         <li class="">
-          <a href="@{'/logout'}">
+          <a th:href="@{'/logout'}">
             <i class='bx bx-log-out icon' title="Logout"></i>
             <span class="text nav-text" title="Logout">Logout</span>
           </a>
@@ -120,6 +134,91 @@
   </nav>
 
   <section class="home">
+    <header class="site-header site-header__header-one">
+
+      <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+        <div class="container clearfix">
+
+
+          <div class="logo-box clearfix">
+            <a class="navbar-brand" th:href="@{'/index'}">
+              <img src="/images/loader.png" class="main-logo" width="80" alt="Awesome image" />
+            </a>
+            <button class="menu-toggler" data-target=".main-navigation">
+              <span class="fa fa-bars"></span>
+            </button>
+          </div>
+
+
+
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="main-navigation">
+            <ul class="navigation-box" style="text-align: left;">
+              <li class="current" style="margin-left: 150px">
+                <a href="/public/home">Home</a>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="about.html">About</a>
+                <ul class="sub-menu">
+                  <li><a href="about.html">About Us</a></li>
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a th:href="@{/public/home/faceverification}">Vote</a>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a href="#news">News</a>
+                <ul class="sub-menu">
+                  <li><a th:href="@{'/news'}">News Page</a></li>
+                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+              <!-- Shows Username -->
+              <li style="margin-left: 100px;">
+                <ahref="#">
+                  Welcome
+                  <span href="#" style="
+                      margin-right: 10px;
+                      margin-top: 10px;
+                      font-weight: bolder;
+                    ">Admin&nbsp</span>
+                  <!-- Shows Photo -->
+                  <img src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg" alt="Avatar"
+                    style="width: 50px; border-radius: 60%" />
+                  </a>
+                  <!-- /.sub-menu -->
+              </li>
+            </ul>
+          </div>
+          <!-- /.right-side-box -->
+        </div>
+        <!-- /.container -->
+      </nav>
+    </header>
+
+
+    <section class="inner-banner">
+      <div class="container">
+        <h2 class="inner-banner__title">Notification</h2>
+        <!-- /.inner-banner__title -->
+        <ul class="list-unstyled thm-breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Notification</li>
+        </ul>
+        <!-- /.list-unstyled -->
+      </div>
+      <!-- Shows Success Message -->
+    </section>
     <div class="text">
 
       <nav aria-label="breadcrumb">
@@ -140,81 +239,7 @@
 
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-      <!-- Navbar -->
-      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-        navbar-scroll="true">
-        <div class="container-fluid py-1 px-3">
-          <nav aria-label="breadcrumb">
 
-            <h3 class="font-weight-bolder mb-0">Notifications</h3>
-          </nav>
-          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-              <div class="">
-
-                <input type="text" class="form-control">
-              </div>
-            </div>
-            <ul class="navbar-nav  justify-content-end" style="padding-top: -40px;">
-              <li class="nav-item d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-
-
-                </a>
-              </li>
-              <li class="nav-item d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-              <li style="margin-left: 100px">
-                <a href="index.html" class="font-weight-bolder mb-0">
-
-                  <div class="abc">
-                    Welcome Admin
-
-                    <img src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg" alt="Avatar"
-                      style="width: 50px; border-radius: 60%" />
-                  </div>
-                </a>
-
-                <!-- /.sub-menu -->
-              </li></a>
-              </li>
-              <!-- <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                  <div class="sidenav-toggler-inner">
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                  </div>
-                </a>
-              </li> -->
-              <li class="nav-item px-3 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0">
-                  <i class="fa fa- fixed-plugin-button-nav cursor-pointer"></i>
-                </a>
-              </li>
-              <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="fa fa- cursor-pointer"></i>
-                </a>
-                <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                  <li class="mb-2">
-
-                  </li>
-                  <li class="mb-2">
-                    <a class="dropdown-item border-radius-md" href="javascript:;">
-
-                    </a>
-                  </li>
-
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <!-- End Navbar -->
       <div class="container-fluid py-4">
 
         <div class="col-12">
@@ -225,55 +250,69 @@
                 </h6>
               </div>
             </div>
-            
+
 
             <div class="card-body p-3 pb-0">
               <div class="alert alert-primary alert-dismissible text-white" role="alert">
-                <span class="text-sm">A simple primary alert with <a href="javascript:;" class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                <span class="text-sm">A simple primary alert with <a href="javascript:;"
+                    class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
+                  aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="alert alert-secondary alert-dismissible text-white" role="alert">
-                <span class="text-sm">A simple secondary alert with <a href="javascript:;" class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                <span class="text-sm">A simple secondary alert with <a href="javascript:;"
+                    class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
+                  aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="alert alert-success alert-dismissible text-white" role="alert">
-                <span class="text-sm">A simple success alert with <a href="javascript:;" class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                <span class="text-sm">A simple success alert with <a href="javascript:;"
+                    class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
+                  aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="alert alert-danger alert-dismissible text-white" role="alert">
-                <span class="text-sm">A simple danger alert with <a href="javascript:;" class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                <span class="text-sm">A simple danger alert with <a href="javascript:;" class="alert-link text-white">an
+                    example link</a>. Give it a click if you like.</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
+                  aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="alert alert-warning alert-dismissible text-white" role="alert">
-                <span class="text-sm">A simple warning alert with <a href="javascript:;" class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                <span class="text-sm">A simple warning alert with <a href="javascript:;"
+                    class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
+                  aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="alert alert-info alert-dismissible text-white" role="alert">
-                <span class="text-sm">A simple info alert with <a href="javascript:;" class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                <span class="text-sm">A simple info alert with <a href="javascript:;" class="alert-link text-white">an
+                    example link</a>. Give it a click if you like.</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
+                  aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-             
+
               <div class="alert alert-dark alert-dismissible text-white" role="alert">
-                <span class="text-sm">A simple dark alert with <a href="javascript:;" class="alert-link text-white">an example link</a>. Give it a click if you like.</span>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                <span class="text-sm">A simple dark alert with <a href="javascript:;" class="alert-link text-white">an
+                    example link</a>. Give it a click if you like.</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
+                  aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
             </div>
 
-            
+
 
 
 

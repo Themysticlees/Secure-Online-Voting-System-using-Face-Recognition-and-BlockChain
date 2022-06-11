@@ -158,7 +158,7 @@
           <div class="main-navigation">
             <ul class="navigation-box" style="text-align: left;">
               <li class="current" style="margin-left: 150px">
-                <a th:href="@{/index}">Home</a>
+                <a href="/public/home">Home</a>
                 <!-- /.sub-menu -->
               </li>
               <li>
@@ -211,11 +211,11 @@
 
     <section class="inner-banner">
       <div class="container">
-        <h2 class="inner-banner__title">User Details</h2>
+        <h2 class="inner-banner__title">List of Candidates</h2>
         <!-- /.inner-banner__title -->
         <ul class="list-unstyled thm-breadcrumb">
           <li><a href="index.html">Home</a></li>
-          <li>User Details</li>
+          <li>List of Candidates</li>
         </ul>
         <!-- /.list-unstyled -->
       </div>
@@ -251,42 +251,42 @@
             </div>
             <div class="card-body px-0 pb-2" style="margin-left:20px">
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table align-items-center mb-0" style="margin-left: 30px;">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Adhaar ID
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="width: 150px;">Candidates
+                        Photo</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">UserName
                       </th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 ">First Name
-                      </th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Last Name
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">First Name
                       </th>
                       <!-- text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 -->
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Last Name
+                      </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 ">Party Name
+                      </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Party Flag
+                      </th>
+                      
+                      
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
 
                     </tr>
                   </thead>
                   <tbody>
-                    <tr th:each="user : ${users}">
-                      <td><img th:src="${user.photosImagePath}" height="50px" width="50px" />
-                      <td class="" th:text="${user.username}">
-                        <!--Adhar ID-->
-                      </td>
-                      <td class="text-capitalize" th:text="${user.firstname}">
-                        <!--First Name-->
-                      </td>
-                      <td class="text-capitalize" th:text="${user.lastname}">
-                        <!--Last Name-->
-                      </td>
-                      <td th:text="${user.email}">
-                        <!--Email ID-->
-                      </td>
+
+                    <tr th:each="candi : ${allcandidates}">
+                      <td><img th:src="${candi.candidateImagePath}" height="50px" width="50px" /></td>
+                      <td class="" th:text="${candi.username}"></td>
+                      <td class="text-capitalize" th:text="${candi.firstname}"></td>
+                      <td class="text-capitalize" th:text="${candi.lastname}"></td>
+                      <td class="" th:text="${candi.party}"></td>
+                      <td><img th:src="${candi.partypic}" height="50px" width="50px" /></td>
+                      
                       <td>
-                        <a th:href="@{'/admin/removeFile/'+${user.username}+'/'+${user.photos}}"
+                        <a th:href="@{'/admin/removeCandidateFile/'+${candi.username}+'/'+${candi.candidatePicImagePath}}"
                           onclick="return confirm('Are you sure you want to delete?');"><button
                             class="thm-btn static-banner-one__form-btn" style="padding: 10px;">Delete</button> </a>
-
                       </td>
 
                     </tr>

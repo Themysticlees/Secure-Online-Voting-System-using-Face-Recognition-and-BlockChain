@@ -21,10 +21,10 @@ public class Pending {
 	
 	private Date birthday;
 	private String mobileno;
-	private String wardno;
+
 
 	private String photos;
-	
+	private String adhaarpdf;
 	private String address;
 	private String state;
 	private String city;
@@ -33,13 +33,7 @@ public class Pending {
 	private String role;
 	
 	
-	public String getWardno() {
-		return wardno;
-	}
-
-	public void setWardno(String wardno) {
-		this.wardno = wardno;
-	}
+	
 
 	public String getMobileno() {
 		return mobileno;
@@ -122,7 +116,13 @@ public class Pending {
         return "/user-photos/" + username + "/" + photos;
     }
 
-	
+	@Transient
+	public String getAdhaarPdfPath() {
+		if (adhaarpdf == null || username == null)
+			return null;
+
+		return "/user-photos/" + username + "/" + adhaarpdf;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -163,12 +163,20 @@ public class Pending {
 		this.birthday = birthday;
 	}
 
+	public String getAdhaarpdf() {
+		return this.adhaarpdf;
+	}
+
+	public void setAdhaarpdf(String adhaarpdf) {
+		this.adhaarpdf = adhaarpdf;
+	}
+
 	@Override
 	public String toString() {
 		return "Pending [address=" + address + ", birthday=" + birthday + ", city=" + city + ", email=" + email
 				+ ", firstname=" + firstname + ", gender=" + gender + ", lastname=" + lastname + ", mobileno="
 				+ mobileno + ", password=" + password + ", photos=" + photos + ", role=" + role + ", state=" + state
-				+ ", username=" + username + ", wardno=" + wardno + ", zip=" + zip + "]";
+				+ ", username=" + username +", zip=" + zip + "]";
 	}
 
 	
