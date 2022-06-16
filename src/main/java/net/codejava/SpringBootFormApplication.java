@@ -43,7 +43,7 @@ public class SpringBootFormApplication implements CommandLineRunner {
 		user1.setRole("ROLE_ADMIN");
 		user1.setVotestatus("0");
 
-		//this.userRepo.save(user1);
+		// this.userRepo.save(user1);
 
 		// -------------------first block --------------------- //
 

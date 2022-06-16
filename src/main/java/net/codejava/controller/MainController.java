@@ -4,14 +4,17 @@ package net.codejava.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,16 +25,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import net.codejava.helper.EmailTemplate;
 import net.codejava.helper.Message;
+import net.codejava.helper.SHA256;
+import net.codejava.model.Candidate;
 import net.codejava.model.Pending;
 import net.codejava.model.User;
+import net.codejava.model.Votedata;
+import net.codejava.repository.CandidateRepo;
 import net.codejava.repository.PendingRepo;
 import net.codejava.repository.UserRepo;
+import net.codejava.repository.VoteRepo;
 import net.codejava.service.EmailService;
 import net.codejava.service.UserService;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
 
 // --------------------------------------------------------------------------------------------- //
 
@@ -41,7 +48,13 @@ public class MainController {
 	// Beans of other classes so that we can use their methods \\
 
 	@Autowired
+	PendingRepo pendingRepo;
+
+	@Autowired
 	UserRepo repo;
+
+	@Autowired
+	VoteRepo voterepo;
 
 	@Autowired
 	UserService userservice;
@@ -52,6 +65,11 @@ public class MainController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
+	@Autowired
+	private CandidateRepo candidaterepo;
+
+	@Autowired
+	private EmailTemplate emailTemplate;
 	// ----------------------------------------------------------------------------//
 
 	// After loging in, users will be redirected to their respective pages
@@ -67,7 +85,7 @@ public class MainController {
 		return "redirect:/public/home";
 	}
 
-	//--------------------------------------------------------------------------------------------------------------//
+	// --------------------------------------------------------------------------------------------------------------//
 
 	// This url will return the home page of our website
 	@GetMapping("/index")
@@ -87,24 +105,23 @@ public class MainController {
 		return "contact.html";
 	}
 
-	
-	// 	public ResponseEntity<String> error(){
-	// 		System.out.println("Error page................");
-	// 		String content =  
-    //        "<header>"
-    //      + "<h1><span>Url is not reachable from</span></h1>"+"</header>";
-	// 	 HttpHeaders responseHeaders = new HttpHeaders();
-    // 	responseHeaders.setContentType(MediaType.TEXT_HTML);
-	// 	return new ResponseEntity<String>(content,responseHeaders,HttpStatus.BAD_REQUEST);
+	// public ResponseEntity<String> error(){
+	// System.out.println("Error page................");
+	// String content =
+	// "<header>"
+	// + "<h1><span>Url is not reachable from</span></h1>"+"</header>";
+	// HttpHeaders responseHeaders = new HttpHeaders();
+	// responseHeaders.setContentType(MediaType.TEXT_HTML);
+	// return new
+	// ResponseEntity<String>(content,responseHeaders,HttpStatus.BAD_REQUEST);
 	// }
-	
+
 	@GetMapping("/error")
-	public String errormethod(){
+	public String errormethod() {
 		return "error1.html";
 	}
-	
 
-	// ----------------------REGISTER(GET)--------------------------------------------------------// 
+	// ----------------------REGISTER(GET)--------------------------------------------------------//
 
 	// This url will be executed when users tries to register
 	@GetMapping("/register")
@@ -136,9 +153,6 @@ public class MainController {
 	// MultipartFile is for fetching any file, Modelattritube indicates the user
 	// model, the application
 	// will automatically fill the parameters with the details given by user.
-
-	@Autowired
-	PendingRepo pendingRepo;
 
 	@PostMapping("/register")
 	public String submitForm(@ModelAttribute("pending") Pending pending,
@@ -172,15 +186,14 @@ public class MainController {
 
 			FileUploadUtil.saveFile(uploadDir, adhaarfileName, multipartFile2);
 			System.out.println(pending);
-			
 
-		return "redirect:/index";
+			return "redirect:/index";
 		}
 		// return "index.html";
 		else {
 			System.out.println("******* User exist **********");
-		//if username already exists, then return this page
-		return "exist.html";
+			// if username already exists, then return this page
+			return "exist.html";
 		}
 
 	}
@@ -243,7 +256,7 @@ public class MainController {
 	// This will return the error page
 	// @GetMapping("/error")
 	// public String errorpage() {
-	// 	return "error.html";
+	// return "error.html";
 	// }
 
 	// ---------------------send mail from contact us (Bug is there)
@@ -266,6 +279,68 @@ public class MainController {
 		else
 			return "redirect:/contact";
 
-	}	
+	}
+
+	// API
+	@GetMapping("/getGraphData")
+	public ResponseEntity<List<String>> getDataForGraph() {
+		String userCount = "" + (repo.findUserCount() - 1L);
+		String pendingCount = "" + pendingRepo.findPendingCount();
+		String voteCount = "" + (voterepo.findcount() - 1);
+
+		List<String> data = new ArrayList<>();
+		data.add(userCount);
+		data.add(pendingCount);
+		data.add(voteCount);
+
+		return new ResponseEntity<List<String>>(data, HttpStatus.OK);
+	}
+
+	@GetMapping("/verify")
+	public String verify(){
+		return "verifyVote.html";
+	}
+
+	@PostMapping("verify/verifyvote")
+	public String verifyVote(@RequestParam("currhash") String currhash) throws NoSuchAlgorithmException{
+
+		Votedata vote=voterepo.findByCurrhash(currhash);
+		
+		String adhaar = vote.getUsername();
+		String previousBlockHash=vote.getPrevhash();
+		User user= repo.findByUsername(adhaar);
+		String partyname="";
+
+		String name=user.getFirstname();
+		String email=user.getEmail();
+
+		List<String> party=new ArrayList<>();
+		
+		List<Candidate> candidates=candidaterepo.findAll();
+        
+        for (Candidate c : candidates) {
+            party.add(c.getParty());
+        }
+
+			for(String i:party){
+                String[] transaction = {adhaar,name,i};
+                String tempHash= SHA256.getSHA(transaction,previousBlockHash);
+
+                System.out.println(">>>>>>>>>>>Temp Hash Generated>>>>>>>>>>>>>>"+tempHash);
+                if(tempHash.equals(currhash)){
+					partyname=i;
+                    break;
+                }
+            }
+		
+			String f = "Hi  " +name+ " . Your Vote confirmation is here!";
+			String s = "You have voted for this party. Please donot share this information. Hope you had a smooth experience. Thank you";
+			String t = partyname;
+			String message = emailTemplate.getTemplate(f, s, t);
+			String subject = "Vote Confirmation";
+			this.emailservice.sendEmail(subject, message, email);
+
+		return "redirect:/index";
+	}
 
 }

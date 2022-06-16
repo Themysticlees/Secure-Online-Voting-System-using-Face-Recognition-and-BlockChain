@@ -12,5 +12,7 @@ public interface UserRepo extends JpaRepository<User, String>{
 	@Query("delete from User e where e.username =:username and fileName =:fileName")
 	public void deleteEmployeeWithFile(String username, String fileName);
 
+	@Query(value = "SELECT count(*) FROM user", nativeQuery = true)
+	public Long findUserCount();
 
 }

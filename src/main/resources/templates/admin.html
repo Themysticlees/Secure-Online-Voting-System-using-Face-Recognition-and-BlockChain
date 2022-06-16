@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
   <link rel="icon" type="image/png" href="/images/loader.png">
   <title>
-    Admin Page Dashboard
+    Admin Page Dashboard || SOVS
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -214,456 +214,497 @@
     </section>
 
 
-    <div class="text">
+    <div class="" style="margin :10px 10%;">
       <!--items of Right Side to be included here-->
-      <div class="row" style="margin:20px 100px ;">
-        <div class="col-md-4">
+      <div class="row">
+        <div class="col-xl-4 col-lg-6 col-md-6 mt-4 mb-4 ">
+
           <a th:href="@{'/admin/startVote'}"><button type="submit"
-              class="thm-btn static-banner-one__form-btn  shadow-success border-radius-xl"
+              class="card thm-btn static-banner-one__form-btn shadow-success border-radius-xl"
               style=" text-align: center;">Start Voting</button>
           </a>
+
         </div>
-        
-        <div class="col-md-4">
+
+        <div class="col-xl-4 col-lg-6 col-md-6 mt-4 mb-4 ">
           <a th:href="@{'/admin/restartVote'}">
-            <button type="submit"
-              class="thm-btn static-banner-one__form-btn shadow-success border-radius-xl" >Restart Voting</button>
+            <button type="submit" class="thm-btn static-banner-one__form-btn shadow-success border-radius-xl">Restart
+              Voting</button>
           </a>
         </div>
-        
-        <div class="col-md-4">
+
+        <div class="col-xl-4 col-lg-6 col-md-6 mt-4 mb-4 ">
           <a th:href="@{'/admin/endVote'}">
-          <button type="submit"
-            class="thm-btn static-banner-one__form-btn shadow-success border-radius-xl">Finish Voting</button>
-        </a>
+            <button type="submit" class="thm-btn static-banner-one__form-btn shadow-success border-radius-xl">Finish
+              Voting</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+
+    <div class="row" style="margin:0 5px">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total Registration</p>
+              <h4 class="mb-0" th:text="${usercount}"></h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <!-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+2%</span> than last Month</p> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total Vote Casted</p>
+              <h4 class="mb-0" th:text="${votecount}"></h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <!-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last Hour</p> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Remaining Votes</p>
+              <h4 class="mb-0" th:text="${remainingcount}"></h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <!-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Pending Requests</p>
+              <h4 class="mb-0" th:text="${pendingcount}"></h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <!-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than lask week</p> -->
+          </div>
         </div>
       </div>
 
+    </div>
 
-      <br>
 
 
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Total Registration</p>
-                <h4 class="mb-0">30,462</h4>
+
+
+    <div class="row mt-4">
+
+      <div class="col-lg-4 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2  ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+2%</span> than last Month</p>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Registered Candidates</h6>
+            <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increases in last Month </p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> updated 12 hours ago </p>
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Total Vote Casted</p>
-                <h4 class="mb-0">19,651</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last Hour</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">weekend</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Remaining Votes</p>
-                <h4 class="mb-0">10,811</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">weekend</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Today's Money</p>
-                <h4 class="mb-0">$53k</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than lask week</p>
-            </div>
-          </div>
-        </div>
-
       </div>
-
-
-
-
-
-      <div class="row mt-4">
-
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-          <div class="card z-index-2  ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 ">Registered Candidates</h6>
-              <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increases in last Month </p>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 12 hours ago </p>
+      <div class="col-lg-4 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-          <div class="card z-index-2 ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 ">Vote Casted Per Hour</h6>
-              <p class="text-sm ">Election Commision of India</p>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> Updated 30 Seconds ago </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mt-4 mb-3">
-          <div class="card z-index-2 ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 ">Completed Tasks</h6>
-              <p class="text-sm ">Last Campaign Performance</p>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">just updated</p>
-              </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Vote Casted Per Hour</h6>
+            <p class="text-sm ">Election Commision of India</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> Updated 30 Seconds ago </p>
             </div>
           </div>
         </div>
       </div>
 
+      <div class="col-lg-4 mt-4 mb-3">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Completed Tasks</h6>
+            <p class="text-sm ">Last Campaign Performance</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm">just updated</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-      <script src="/js/scriptadmin.js"></script>
+
+    <script src="/js/scriptadmin.js"></script>
 
 
-      <!--   Core JS Files   -->
-      <script src="/js/core/popper.min.js"></script>
-      <script src="/js/core/bootstrap.min.js"></script>
-      <script src="/js/plugins/perfect-scrollbar.min.js"></script>
-      <script src="/js/plugins/smooth-scrollbar.min.js"></script>
-      <script src="/js/plugins/chartjs.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!--   Core JS Files   -->
+    <script src="/js/core/popper.min.js"></script>
+    <script src="/js/core/bootstrap.min.js"></script>
+    <script src="/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="/js/plugins/chartjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
-      <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
+    <script>
+      var userCount = [0];
+      var pendingCount = [0, 0, 0, 0, 0, 0];
+      var voteCount = [0, 0, 0, 0, 0, 0];
 
-        new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: ["10", "11", "12", "13", "14", "15", "16"],
-            datasets: [{
-              label: "Votes",
-              tension: 0.4,
-              borderWidth: 0,
-              borderRadius: 4,
-              borderSkipped: false,
-              backgroundColor: "rgba(255, 255, 255, .8)",
-              data: [50, 20, 10, 22, 50, 10, 40],
-              maxBarThickness: 6
-            }, ],
+      // localStorage.removeItem("userC");
+      if (localStorage.getItem("userC") != null)
+        userCount.push (localStorage.getItem("userC"));
+
+
+      var ctx = document.getElementById("chart-bars").getContext("2d");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["10", "11", "12", "13", "14", "15", "16"],
+          datasets: [{
+            label: "Votes",
+            tension: 0.4,
+            borderWidth: 0,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "rgba(255, 255, 255, .8)",
+            data: userCount,
+            maxBarThickness: 6,
+          }, ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: 'rgba(255, 255, 255, .2)'
+              },
+              ticks: {
+                suggestedMin: 0,
+                suggestedMax: 500,
+                beginAtZero: true,
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+                color: "#fff"
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: 'rgba(255, 255, 255, .2)'
+              },
+              ticks: {
+                display: true,
+                color: '#f8f9fa',
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
+                },
               }
             },
-            interaction: {
-              intersect: false,
-              mode: 'index',
-            },
-            scales: {
-              y: {
-                grid: {
-                  drawBorder: false,
-                  display: true,
-                  drawOnChartArea: true,
-                  drawTicks: false,
-                  borderDash: [5, 5],
-                  color: 'rgba(255, 255, 255, .2)'
-                },
-                ticks: {
-                  suggestedMin: 0,
-                  suggestedMax: 500,
-                  beginAtZero: true,
-                  padding: 10,
-                  font: {
-                    size: 14,
-                    weight: 300,
-                    family: "Roboto",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                  color: "#fff"
-                },
-              },
-              x: {
-                grid: {
-                  drawBorder: false,
-                  display: true,
-                  drawOnChartArea: true,
-                  drawTicks: false,
-                  borderDash: [5, 5],
-                  color: 'rgba(255, 255, 255, .2)'
-                },
-                ticks: {
-                  display: true,
-                  color: '#f8f9fa',
-                  padding: 10,
-                  font: {
-                    size: 14,
-                    weight: 300,
-                    family: "Roboto",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                }
-              },
-            },
           },
-        });
+        },
+      });
 
 
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
+      var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-        new Chart(ctx2, {
-          type: "line",
-          data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-              label: "Registered Candidates",
-              tension: 0,
-              borderWidth: 0,
-              pointRadius: 5,
-              pointBackgroundColor: "rgba(255, 255, 255, .8)",
-              pointBorderColor: "transparent",
-              borderColor: "rgba(255, 255, 255, .8)",
-              borderColor: "rgba(255, 255, 255, .8)",
-              borderWidth: 4,
-              backgroundColor: "transparent",
-              fill: true,
-              data: [50, 40, 300, 320, 500, 350, 700, 630, 900],
-              maxBarThickness: 6
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets: [{
+            label: "Registered Candidates",
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
+            data: userCount,
+            // data: [50, 40, 300, 320, 500, 350, 700, 630, 900],
+            maxBarThickness: 6
 
-            }],
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: 'rgba(255, 255, 255, .2)'
+              },
+              ticks: {
+                display: true,
+                color: '#f8f9fa',
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
+                },
               }
             },
-            interaction: {
-              intersect: false,
-              mode: 'index',
-            },
-            scales: {
-              y: {
-                grid: {
-                  drawBorder: false,
-                  display: true,
-                  drawOnChartArea: true,
-                  drawTicks: false,
-                  borderDash: [5, 5],
-                  color: 'rgba(255, 255, 255, .2)'
-                },
-                ticks: {
-                  display: true,
-                  color: '#f8f9fa',
-                  padding: 10,
-                  font: {
-                    size: 14,
-                    weight: 300,
-                    family: "Roboto",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                }
-              },
-              x: {
-                grid: {
-                  drawBorder: false,
-                  display: false,
-                  drawOnChartArea: false,
-                  drawTicks: false,
-                  borderDash: [5, 5]
-                },
-                ticks: {
-                  display: true,
-                  color: '#f8f9fa',
-                  padding: 10,
-                  font: {
-                    size: 14,
-                    weight: 300,
-                    family: "Roboto",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                }
-              },
-            },
-          },
-        });
-
-        var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
-
-        new Chart(ctx3, {
-          type: "line",
-          data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-              label: "Mobile apps",
-              tension: 0,
-              borderWidth: 0,
-              pointRadius: 5,
-              pointBackgroundColor: "rgba(255, 255, 255, .8)",
-              pointBorderColor: "transparent",
-              borderColor: "rgba(255, 255, 255, .8)",
-              borderWidth: 4,
-              backgroundColor: "transparent",
-              fill: true,
-              data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-              maxBarThickness: 6
-
-            }],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
+            x: {
+              grid: {
+                drawBorder: false,
                 display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                color: '#f8f9fa',
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
+                },
               }
             },
-            interaction: {
-              intersect: false,
-              mode: 'index',
+          },
+        },
+      });
+
+      var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+
+      new Chart(ctx3, {
+        type: "line",
+        data: {
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets: [{
+            label: "Mobile apps",
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
+            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            maxBarThickness: 6
+
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: 'rgba(255, 255, 255, .2)'
+              },
+              ticks: {
+                display: true,
+                padding: 10,
+                color: '#f8f9fa',
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
             },
-            scales: {
-              y: {
-                grid: {
-                  drawBorder: false,
-                  display: true,
-                  drawOnChartArea: true,
-                  drawTicks: false,
-                  borderDash: [5, 5],
-                  color: 'rgba(255, 255, 255, .2)'
-                },
-                ticks: {
-                  display: true,
-                  padding: 10,
-                  color: '#f8f9fa',
-                  font: {
-                    size: 14,
-                    weight: 300,
-                    family: "Roboto",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                }
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
               },
-              x: {
-                grid: {
-                  drawBorder: false,
-                  display: false,
-                  drawOnChartArea: false,
-                  drawTicks: false,
-                  borderDash: [5, 5]
+              ticks: {
+                display: true,
+                color: '#f8f9fa',
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
                 },
-                ticks: {
-                  display: true,
-                  color: '#f8f9fa',
-                  padding: 10,
-                  font: {
-                    size: 14,
-                    weight: 300,
-                    family: "Roboto",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                }
-              },
+              }
             },
           },
-        });
-      </script>
-      <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-          var options = {
-            damping: '0.5'
-          }
-          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        },
+      });
+
+
+      function getData() {
+        fetch('/getGraphData')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            
+            // pendingCount.shift()
+            // voteCount.shift()
+            console.log(typeof(Number(data['0'])));
+           
+            var ucount =[];
+            ucount.push(Number(data['0']));
+            pendingCount.push(Number(data['1']))
+            voteCount.push(data['2'])
+            // quote.innerHTML=`"${data.content}"`
+            // author.innerHTML=data.authorlocalStorage.setItem 
+            //localStorage.removeItem("userC");
+            
+            localStorage.setItem("userC", ucount)
+            localStorage.setItem("pendingCount", pendingCount)
+            localStorage.setItem("voteCount", voteCount)
+
+          })
+      }
+
+      setInterval(getData, 10000);
+    </script>
+
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
         }
-      </script>
-      <!-- Github buttons -->
-      <script async defer src="https://buttons.github.io/buttons.js"></script>
-      <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-      <script src="/js/material-dashboard.min.js?v=3.0.0"></script>
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/js/material-dashboard.min.js?v=3.0.0"></script>
 
 
 

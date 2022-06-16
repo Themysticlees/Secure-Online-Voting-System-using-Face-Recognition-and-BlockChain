@@ -81,9 +81,17 @@ public class VoteSmartContract {
         vrepo.copyData();
         System.out.println("Data is now rectified ! Enjoy");
     }
+
+    // public  
+    // kibhabe vote count
+    // individual
+    // votecount according
+    // to their party
+    // return object(party name list,)
+
     
     public String voteCount() throws NoSuchAlgorithmException{
-
+        correctTableValues();
         Sort sort = Sort.by(Sort.Direction.ASC, "date");
         List<Votedata> votes = vrepo.findAll(sort);
         // String[] party={"cpm","bjp","aap","tmc"};

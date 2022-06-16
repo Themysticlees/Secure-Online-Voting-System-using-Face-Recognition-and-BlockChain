@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +24,7 @@ import net.codejava.model.User;
 import net.codejava.repository.CandidateRepo;
 import net.codejava.repository.PendingRepo;
 import net.codejava.repository.UserRepo;
+import net.codejava.repository.VoteRepo;
 import net.codejava.service.CandidateService;
 import net.codejava.service.UserService;
 import net.codejava.service.EmailService;
@@ -52,6 +55,9 @@ public class UserSecurityController {
 	@Autowired
 	UserRepo repo;
 
+	@Autowired
+	VoteRepo voterepo;
+
 	//all users
 	// @GetMapping("/")
 	// public String getUsers(Principal principle,Model model){
@@ -65,9 +71,22 @@ public class UserSecurityController {
 	// }
 
 	@GetMapping("/")
-	public String admin(){
+	public String admin(Model model){
+
+		String userCount=""+(repo.findUserCount()-1L);
+		String pendingCount=""+pendingRepo.findPendingCount();
+		String voteCount=""+(voterepo.findcount()-1);
+		String remCount=""+((repo.findUserCount()-1L)-(voterepo.findcount()-1));
+		
+		model.addAttribute("usercount", userCount);
+		model.addAttribute("pendingcount", pendingCount);
+		model.addAttribute("votecount", voteCount);
+		model.addAttribute("remainingcount", remCount);		
+		System.out.println(userCount+"--------------------"+pendingCount);
 		return "admin.html";
 	}
+
+	
 
 	@GetMapping("/users")
 	public String users(Model model){

@@ -14,5 +14,7 @@ public interface PendingRepo extends JpaRepository<Pending, String>{
 	public void deleteEmployeeWithFile(String username, String fileName);
 	*/
 	
+	@Query(value = "SELECT count(*) FROM pending", nativeQuery = true)
+	public Long findPendingCount();
 
 }

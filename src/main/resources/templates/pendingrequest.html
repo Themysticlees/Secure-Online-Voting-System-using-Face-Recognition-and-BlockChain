@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
   <link rel="icon" type="image/png" href="/images/loader.png">
   <title>
-    Pending Request
+    Pending Requests || SOVS
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -258,7 +258,7 @@
                 </h6>
               </div>
             </div>
-            <div class="card-body px-0 pb-2" style="margin-left:20px ;">
+            <div class="card-body px-0 pb-2" style="margin-left:20px ; overflow-y: scroll;">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
@@ -292,14 +292,15 @@
                         <!--Email ID-->
                       </td>
                       <td>
-                        <button id="myBtn" style="padding: 10px 20px ;"
-                          class="thm-btn static-banner-one__form-btn">Details</button>
+                        <button th:id="${user.username}" style="padding: 10px 20px ;"
+                          class="thm-btn static-banner-one__form-btn"
+                          th:onclick="idpass([[${user.username}]] );">Details</button>
 
                         <!-- The Modal -->
 
 
                         <!-- Modal content -->
-                        <div id="myModal" class="modal">
+                        <div th:id="'myModal'+${user.username}" class="modal">
                           <div class="modal-dialog">
 
                             <div class="modal-content">
@@ -465,7 +466,11 @@
                           </div>
                         </div>
 
+
+
+
                       </td>
+
 
                     </tr>
                   </tbody>
@@ -501,16 +506,39 @@
   <script src="/js/material-dashboard.min.js?v=3.0.1"></script>
 
 
+
   <script>
+    let idval;
+
+    function idpass(id) {
+      console.log("Button clicked");
+      idval = id;
+      console.log(idval);
+      var modal = document.getElementById("myModal"+idval);
+      console.log(modal);
+      // Get the button that opens the modal
+      var btn = document.getElementById(idval);
+      modal.style.display = "block";
+
+      window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    }
+
+
+
     // Get the modal
-    var modal = document.getElementById("myModal");
+    var modal = document.getElementById("myModal"+idval);
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    var btn = document.getElementById(idval);
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     // When the user clicks the button, open the modal
     btn.onclick = function () {
       modal.style.display = "block";
+      console.log("Hello");
     }
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
@@ -523,7 +551,6 @@
       }
     }
   </script>
-
 
 
 </body>

@@ -136,13 +136,13 @@ public class HomeController {
 		String param2 = username;
 		// call main.py to execute python program of face recognition \\
 		ProcessBuilder pb = new ProcessBuilder("python",
-				"src\\main\\java\\net\\codejava\\controller/main.py",
+				"src/main/java/net/codejava/controller/main.py",
 				"" + param2).inheritIO();
 		Process p = pb.start();
 		p.waitFor();
 		// call out.txt file from template to get 0/1. 0 means unsuccessful verification
 		// 1 means successful
-		File file = new File("src\\main\\resources\\templates/out.txt");
+		File file = new File("src/main/resources/templates/out.txt");
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String st;
 		char c = '\0';

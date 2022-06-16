@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
   <link rel="icon" type="image/png" href="/images/loader.png">
   <title>
-    Database part extraction Page
+    Display Candidates || SOVS
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -251,13 +251,15 @@
             </div>
             <div class="card-body px-0 pb-2" style="margin-left:20px">
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0" style="margin-left: 30px;">
+                <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="width: 150px;">Candidates
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Candidates
                         Photo</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">UserName
                       </th>
+
+
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">First Name
                       </th>
                       <!-- text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 -->
@@ -267,22 +269,25 @@
                       </th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Party Flag
                       </th>
-                      
-                      
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
+
 
                     </tr>
                   </thead>
                   <tbody>
 
                     <tr th:each="candi : ${allcandidates}">
-                      <td><img th:src="${candi.candidateImagePath}" height="50px" width="50px" /></td>
-                      <td class="" th:text="${candi.username}"></td>
+                      <td><img th:src="${candi.candidateImagePath}" height="50px" width="50px" style="margin-left: 50px;"/></td>
+                      <td class="" th:text="${candi.username}">
+                      </td>
                       <td class="text-capitalize" th:text="${candi.firstname}"></td>
                       <td class="text-capitalize" th:text="${candi.lastname}"></td>
-                      <td class="" th:text="${candi.party}"></td>
+                      <td class="text-capitalize" th:text="${candi.party}">
+                      </td>
                       <td><img th:src="${candi.partypic}" height="50px" width="50px" /></td>
-                      
+
+
+
                       <td>
                         <a th:href="@{'/admin/removeCandidateFile/'+${candi.username}+'/'+${candi.candidatePicImagePath}}"
                           onclick="return confirm('Are you sure you want to delete?');"><button

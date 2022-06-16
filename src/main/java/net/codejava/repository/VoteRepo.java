@@ -32,6 +32,6 @@ public interface VoteRepo extends JpaRepository<Votedata, String> {
 	@Query(value = "SELECT count(*) FROM votecopy", nativeQuery = true)
 	public Long findcount();
 
-
+	public Votedata findByCurrhash(String currhash);
 
 }
