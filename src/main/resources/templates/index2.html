@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>User Home Page || SOVS</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/loader.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/loader.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/loader.png" />
+  <link rel="manifest" href="/images/favicons/site.webmanifest" />
+
+  <!-- plugin scripts -->
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/animate.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="/css/magnific-popup.css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/swiper.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
+  <link rel="stylesheet" href="/css/vegas.min.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <!-- template styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+
+<body>
+  <div class="preloader">
+    <img src="/images/loader.png" height="250" class="preloader__image" alt="" />
+  </div>
+  <!-- /.preloader -->
+  <div class="page-wrapper">
+    <header class="site-header site-header__header-one">
+      <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+        <div class="container clearfix">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="logo-box clearfix">
+            <a class="navbar-brand" th:href="@{'/index'}">
+              <img src="/images/loader.png" class="main-logo" width="100" alt="Awesome image" />
+            </a>
+            <button class="menu-toggler" data-target=".main-navigation">
+              <span class="fa fa-bars"></span>
+            </button>
+          </div>
+          <!-- /.logo-box -->
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="main-navigation">
+            <ul class="navigation-box">
+              <li class="current" style="margin-left: 150px">
+                <a href="/index">Home</a>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="about.html">About</a>
+
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a th:href="@{/public/home/voteprocess}">Vote</a>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a href="#news">News</a>
+                <ul class="sub-menu">
+                  <li><a th:href="@{'/news'}">News Page</a></li>
+                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+              <!-- <li>
+                                
+                                
+                            </li> -->
+              <li style="margin-left: 300px">
+                <a href="#news">
+                  Welcome
+                  <span href="#" style="
+                        margin-right: 10px;
+                        margin-top: 10px;
+                        font-weight: bolder;
+                      " th:text="${currentUser.Firstname}">&npsp</span>
+                  <img th:src="${currentUser.photosImagePath}" alt="Avatar" style="width: 50px; border-radius: 60%" />
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a th:href="@{'/public/home/account'}">Account Settings</a>
+                  </li>
+                  <li><a th:href="@{'/logout'}">Logout</a></li>
+                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+          <!-- 
+                    <div class="right-side-box">
+                        <div class="header-social">
+
+                            <p style="margin-top: 10px">Welcome! &nbsp</p>
+                            <li>
+                            <a href="#" style="margin-right:10px; margin-top: 10px; font-weight: bolder;" th:text="${currentUser.Firstname}">&npsp</a>
+                            </li>
+                            
+
+                            <img th:src="${currentUser.photosImagePath}" alt="Avatar" style=" width: 50px; border-radius: 60%" />
+
+                        </div>
+                        /.header-social
+                    </div> -->
+          <!-- /.right-side-box -->
+        </div>
+        <!-- /.container -->
+      </nav>
+    </header>
+    <!-- /.site-header -->
+    <div th:if="${session.status}">
+      
+        <div th:classappend="${'alert-'+ session.status.type}" class="alert text-center" role="alert">
+          <h1><span th:text="${session.status.content}"></span></h1>
+
+          <span th:if="${session.status.content == 'Voting has not started!'}">
+            <a href="#clock">Check when voting starts</a>
+          </span>
+          <span th:if="${session.status.content == 'Voting has finished! You can check the results!'}">
+            <a href="#clock">Check the results</a>
+          </span>
+
+        </div>
+      
+
+      <!-- <th:block th:text="${#session.removeAttribute('status')}"></th:block> -->
+
+    </div>
+
+    <section class="static-banner-one">
+
+      <div class="static-banner-one__bg">
+        <div class="static-banner-one__bg-inner"></div>
+        <!-- /.static-banner-one__bg-inner -->
+      </div>
+      <!-- /.static-banner-one__bg -->
+      <div class="container">
+        <h2 class="static-banner-one__title">
+          Let's Embrace <br />
+          a
+          <span class="typed-effect" id="type-1" data-strings="New, Powerful, Developing"></span>
+          <br />
+          India
+        </h2>
+      </div>
+      <!-- /.container -->
+    </section>
+    <div class="site-footer" id="clock" style="
+          background-color: white;
+          background-image: url(https://www.solidbackgrounds.com/images/3508x2480/3508x2480-white-solid-color-background.jpg);
+        "></div>
+    <section class="countdown-one thm-gray-bg countdown-one__home-one">
+      <div class="container">
+        <div class="inner-container">
+
+          <div th:if="${session.status}">
+            <span th:if="${session.status.content == 'Voting has not started!'}">
+
+              <div class="row align-items-xl-center align-items-lg-center">
+                <div class="col-xl-6">
+                  <h3 class="countdown-one__title">
+                    The next Voting session starts in:
+                  </h3>
+                  <!-- /.countdown-one__title -->
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-xl-6 d-flex justify-content-xl-end justify-content-lg-center justify-content-sm-center">
+                  <div class="countdown-one__right">
+                    <ul class="countdown-one__list list-unstyled"></ul>
+                    <!-- /.coundown-one__list -->
+                  </div>
+                  <!-- /.countdown-one__right -->
+                </div>
+                <!-- /.col-lg-6 -->
+              </div>
+            </span>
+
+            <span th:if="${session.status.content == 'Voting has finished! You can check the results!'}">
+              <div class="container"
+                style=" justify-content: center;align-items: center; ">
+                <a th:href="${'/vote/showResults'}" target="_blank">
+                  <button class="thm-btn static-banner-one__form-btn shadow-success" style="width: 100%;">Check Results
+                    Here</button>
+                </a>
+              </div>
+            </span>
+
+
+            <!-- <span th:if="${session.status.content == 'Voting is Live!'}">
+                <h2>Voting is Live</h2>
+              </span> -->
+
+
+
+            <th:block th:text="${#session.removeAttribute('status')}"></th:block> 
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.inner-container -->
+        </div>
+        <!-- /.container -->
+      </section>
+
+      <!-- /.static-banner-one -->
+      <section class="about-four">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-lg-12">
+              <div class="about-four__content">
+                <div class="block-title text-left">
+                  <p class="block-title__tag-line">Indian Democracy</p>
+                  <h2 class="block-title__title">
+                    We can build <br />
+                    better future <br />
+                    together
+                  </h2>
+                  <!-- /.block-title__title -->
+                </div>
+                <!-- /.block-title -->
+                <ul class="list-unstyled about-four__list">
+                  <li>
+                    <img
+                      src="/images/resources/menu-active-star.png"
+                      alt="Awesome Image"
+                    />
+                    Lorem ipsum is simply available.
+                  </li>
+                  <li>
+                    <img
+                      src="/images/resources/menu-active-star.png"
+                      alt="Awesome Image"
+                    />
+                    The majority have suffered alteration.
+                  </li>
+                  <li>
+                    <img
+                      src="/images/resources/menu-active-star.png"
+                      alt="Awesome Image"
+                    />
+                    Don't look even slightly.
+                  </li>
+                  <li>
+                    <img
+                      src="/images/resources/menu-active-star.png"
+                      alt="Awesome Image"
+                    />
+                    If you are going to use a passage.
+                  </li>
+                  <li>
+                    <img
+                      src="/images/resources/menu-active-star.png"
+                      alt="Awesome Image"
+                    />
+                    You need to sure there embarrassing.
+                  </li>
+                </ul>
+                <!-- /.list-unstyled about-four__list -->
+              </div>
+              <!-- /.about-four__content -->
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-xl-8 col-lg-12">
+              <div class="row low-gutters">
+                <div class="col-md-6 wow fadeInUp" data-wow-duration="1500ms">
+                  <div class="about-four__image">
+                    <img
+                      src="https://image.freepik.com/free-vector/voting-concept-illustration_114360-5972.jpg"
+                      class="img-fluid"
+                      alt="Awesome Image"
+                    />
+                    <img
+                      src="/images/resources/sign.png"
+                      class="about-four__sign"
+                      alt="Awesome Image"
+                    />
+                  </div>
+                  <!-- /.about-four__image -->
+                </div>
+                <!-- /.col-md-6 -->
+                <div class="col-md-6">
+                  <div
+                    class="about-four__box thm-base-bg-2 wow fadeInUp"
+                    data-wow-duration="1500ms"
+                  >
+                    <div class="about-four__box-top">
+                      <i class="potisen-icon-poll"></i>
+                      <h4 class="about-four__box-title">Vote Status</h4>
+                      <!-- /.about-four__box-title -->
+                    </div>
+                    <!-- /.about-four__box-top -->
+                    <p class="about-four__box-text" style="margin: 60px 20px">
+                      COMING SOON...
+                    </p>
+                    <!-- /.about-four__box-text -->
+                    <a href="#" class="thm-btn about-four__btn">Learn More</a>
+                  </div>
+                  <!-- /.about-four__box -->
+                </div>
+                <!-- /.col-md-6 -->
+              </div>
+              <!-- /.row low-gutters -->
+            </div>
+            <!-- /.col-lg-8 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.about-four -->
+      <section class="campaing-one">
+        <div class="container">
+          <div class="block-title text-center">
+            <img
+              src="/images/resources/sec-title-star.png"
+              alt="Awesome Image"
+              class="wow rotateIn"
+              data-wow-duration="1500ms"
+            />
+            <p class="block-title__tag-line"></p>
+            <h2 class="block-title__title">Features of Project</h2>
+            <!-- /.block-title__title -->
+          </div>
+          <!-- /.block-title -->
+          <div class="row">
+            <div class="column-5">
+              <div class="campaing-one__single">
+                <i class="potisen-icon-sprout"></i>
+                <h3 class="campaing-one__title"><a href="#">Flexible</a></h3>
+                <!-- /.campaing-one__title -->
+              </div>
+              <!-- /.campaing-one__single -->
+            </div>
+            <!-- /.column-5 -->
+            <div class="column-5">
+              <div class="campaing-one__single">
+                <i class="potisen-icon-care"></i>
+                <h3 class="campaing-one__title"><a href="#">Secure</a></h3>
+                <!-- /.campaing-one__title -->
+              </div>
+              <!-- /.campaing-one__single -->
+            </div>
+            <!-- /.column-5 -->
+            <div class="column-5">
+              <div class="campaing-one__single">
+                <i class="potisen-icon-medal"></i>
+                <h3 class="campaing-one__title"><a href="#">Convinience</a></h3>
+                <!-- /.campaing-one__title -->
+              </div>
+              <!-- /.campaing-one__single -->
+            </div>
+            <!-- /.column-5 -->
+            <div class="column-5">
+              <div class="campaing-one__single">
+                <i class="potisen-icon-idea"></i>
+                <h3 class="campaing-one__title"><a href="#">Accuracy</a></h3>
+                <!-- /.campaing-one__title -->
+              </div>
+              <!-- /.campaing-one__single -->
+            </div>
+            <!-- /.column-5 -->
+            <div class="column-5">
+              <div class="campaing-one__single">
+                <i class="potisen-icon-mortarboard"></i>
+                <h3 class="campaing-one__title">
+                  <a href="#">Smart Voting</a>
+                </h3>
+                <!-- /.campaing-one__title -->
+              </div>
+              <!-- /.campaing-one__single -->
+            </div>
+            <!-- /.column-5 -->
+          </div>
+          <!-- /.row -->
+          <!-- <p class="campaing-one__more-text text-center">
+            How we can build a better country together!.
+            <a href="donation.html">Donate or Volunteer.</a>
+          </p> -->
+          <!-- /.campaing-one__more-text -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.campaing-one -->
+       <section class="fact-one">
+         <div class="container text-center">
+           <img src="/images/resources/decor-star-1-1.png" class="fact-one__star-1" alt="" />
+           <h3 class="fact-one__title counter">911,955,734</h3>
+           <p class="fact-one__text">
+             People cast their vote in
+             <span style="font-weight: bold; color: rgb(9, 9, 109)">INDIA</span>
+           </p>
+           <img src="/images/resources/decor-star-1-1.png" class="fact-one__star-2" alt="" />
+         </div>
+         <!-- /.container -->
+       </section>
+      <!-- /.fact-one -->
+      <section class="about-three thm-gray-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="about-three__image">
+                <img
+                  height="650px"
+                  width="550px"
+                  src="/images/resources/mission-vision.jpg"
+                  alt="Awesome Image"
+                />
+              </div>
+              <!-- /.about-three__image -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+              <div class="about-three__content">
+                <div class="block-title text-left">
+                  <img
+                    src="/images/resources/sec-title-star.png"
+                    alt="Awesome Image"
+                    class="wow rotateIn"
+                    data-wow-duration="1500ms"
+                  />
+                  <p class="block-title__tag-line">About SVOS</p>
+                  <h2 class="block-title__title">Mission and Vision</h2>
+                  <!-- /.block-title__title -->
+                </div>
+
+                <!-- /.block-title -->
+                <div class="about-three__box-wrap">
+                  <div class="about-three__box">
+                    <i class="potisen-icon-bid"></i>
+                    <h4 class="about-three__box-title">
+                      Transparency and <br />
+                      Fairness
+                    </h4>
+                    <!-- /.about-three__box-title -->
+                  </div>
+                  <!-- /.about-three__box -->
+                  <div class="about-three__box">
+                    <i class="potisen-icon-work"></i>
+                    <h4 class="about-three__box-title">
+                      Increase in <br />
+                      Voting Ratio
+                    </h4>
+                    <!-- /.about-three__box-title -->
+                  </div>
+                  <!-- /.about-three__box -->
+                  <div class="about-three__box">
+                    <i class="potisen-icon-politics"></i>
+                    <h4 class="about-three__box-title">
+                      Vote from <br />
+                      Anywhere
+                    </h4>
+                    <!-- /.about-three__box-title -->
+                  </div>
+                  <!-- /.about-three__box -->
+                </div>
+                <!-- /.about-three__box-wrap -->
+                <p class="about-three__text">
+                  The SECURE ONLINE VOTING SYSTEM-INDIA shall reduce the time
+                  spent making long queues at the polling stations during
+                  voting. It shall also enable the voters to vote from any part
+                  of the globe as explained since this is an online application
+                  available on the internet. Since the voting process shall be
+                  open as early as possible, the voters shall have ample time to
+                  decide when and whom to vote for.
+                </p>
+                <!-- /.about-three__text -->
+                <a
+                  href="https://docs.google.com/document/d/1Gvg43b9ZL2fgp6rO7DC_zTZGWfeOrMoM/edit?usp=sharing&ouid=114489309080577665189&rtpof=true&sd=true"
+                  class="thm-btn about-three__btn"
+                  >Learn More</a
+                >
+              </div>
+              <!-- /.about-three__content -->
+            </div>
+            <!-- /.col-lg-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.about-three -->
+      <!--
+      <section class="cta-two cta-two__home-one">
+        <div class="container">
+          <p class="cta-two__tag-line">Join the Fight for Freedom</p>
+        
+          <h3 class="cta-two__title">
+            Help us Bring <br />
+            the Change we Need
+          </h3>
+          
+          <a href="#" class="thm-btn cta-two__btn">Become a Volunteer</a>
+        </div>
+        
+        <div
+          class="donation-contribute wow fadeInUp"
+          data-wow-duration="1500ms"
+        >
+          <div class="container">
+            <div class="inner-container thm-base-bg-2">
+              <div class="row align-items-center">
+                <div class="col-lg-5">
+                  <h3 class="donation-contribute__title">
+                    Contribute to help us win
+                  </h3>
+                  
+                </div>
+                
+                <div class="col-lg-7">
+                  <form class="donation-contribute__form">
+                    <div class="donation-contribute__amount">
+                      <select class="selectpicker">
+                        <option>$</option>
+                        <option>₤</option>
+                        <option>¥</option>
+                      </select>
+                      <input type="text" name="donation-money" value="5.00" />
+                    </div>
+                    
+                    <button
+                      type="submit"
+                      class="thm-btn donation-contribute__btn"
+                    >
+                      Donate
+                    </button>
+                  </form>
+                </div>
+               
+              </div>
+             
+            </div>
+           
+          </div>
+          
+        </div>
+      
+      </section>
+      
+  -->
+      <section class="event-one thm-gray-bg event-one__home-one">
+        <div class="container">
+          <div class="block-title text-center">
+            <img
+              src="/images/resources/sec-title-star.png"
+              alt="Awesome Image"
+              class="wow rotateIn"
+              data-wow-duration="1500ms"
+            />
+            <p class="block-title__tag-line">Join Campaigns</p>
+            <h2 class="block-title__title">Upcoming Events</h2>
+            <!-- /.block-title__title -->
+          </div>
+          <!-- /.block-title -->
+          <div class="row">
+            <div class="col-xl-4">
+              <div class="event-one__single">
+                <div class="event-one__image">
+                  <div class="event-one__image-inner">
+                    <img src="/images/event/event-1-1.jpg" alt="" />
+                  </div>
+                  <!-- /.event-one__image-inner -->
+                </div>
+                <!-- /.event-one__image -->
+                <div class="event-one__content">
+                  <p class="event-one__date">20 Oct, 2019</p>
+                  <h3 class="event-one__title">
+                    <a href="event-details.html"
+                      >Let’s meet your candidate in america</a
+                    >
+                  </h3>
+                  <!-- /.event-one__title -->
+                </div>
+                <!-- /.event-one__content -->
+              </div>
+              <!-- /.event-one__single -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-xl-4">
+              <div class="event-one__single">
+                <div class="event-one__image">
+                  <div class="event-one__image-inner">
+                    <img src="/images/event/event-1-2.jpg" alt="" />
+                  </div>
+                  <!-- /.event-one__image-inner -->
+                </div>
+                <!-- /.event-one__image -->
+                <div class="event-one__content">
+                  <p class="event-one__date">20 Oct, 2019</p>
+                  <h3 class="event-one__title">
+                    <a href="event-details.html"
+                      >Let’s meet your candidate in america</a
+                    >
+                  </h3>
+                  <!-- /.event-one__title -->
+                </div>
+                <!-- /.event-one__content -->
+              </div>
+              <!-- /.event-one__single -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-xl-4">
+              <div class="event-one__single">
+                <div class="event-one__image">
+                  <div class="event-one__image-inner">
+                    <img src="/images/event/event-1-3.jpg" alt="" />
+                  </div>
+                  <!-- /.event-one__image-inner -->
+                </div>
+                <!-- /.event-one__image -->
+                <div class="event-one__content">
+                  <p class="event-one__date">20 Oct, 2019</p>
+                  <h3 class="event-one__title">
+                    <a href="event-details.html"
+                      >Let’s meet your candidate in america</a
+                    >
+                  </h3>
+                  <!-- /.event-one__title -->
+                </div>
+                <!-- /.event-one__content -->
+              </div>
+              <!-- /.event-one__single -->
+            </div>
+            <!-- /.col-lg-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.event-one -->
+
+      <!-- /.countdown-one -->
+      <section class="about-two">
+        <div class="container">
+          <div class="block-title text-center">
+            <img
+              src="/images/resources/sec-title-star.png"
+              alt="Awesome Image"
+              class="wow rotateIn"
+              data-wow-duration="1500ms"
+            />
+            <p class="block-title__tag-line">Join Campaigns</p>
+            <h2 class="block-title__title">
+              We Will Make <br />
+              History Together
+            </h2>
+            <!-- /.block-title__title -->
+          </div>
+          <!-- /.block-title -->
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="about-two__content">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <img
+                      src="/images/resources/history-1-1.jpg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <!-- /.col-sm-4 -->
+                  <div class="col-sm-4">
+                    <img
+                      src="/images/resources/history-1-2.jpg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <!-- /.col-sm-4 -->
+                  <div class="col-sm-4">
+                    <img
+                      src="/images/resources/history-1-3.jpg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <!-- /.col-sm-4 -->
+                </div>
+                <!-- /.row -->
+                <p class="about-two__text">
+                  Lorem Ipsum is simply dummy text of the printing and type
+                  setting industry has been the industry's standard dummy text
+                  ever since the 1500s, when an unknown printer took a galley of
+                  type and scrambled to make a type specimen book. It has
+                  survived not only five centuries but also the leap into
+                  electronic type setting.
+                </p>
+                <!-- /.about-two__text -->
+              </div>
+              <!-- /.about-two__content -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+              <div class="accrodion-grp" data-grp-name="faq-accrodion">
+                <div class="accrodion active">
+                  <div class="accrodion-title">
+                    <h4>Political organization that typically seeks</h4>
+                  </div>
+                  <div class="accrodion-content">
+                    <div class="inner">
+                      <p>
+                        It has survived not only five centuries but also the
+                        leap into electronic type setting. when an unknown
+                        printer took a galley of type and scrambled to make a
+                        type specimen book.
+                      </p>
+                    </div>
+                    <!-- /.inner -->
+                  </div>
+                </div>
+                <div class="accrodion">
+                  <div class="accrodion-title">
+                    <h4>Strong politics plan require experience</h4>
+                  </div>
+                  <div class="accrodion-content">
+                    <div class="inner">
+                      <p>
+                        It has survived not only five centuries but also the
+                        leap into electronic type setting. when an unknown
+                        printer took a galley of type and scrambled to make a
+                        type specimen book.
+                      </p>
+                    </div>
+                    <!-- /.inner -->
+                  </div>
+                </div>
+                <div class="accrodion">
+                  <div class="accrodion-title">
+                    <h4>Attract and retain quality high paying customers</h4>
+                  </div>
+                  <div class="accrodion-content">
+                    <div class="inner">
+                      <p>
+                        It has survived not only five centuries but also the
+                        leap into electronic type setting. when an unknown
+                        printer took a galley of type and scrambled to make a
+                        type specimen book.
+                      </p>
+                    </div>
+                    <!-- /.inner -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-lg-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.about-two -->
+      <section class="testimonials-two">
+        <div class="testimonials-two__carousel">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div
+                class="testimonials-two__single"
+                style="
+                  background-image: url(/images/testimonials/testimonials-1-bg.jpg);
+                "
+              >
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-lg-7">
+                      <i class="potisen-icon-quote testimonials-two__icon"></i>
+                      <h3 class="testimonials-two__text">
+                        This is due to their excellent service, competitive
+                        pricing and customer support. It’s throughly refresing
+                        to get such a personal touch.
+                      </h3>
+                      <p class="testimonials-two__name">Gary Hilk</p>
+                      <!-- /.testimonials-two__name -->
+                    </div>
+                    <!-- /.col-lg-7 -->
+                    <div
+                      class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start"
+                    >
+                      <div class="testimonials-two__btn-wrap">
+                        <a href="#" class="testimonials-two__btn">
+                          <i class="fa fa-play"></i>
+                        </a>
+                        <span class="testimonials-two__btn-tag-line"
+                          >Watch Campaigns
+                          <img
+                            src="/images/resources/video-arrow.png"
+                            alt="Awesome Image"
+                        /></span>
+                      </div>
+                      <!-- /.testimonials-two__btn-wrap -->
+                    </div>
+                    <!-- /.col-lg-5 -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.container -->
+              </div>
+              <!-- /.testimonials-two__single -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide">
+              <div
+                class="testimonials-two__single"
+                style="
+                  background-image: url(/images/testimonials/testimonials-2-bg.jpg);
+                "
+              >
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-lg-7">
+                      <i class="potisen-icon-quote testimonials-two__icon"></i>
+                      <h3 class="testimonials-two__text">
+                        This is due to their excellent service, competitive
+                        pricing and customer support. It’s throughly refresing
+                        to get such a personal touch.
+                      </h3>
+                      <p class="testimonials-two__name">Naida Bowline</p>
+                      <!-- /.testimonials-two__name -->
+                    </div>
+                    <!-- /.col-lg-7 -->
+                    <div
+                      class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start"
+                    >
+                      <div class="testimonials-two__btn-wrap">
+                        <a href="#" class="testimonials-two__btn">
+                          <i class="fa fa-play"></i>
+                        </a>
+                        <span class="testimonials-two__btn-tag-line"
+                          >Watch Campaigns
+                          <img
+                            src="/images/resources/video-arrow.png"
+                            alt="Awesome Image"
+                        /></span>
+                      </div>
+                      <!-- /.testimonials-two__btn-wrap -->
+                    </div>
+                    <!-- /.col-lg-5 -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.container -->
+              </div>
+              <!-- /.testimonials-two__single -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide">
+              <div
+                class="testimonials-two__single"
+                style="
+                  background-image: url(/images/testimonials/testimonials-3-bg.jpg);
+                "
+              >
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-lg-7">
+                      <i class="potisen-icon-quote testimonials-two__icon"></i>
+                      <h3 class="testimonials-two__text">
+                        This is due to their excellent service, competitive
+                        pricing and customer support. It’s throughly refresing
+                        to get such a personal touch.
+                      </h3>
+                      <p class="testimonials-two__name">Caroline Ocheltree</p>
+                      <!-- /.testimonials-two__name -->
+                    </div>
+                    <!-- /.col-lg-7 -->
+                    <div
+                      class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start"
+                    >
+                      <div class="testimonials-two__btn-wrap">
+                        <a href="#" class="testimonials-two__btn">
+                          <i class="fa fa-play"></i>
+                        </a>
+                        <span class="testimonials-two__btn-tag-line"
+                          >Watch Campaigns
+                          <img
+                            src="/images/resources/video-arrow.png"
+                            alt="Awesome Image"
+                        /></span>
+                      </div>
+                      <!-- /.testimonials-two__btn-wrap -->
+                    </div>
+                    <!-- /.col-lg-5 -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.container -->
+              </div>
+              <!-- /.testimonials-two__single -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide">
+              <div
+                class="testimonials-two__single"
+                style="
+                  background-image: url(/images/testimonials/testimonials-4-bg.jpg);
+                "
+              >
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-lg-7">
+                      <i class="potisen-icon-quote testimonials-two__icon"></i>
+                      <h3 class="testimonials-two__text">
+                        This is due to their excellent service, competitive
+                        pricing and customer support. It’s throughly refresing
+                        to get such a personal touch.
+                      </h3>
+                      <p class="testimonials-two__name">Corey Gessner</p>
+                      <!-- /.testimonials-two__name -->
+                    </div>
+                    <!-- /.col-lg-7 -->
+                    <div
+                      class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start"
+                    >
+                      <div class="testimonials-two__btn-wrap">
+                        <a href="#" class="testimonials-two__btn">
+                          <i class="fa fa-play"></i>
+                        </a>
+                        <span class="testimonials-two__btn-tag-line"
+                          >Watch Campaigns
+                          <img
+                            src="/images/resources/video-arrow.png"
+                            alt="Awesome Image"
+                        /></span>
+                      </div>
+                      <!-- /.testimonials-two__btn-wrap -->
+                    </div>
+                    <!-- /.col-lg-5 -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.container -->
+              </div>
+              <!-- /.testimonials-two__single -->
+            </div>
+            <!-- /.swiper-slide -->
+          </div>
+          <!-- /.swiper-wrapper -->
+        </div>
+        <!-- /.testimonials-two__carousel -->
+        <div class="testimonials-two__bottom thm-gray-bg">
+          <div class="container">
+            <div class="testimonials-two__thumb-carousel">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="/images/testimonials/testimonials-1-thumb.jpg"
+                    alt=""
+                  />
+                </div>
+                <!-- /.swiper-slide -->
+                <div class="swiper-slide">
+                  <img
+                    src="/images/testimonials/testimonials-2-thumb.jpg"
+                    alt=""
+                  />
+                </div>
+                <!-- /.swiper-slide -->
+                <div class="swiper-slide">
+                  <img
+                    src="/images/testimonials/testimonials-3-thumb.jpg"
+                    alt=""
+                  />
+                </div>
+                <!-- /.swiper-slide -->
+                <div class="swiper-slide">
+                  <img
+                    src="/images/testimonials/testimonials-4-thumb.jpg"
+                    alt=""
+                  />
+                </div>
+                <!-- /.swiper-slide -->
+              </div>
+              <!-- /.swiper-wrapper -->
+            </div>
+            <!-- /.testimonials-one__thumb-carousel -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.testimonials-two__bottom -->
+      </section>
+      <!-- /.testimonials-two -->
+
+      <section class="mailchimp-one">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <h3 class="mailchimp-one__title">
+                Don't miss our monthly updates
+              </h3>
+              <!-- /.mailchimp-one__title -->
+            </div>
+            <!-- /.col-lg-5 -->
+            <div class="col-lg-7">
+              <form
+                class="mailchimp-one__form mc-form"
+                data-url="https://xyz.us18.list-manage.com/subscribe/post?u=20e91746ef818cd941998c598&amp;id=cc0ee8140e"
+              >
+                <input
+                  placeholder="Email Address"
+                  type="email"
+                  required="required"
+                  class="formInput"
+                  name="EMAIL"
+                />
+                <button type="submit" class="thm-btn mailchimp-one__form-btn">
+                  Subscribe
+                </button>
+              </form>
+              <div class="mc-form__response"></div>
+              <!-- /.mc-form__response -->
+            </div>
+            <!-- /.col-lg-7 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.mailchimp-one -->
+
+      <!-- /.brand-one thm-gray-bg -->
+
+      <section class="social-shares">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="social-shares__facebook thm-base-bg text-center">
+                <i class="fa fa-facebook-square"></i>
+                <p class="social-shares__facebook-name">Facebook</p>
+                <!-- /.social-shares__facebook-name -->
+                <h3 class="social-shares__facebook-count">280,366</h3>
+                <!-- /.social-shares__facebook-count -->
+                <a href="#" class="social-shares__facebook-link"
+                  >#potisenfacebook</a
+                >
+              </div>
+              <!-- /.social-shares__facebook -->
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-8">
+              <div class="social-shares__twitter thm-base-bg-2">
+                <h3 class="social-shares__twitter-title">Latest Tweets</h3>
+                <!-- /.social-shares__twitter-title -->
+                <div
+                  class="social-shares__twitter-carousel owl-carousel owl-theme"
+                >
+                  <div class="item">
+                    <div class="social-shares__twitter-single">
+                      <p class="social-shares__twitter-text">
+                        A Bill of Rights is what the people are entitled to
+                        against <a href="#"><strong>#politics</strong></a> every
+                        government, and what no just government should refuse,
+                        or rest on inference.
+                        <a href="#">https://t.co/LpyuHZaOMK</a>
+                        <a href="#">#ASMSG</a>
+                      </p>
+                      <!-- /.social-shares__twitter-text -->
+                      <div class="social-shares__twitter-info">
+                        <p class="social-shares__twitter-info-text">
+                          <a href="#">@potisentwitterfollow</a>
+                          <span>5 minutes ago</span>
+                        </p>
+                        <!-- /.social-shares__twitter-info-text -->
+                        <i class="fa fa-twitter"></i>
+                      </div>
+                      <!-- /.social-shares__twitter-info -->
+                    </div>
+                    <!-- /.social-shares__twitter-single -->
+                  </div>
+                  <!-- /.item -->
+                  <div class="item">
+                    <div class="social-shares__twitter-single">
+                      <p class="social-shares__twitter-text">
+                        A Bill of Rights is what the people are entitled to
+                        against <a href="#"><strong>#politics</strong></a> every
+                        government, and what no just government should refuse,
+                        or rest on inference.
+                        <a href="#">https://t.co/LpyuHZaOMK</a>
+                        <a href="#">#ASMSG</a>
+                      </p>
+                      <!-- /.social-shares__twitter-text -->
+                      <div class="social-shares__twitter-info">
+                        <p class="social-shares__twitter-info-text">
+                          <a href="#">@potisentwitterfollow</a>
+                          <span>5 minutes ago</span>
+                        </p>
+                        <!-- /.social-shares__twitter-info-text -->
+                        <i class="fa fa-twitter"></i>
+                      </div>
+                      <!-- /.social-shares__twitter-info -->
+                    </div>
+                    <!-- /.social-shares__twitter-single -->
+                  </div>
+                  <!-- /.item -->
+                  <div class="item">
+                    <div class="social-shares__twitter-single">
+                      <p class="social-shares__twitter-text">
+                        A Bill of Rights is what the people are entitled to
+                        against <a href="#"><strong>#politics</strong></a> every
+                        government, and what no just government should refuse,
+                        or rest on inference.
+                        <a href="#">https://t.co/LpyuHZaOMK</a>
+                        <a href="#">#ASMSG</a>
+                      </p>
+                      <!-- /.social-shares__twitter-text -->
+                      <div class="social-shares__twitter-info">
+                        <p class="social-shares__twitter-info-text">
+                          <a href="#">@potisentwitterfollow</a>
+                          <span>5 minutes ago</span>
+                        </p>
+                        <!-- /.social-shares__twitter-info-text -->
+                        <i class="fa fa-twitter"></i>
+                      </div>
+                      <!-- /.social-shares__twitter-info -->
+                    </div>
+                    <!-- /.social-shares__twitter-single -->
+                  </div>
+                  <!-- /.item -->
+                </div>
+                <!-- /.social-shares__twitter-carousel -->
+              </div>
+              <!-- /.social-shares__twitter -->
+            </div>
+            <!-- /.col-lg-8 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.social-shares -->
+
+      <footer class="site-footer">
+        <div class="site-footer__logo text-center">
+          <a href="index.html"
+            ><img src="/images/loader.png" alt="" width="174"
+          /></a>
+        </div>
+        <!-- /.site-footer__logo -->
+        <div class="site-footer__upper">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget">
+                  <h3 class="footer-widget__title">About</h3>
+                  <!-- /.footer-widget__title -->
+                  <p class="footer-widget__text">
+                    Lorem ipsum is simply dolor sit ametcn <br />
+                    sectetur adipiscing elit. Phasellus vehic <br />
+                    sagittis euismod.
+                  </p>
+                  <!-- /.footer-widget__text -->
+                  <div class="footer-widget__social">
+                    <a href="#" class="fa fa-twitter"></a>
+                    <!-- /.fa fa-twitter -->
+                    <a href="#" class="fa fa-facebook-square"></a>
+                    <!-- /.fa fa-facebook-square -->
+                    <a href="#" class="fa fa-pinterest-p"></a>
+                    <!-- /.fa fa-pinterest-p -->
+                    <a href="#" class="fa fa-instagram"></a>
+                    <!-- /.fa fa-instagram -->
+                  </div>
+                  <!-- /.footer-widget__social -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+              <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget footer-widget__links">
+                  <h3 class="footer-widget__title">Explore</h3>
+                  <!-- /.footer-widget__title -->
+                  <ul class="list-unstyled footer-widget__links-list">
+                    <li><a href="#">About Potisen</a></li>
+                    <li><a href="#">Volunteering</a></li>
+                    <li><a href="#">Contribute</a></li>
+                    <li><a href="#">Join Our Community</a></li>
+                    <li><a href="#">Latest News</a></li>
+                  </ul>
+                  <!-- /.list-unstyled footer-widget__links-list -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget footer-widget__posts">
+                  <h3 class="footer-widget__title">Updates</h3>
+                  <!-- /.footer-widget__title -->
+                  <ul class="list-unstyled footer-widget__posts-list">
+                    <li>
+                      <div class="footer-widget__posts-image">
+                        <img
+                          src="/images/resources/footer-post-1-1.png"
+                          alt=""
+                        />
+                      </div>
+                      <!-- /.footer-widget__posts-image -->
+                      <div class="footer-widget__posts-content">
+                        <h4 class="footer-widget__posts-title">
+                          <a href="news-details.html"
+                            >International conference</a
+                          >
+                        </h4>
+                        <!-- /.footer-widget__posts-title -->
+                        <p class="footer-widget__posts-date">20 Oct, 2019</p>
+                        <!-- /.footer-widget__posts-date -->
+                      </div>
+                      <!-- /.footer-widget__posts-content -->
+                    </li>
+                    <li>
+                      <div class="footer-widget__posts-image">
+                        <img
+                          src="/images/resources/footer-post-1-2.png"
+                          alt=""
+                        />
+                      </div>
+                      <!-- /.footer-widget__posts-image -->
+                      <div class="footer-widget__posts-content">
+                        <h4 class="footer-widget__posts-title">
+                          <a href="news-details.html"
+                            >The strength of democracy</a
+                          >
+                        </h4>
+                        <!-- /.footer-widget__posts-title -->
+                        <p class="footer-widget__posts-date">20 Oct, 2019</p>
+                        <!-- /.footer-widget__posts-date -->
+                      </div>
+                      <!-- /.footer-widget__posts-content -->
+                    </li>
+                  </ul>
+                  <!-- /.list-unstyled footer-widget__posts-list -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget footer-widget__contact">
+                  <h3 class="footer-widget__title">Contact</h3>
+                  <!-- /.footer-widget__title -->
+                  <ul class="list-unstyled footer-widget__contact-list">
+                    <li>
+                      <i class="potisen-icon-phone"></i
+                      ><!-- /. -->
+                      <a href="tel:666-888-000">+91 6290551214</a>
+                    </li>
+                    <li>
+                      <i class="potisen-icon-mail"></i
+                      ><!-- /. -->
+                      <a href="mailto:donotreplysovs@gmail.com"
+                        >donotreplysovs@gmail.com</a
+                      >
+                    </li>
+                    <li>
+                      <i class="potisen-icon-pin"></i
+                      ><!-- /. -->
+                      22 Broklyn Street 30 Road. New <br />
+                      York United States
+                    </li>
+                  </ul>
+                  <!-- /.list-unstyled footer-widget__post-list -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.site-footer__upper -->
+        <div class="site-footer__bottom">
+          <div class="container">
+            <div class="inner-container text-center">
+              <p class="site-footer__copy">
+                &copy; copyright 2022 by <a href="#"></a>
+              </p>
+              <!-- /.site-footer__copy -->
+            </div>
+            <!-- /.inner-container -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.site-footer__bottom -->
+      </footer>
+      <!-- /.site-footer -->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"
+      ><i class="fa fa-angle-up"></i
+    ></a>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/TweenMax.min.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/typed-2.0.11.js"></script>
+    <script src="/js/vegas.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/bootstrap-select.min.js"></script>
+    <script src="/js/countdown.min.js"></script>
+
+    <!-- template scripts -->
+    <script src="/js/theme.js"></script>
+    <!-- template scripts -->
+    <script src="/js/theme.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        if (localStorage.getItem("popState") != "shown") {
+          setTimeout(function () {
+            $("#popupmain").css("display", "block");
+            localStorage.setItem("popState", "shown");
+            document.querySelector("#videomute").autoplay = false;
+          }, 0000);
+
+          $("#buttonid").click(function () {
+            $("#popupmain").css("display", "none");
+          });
+        }
+
+        if (!localStorage.getItem("videoState")) {
+          disableAutoplay(); // Run the function below.
+        }
+      });
+
+      $("#instruction").click(function () {
+        $("#popupmain").css("display", "block");
+      });
+
+      $("#buttonid").click(function () {
+        $("#popupmain").css("display", "none");
+      });
+
+      var vid = document.getElementById("videomute");
+
+      function enableMute() {
+        vid.muted = true;
+      }
+
+      function disableAutoplay() {
+        vid.autoplay = false;
+        vid.load();
+      }
+    </script>
+<script>
+  window.scroll({
+    top: 2500,
+    left: 0,
+    behavior: 'smooth'
+  });
+
+  // Scroll certain amounts from current position
+  window.scrollBy({
+    top: 100, // could be negative value
+    left: 0,
+    behavior: 'smooth'
+  });
+
+  // Scroll to a certain element
+  document.querySelector('.hello').scrollIntoView({
+    behavior: 'smooth'
+  })
+</script>
+     
+  </body>
+</html>

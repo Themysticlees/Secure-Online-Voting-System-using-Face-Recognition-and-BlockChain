@@ -1,0 +1,558 @@
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!----======== CSS ======== -->
+  <link rel="stylesheet" href="/css/stylepage.css">
+
+  <!----===== Boxicons CSS ===== -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" href="/images/loader.png">
+  <title>
+    Pending Requests || SOVS
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+  <link href="/css/popup.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .inner-banner {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+
+  <nav class="sidebar close toggleover"
+    style="background-image: url(../images/background/inner-banner-bg.jpg);  box-shadow: 0 1rem 3rem rgba(0, 0, 255, 0.975)!important;">
+    <header>
+      <div class="image-text">
+        <span class="image" style="height: 110px;">
+          <!-- <img src="/images/loader.png" alt="" height="80px" width="80px"> -->
+        </span>
+
+      </div>
+
+      <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+      <div class="menu">
+
+        <li class="search-box" style="visibility: hidden">
+
+
+        </li>
+
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a class="nav-link text-white " th:href="@{'/admin/'}">
+              <i class='bx bx-home-alt icon' title="Dashboard"></i>
+              <span class="text nav-text" title="Dashboard">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/users'}">
+              <i class='bx bxs-user-detail icon' title="Database Part"></i>
+              <span class="text nav-text" title="Database Part">List of Users</span>
+            </a>
+          </li>
+
+
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/pendingrequest'}">
+              <i class='bx bx-hourglass icon' title="Pending Requset"></i>
+              <span class="text nav-text" title="Pending Requset">Pending requests</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/notifications'}">
+              <i class='bx bx-bell icon' title="Notification"></i>
+              <span class="text nav-text" title="Notification">Notifications</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/candidates'}">
+              <i class='bx bx-user-plus icon' title="Candidate"></i>
+              <span class="text nav-text" title=" Candidate Register" style="font-size:1rem;">
+                Candidate Register
+              </span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/candidatelist'}">
+              <i class='bx bx-user icon' style='font-size:18px;'></i>
+
+              <span class="text nav-text" title="List of candidates">List of candidates</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <li class="">
+          <a th:href="@{'/logout'}">
+            <i class='bx bx-log-out icon' title="Logout"></i>
+            <span class="text nav-text" title="Logout">Logout</span>
+          </a>
+        </li>
+
+
+      </div>
+    </div>
+
+  </nav>
+
+  <section class="home">
+
+    <header class="site-header site-header__header-one">
+
+      <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+        <div class="container clearfix">
+
+
+          <div class="logo-box clearfix">
+            <a class="navbar-brand" th:href="@{'/index'}">
+              <img src="/images/loader.png" class="main-logo" width="80" alt="Awesome image" />
+            </a>
+            <button class="menu-toggler" data-target=".main-navigation">
+              <span class="fa fa-bars"></span>
+            </button>
+          </div>
+
+
+
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="main-navigation">
+            <ul class="navigation-box" style="text-align: left;">
+              <li class="current" style="margin-left: 150px">
+                <a th:href="@{/index}">Home</a>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="about.html">About</a>
+                <ul class="sub-menu">
+                  <li><a href="about.html">About Us</a></li>
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a th:href="@{/public/home/faceverification}">Vote</a>
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a href="#news">News</a>
+                <ul class="sub-menu">
+                  <li><a th:href="@{'/news'}">News Page</a></li>
+                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+              <!-- Shows Username -->
+              <li style="margin-left: 100px;">
+                <a href="#">
+                  Welcome
+                  <span href="#" style="
+                      margin-right: 10px;
+                      margin-top: 10px;
+                      font-weight: bolder;
+                    ">Admin&nbsp</span>
+                  <!-- Shows Photo -->
+                  <img src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg" alt="Avatar"
+                    style="width: 50px; border-radius: 60%" />
+                </a>
+                <!-- /.sub-menu -->
+              </li>
+            </ul>
+          </div>
+          <!-- /.right-side-box -->
+        </div>
+        <!-- /.container -->
+      </nav>
+    </header>
+
+
+    <section class="inner-banner">
+      <div class="container">
+        <h2 class="inner-banner__title">Pending Requests</h2>
+        <!-- /.inner-banner__title -->
+        <ul class="list-unstyled thm-breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Pending Request</li>
+        </ul>
+        <!-- /.list-unstyled -->
+      </div>
+      <!-- Shows Success Message -->
+    </section>
+
+    <div class="text">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+
+
+        </ol>
+
+      </nav>
+
+    </div>
+
+
+
+
+
+
+
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
+
+
+      <!-- End Navbar -->
+      <div class="container-fluid py-4">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3" style="text-align: center;font-size: 20px">
+                </h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2" style="margin-left:20px ; overflow-y: scroll;">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Adhaar ID
+                      </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 ">First Name
+                      </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Last Name
+                      </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email ID
+                      </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="user : ${pendingUsers}">
+                      <td><img th:src="${user.photosImagePath}" height="50px" width="50px" />
+                      <td th:text="${user.username}">
+                        <!--Adhar ID-->
+                      </td>
+                      <td class="text-capitalize" th:text="${user.firstname}">
+                        <!--First Name-->
+                      </td>
+                      <td class="text-capitaliz" th:text="${user.lastname}">
+                        <!--Last Name-->
+                      </td>
+                      <td th:text="${user.email}">
+                        <!--Email ID-->
+                      </td>
+                      <td>
+                        <button th:id="${user.username}" style="padding: 10px 20px ;"
+                          class="thm-btn static-banner-one__form-btn"
+                          th:onclick="idpass([[${user.username}]] );">Details</button>
+
+                        <!-- The Modal -->
+
+
+                        <!-- Modal content -->
+                        <div th:id="'myModal'+${user.username}" class="modal">
+                          <div class="modal-dialog">
+
+                            <div class="modal-content">
+
+                              <div class="main-body container" style="padding-left:15px;">
+                                <!-- Breadcrumb -->
+                                <!-- <button data-bs-dismiss="modal" class="btn-close" style="float: right; margin-bottom: 40px; "></button> -->
+                                <!-- /Breadcrumb -->
+
+                                <div class="row">
+
+
+                                  <div class="col-md-4 card1">
+
+                                    <div class="card" style="border: 2px solid #1b4fb8; margin-top: 10px">
+                                      <div class="card-body" style="margin-top: 126px; margin-bottom: 178px">
+                                        <div class="d-flex flex-column align-items-center text-center">
+                                          <!--Image er src ta rakhlam size ta maintain korar jonno, photo ta soriye dish-->
+                                          <img th:src="${user.photosImagePath}" id="thumbnail" alt="Admin"
+                                            class="rounded-circle" width="150px" height="150px" />
+
+                                          <div class="mt-3">
+
+                                            <h5 class="mb-0">
+                                              <!--Update data from Database-->
+                                              <span th:text="${user.firstname}"></span>
+                                              <span th:text="${user.lastname}"></span>
+                                            </h5>
+                                            <br />
+
+                                            <h5 class="text-muted font-size-sm" th:text="${user.username}"
+                                              th:value="${user.username}">
+                                              <!--Update data from Database-->
+                                            </h5>
+                                            <br />
+                                            <a th:href="${user.adhaarPdfPath}" target="_blank"><button
+                                                style="padding: 10px 20px ; margin:0px 50px; font-size: 0.83em;"
+                                                class="thm-btn static-banner-one__form-btn">
+                                                Click to view Adhhar Card</button>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                                  <div class="col-md-8">
+                                    <div class="card mb-3" style="margin: 10px; border: 2px solid #e14e53">
+                                      <div class="card-body">
+
+                                        <h2 class="heading" style="text-align: center;color: #4481eb;">User Details</h2>
+
+                                        <br />
+
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">Email</h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right; "
+                                            th:text="${user.email}">
+                                            <!--Update data from Database-->
+
+                                          </div>
+                                        </div>
+
+                                        <hr />
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">
+                                              Date of Birth
+                                            </h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right;"
+                                            th:text="${user.birthday}">
+                                            <!--Update data from Database-->
+
+                                          </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">Mobile</h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right;"
+                                            th:text="${user.mobileno}">
+                                            <!--Update data from Database-->
+                                          </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">Gender</h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right; "
+                                            th:text="${user.gender}">
+                                            <!--Update data from Database-->
+                                          </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">Address</h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right; "
+                                            th:text="${user.address}">
+                                            <!--Update data from Database-->
+                                          </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">City</h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right;"
+                                            th:text="${user.city}">
+                                            <!--Update data from Database-->
+                                          </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">Pincode</h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right; "
+                                            th:text="${user.zip}">
+                                            <!--Update data from Database-->
+                                          </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                          <div class="col-sm-3">
+                                            <h6 class="mb-0" style="padding-left: 40px">State</h6>
+                                          </div>
+                                          <div class="col-sm-9 text-secondary" style="text-align: right;"
+                                            th:text="${user.state}">
+                                            <!--Update data from Database-->
+                                          </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                          <div class="btn">
+                                            <a th:href="@{'/admin/approveFile/'+${user.username}+'/'+${user.photos}}"
+                                              onclick="return confirm('Are you sure you want to Approve?');"><button
+                                                class="thm-btn static-banner-one__form-btn" style=" padding: 10px 20px;
+                                               margin-right:50px;">Accept</button></a>
+                                            <a th:href="@{'/admin/removePendingFile/'+${user.username}+'/'+${user.photos}}"
+                                              onclick="return confirm('Are you sure you want to Delete?');"><button
+                                                style="padding: 10px 20px; "
+                                                class="thm-btn static-banner-one__form-btn">Reject</button></a>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </td>
+
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  </main>
+
+
+
+  <script src="/js/scriptpage.js"></script>
+
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/js/material-dashboard.min.js?v=3.0.1"></script>
+
+
+
+  <script>
+    let idval;
+
+    function idpass(id) {
+      console.log("Button clicked");
+      idval = id;
+      console.log(idval);
+      var modal = document.getElementById("myModal"+idval);
+      console.log(modal);
+      // Get the button that opens the modal
+      var btn = document.getElementById(idval);
+      modal.style.display = "block";
+
+      window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    }
+
+
+
+    // Get the modal
+    var modal = document.getElementById("myModal"+idval);
+    // Get the button that opens the modal
+    var btn = document.getElementById(idval);
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = "block";
+      console.log("Hello");
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

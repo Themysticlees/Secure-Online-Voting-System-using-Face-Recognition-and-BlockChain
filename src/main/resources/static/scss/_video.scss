@@ -1,0 +1,74 @@
+.video-one {
+	background-image: url(../images/background/video-bg-1-1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-bottom: 120px;
+	
+
+	&__carousel {
+		bottom: -120px;
+		margin-top: -120px;
+	}
+	.owl-theme .owl-nav [class*="owl-"] {
+		width: 86px;
+		height: 82px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		margin: 0;
+		border: none;
+		outline: none;
+		padding: 0;
+		border-radius: 0;
+		transition: all .4s ease;
+		background-color: $thm-black;
+		i {
+			color: #fff;
+			transition: all .4s ease;
+		}
+
+		&:hover {
+			background-color: #fff;
+			i {
+				color: $thm-black;
+			}
+		}
+	}
+	.owl-theme .owl-nav {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		position: absolute;
+		bottom: 120px;
+		right: 0;
+		transform: translateX(50%);
+	}
+
+	&__box {
+		position: relative;
+	}
+
+	&__btn {
+		display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 92px;
+        height: 92px;
+        background-color: $thm-base-color-2;
+        transition: all .4s ease;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        i {
+        	color: #fff;
+        	font-size: 16px;
+        	transition: all .4s ease;
+        }
+
+       
+	}
+}

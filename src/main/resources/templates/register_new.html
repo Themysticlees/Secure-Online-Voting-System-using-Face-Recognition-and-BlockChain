@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration || SOVS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/png" href="/images/loader.png">
+
+     <link rel="stylesheet" href="/css/animate.min.css" />
+    
+     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+     <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+     <link rel="stylesheet" href="/css/magnific-popup.css" />
+     <link rel="stylesheet" href="/css/font-awesome.min.css" />
+     <link rel="stylesheet" href="/css/swiper.min.css" />
+      <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
+      <link rel="stylesheet" href="/css/vegas.min.css" />
+      <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<!-- Register Page -->
+
+<body>
+   
+    
+        <div id="popupmain" style="
+          display: none;
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          font-family: Barlow;
+          color: #7c859b;
+          font-size: 18px;
+          font-weight: 500;
+         
+        ">
+        
+            <div id="popup" style="overflow-y: scroll; border-radius:30px ; border-right: 2px solid blue; border-bottom: 2px solid blue; border-left: 2px solid red
+        ; border-top: 2px solid red;">
+                <h2 id="newsHeading" style="padding-top: 5%">Instructions</h2>
+
+                <video autoplay id="videomute" style="border-radius:30px ;" width="400" controls disablefullscreen
+                    disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen">
+                    <source src="/videos/RegistrationVideo.mp4"type="video/mp4" />
+
+                    Your browser does not support HTML video.
+                </video>
+
+                <div style="padding: 0% 5% 0% 5%;">
+                    <h4 style="padding-top: 5%; text-align: left">
+                        <b><u>Follow the Instructions</u></b>
+                    </h4>
+                    <h6 style="text-align: justify">Please be careful, while filling in your details.</h6>
+                    <hr />
+                    <h6 style="text-align: justify"> Make sure, that you fill in your correct, and latest details
+                        according to your official ID. </h6>
+                    <hr />
+                    <h6 style="text-align: justify">Do not leave any field empty, as the form will not submit, unless
+                        you fill all the fields. </h6>
+                    <hr />
+                    <h6 style="text-align: justify">The files which you need to upload, must be below 2 MB. </h6>
+                    <hr />
+                    <h6 style="text-align: justify">Read the instructions below carefully, for better understanding.
+                    </h6>
+                    <hr />
+
+                </div>
+                <button onclick="enableMute()" style="margin: 20px" class="thm-btn static-banner-one__form-btn"
+                    id="btnid">
+                    OK
+                </button>
+
+            </div>
+
+
+        </div>
+    
+
+      <header class="site-header site-header__header-one">
+          <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+              <div class="container clearfix">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="logo-box clearfix">
+                      <a class="navbar-brand" th:href="@{/index}">
+                          <img src="/images/loader.png" class="main-logo" height="70" width="70" alt="Awesome Image" />
+                      </a>
+                      <button class="menu-toggler" data-target=".main-navigation">
+                          <span class="fa fa-bars"></span>
+                      </button>
+                  </div>
+                  <!-- /.logo-box -->
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="main-navigation">
+                      <ul class="navigation-box">
+                          <li class="current">
+                              <a th:href="@{/index}">Home</a>
+                          </li>
+                          <li>
+                              <a href="about.html">About</a>
+                              <ul class="sub-menu">
+                                  <li><a href="about.html">About Us</a></li>
+                                  <li><a href="history.html">History</a></li>
+                              </ul>
+                              <!-- /.sub-menu -->
+                          </li>
+                          <li>
+                              <a href="#" id="instruction">Instructions</a>
+
+                              <!-- /.sub-menu -->
+                          </li>
+                          <li>
+                              <a th:href="@{'/register'}">Register/Sign Up</a>
+
+                              <!-- /.sub-menu -->
+                          </li>
+
+                          <li>
+                              <a href="#">News</a>
+                              <ul class="sub-menu">
+                                  <li><a th:href="@{'/news'}">News Page</a></li>
+                                  <!-- <li><a href="news-details.html">News Details</a></li> -->
+                              </ul>
+                              <!-- /.sub-menu -->
+                          </li>
+                          <li>
+                              <a th:href="@{'/contact'}">Contact Us</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <!-- /.navbar-collapse -->
+                  <div class="right-side-box">
+                      <div class="header-social">
+                          <a th:href="@{'/users/admin'}" class="fa fa-twitter"></a>
+                          <a href="#" class="fa fa-facebook-square"></a>
+                          <a href="#" class="fa fa-pinterest-p"></a>
+                          <a href="#" class="fa fa-instagram"></a>
+                      </div>
+                      <!-- /.header-social -->
+                  </div>
+                  <!-- /.right-side-box -->
+              </div>
+              <!-- /.container -->
+          </nav>
+      </header>
+         <section class="inner-banner" style="height: 300px">
+             <div class="container">
+                 <h2 class="inner-banner__title">Registration</h2>
+                 <!-- /.inner-banner__title -->
+                 <ul class="list-unstyled thm-breadcrumb">
+                     <li><a th:href="@{/index}">Home</a></li>
+                     <li>Registration</li>
+                 </ul>
+                 <!-- /.list-unstyled -->
+             </div>
+             <!-- Shows Success Message -->
+         </section>
+
+    <div class="row shadow-lg p-3 mb-5 bg-body backpic" style="border-radius: 2%; margin: 50px;">
+        <!-- instructions -->
+
+        <!--Left half -->
+
+        <div class="col-lg-5 backpic">
+            <center>
+                <img class="voting-img"
+                    src="https://image.freepik.com/free-vector/voting-concept-illustration_114360-5972.jpg" alt="" />
+            </center>
+
+
+
+
+            <!-- https://png.pngtree.com/png-clipart/20201208/original/pngtree-hand-drawn-cartoon-american-presidential-election-love-box-illustration-png-image_5525991.jpg -->
+
+        </div>
+
+        <!--Right half -->
+
+        <div class="col-lg-7 right shadow-lg" style="background-color: whitesmoke; border-radius: 20px;">
+            <div style="margin-left: 40px;">
+            <h2>Get Started</h2>
+
+                <p>
+                    Already have an account.
+                    
+                    <a th:href="@{'/index'}">Log in</a> here.
+                </p>
+            </div>
+            <form class="row g-3" style="margin: 10px 20px" th:action="@{/register}" method="post"
+                th:object="${pending}" enctype="multipart/form-data">
+                <div>
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">First Name</label>
+                        <input id="fname" type="text" th:field="*{firstname}" required class="form-control"
+                            placeholder="First name" />
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">Last Name</label>
+                        <input id="lname" type="text" th:field="*{lastname}" required class="form-control"
+                            placeholder="Last name" />
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">Password </label>
+                        <input id="pass" type="password" th:field="*{password}" required class="form-control"
+                            placeholder="Password (at least 8 characters)"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                        <input type="checkbox" onclick="myShow()" style="top: 5px" /> &nbsp; Show Password
+                    </div>
+                    <div id="message">
+                        <h3 style="
+                    font-size: 15px;
+                    padding-left: 20px;
+                    padding-bottom: 0px;
+                    margin-bottom: 10px;
+                  ">
+                            Your Password must contain the following:
+                        </h3>
+                        <p id="letter" class="invalid">A <b>Lowercase</b> letter</p>
+                        <p id="capital" class="invalid">
+                            A <b>Capital (uppercase)</b> letter
+                        </p>
+                        <p id="number" class="invalid">A <b>Number</b></p>
+                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputDOB" class="form-label">Date of Birth</label>
+                    <input id="birth" type="date" th:field="*{birthday}" required class="form-control"
+                        placeholder="DD/MM/YYYY" />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Gender</label>
+                    <select id="inputState" th:field="*{gender}" required class="form-select">
+                        <option th:each="p : ${listgender}" th:value="${p}" th:text="${p}"></option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="inputMobile" class="form-label">Mobile Number</label>
+                    <input type="text" th:field="*{mobileno}" required class="form-control" id="inputmobile"
+                        placeholder="Enter your Mobile Number" minlength="10" />
+                </div>
+
+                <div class="col-12">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="text" th:field="*{email}" required class="form-control" id="inputEmail"
+                        placeholder="Enter your email" />
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Citizenship ID</label>
+                    <input id="adhaar" type="text" th:field="*{username}" required class="form-control"
+                        placeholder="Enter your 12 digit Citizenship number" minlength="12" />
+
+                </div>
+
+                <div class="col-12">
+                    <label>Upload Adhar ID document (pdf) </label>
+                    <input type="file" name="pdf" id="filepdf" required class="form-control" accept="application/pdf" />
+                </div>
+
+                <div class="col-12">
+                    <label>Upload Passport size picture (Maximum : 2MB): </label>
+                    <input type="file" name="image" id="fileimage" required class="form-control"
+                        accept="image/png, image/jpeg, image/jpg" />
+
+                    <div style="display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin:20px 0">
+                        <img id="thumbnail" alt="Logo Preview" src="" height="200px" width="170px"
+                            style="
+                            display: none" />
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Address</label>
+                    <input type="text" th:field="*{address}" required class="form-control" id="inputAddress2"
+                        placeholder="Apartment, studio, or floor" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State</label>
+                    <select id="inputState" th:field="*{state}" required class="form-select">
+                        <option th:each="l : ${liststates}" th:value="${l}" th:text="${l}"></option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">City</label>
+                    <input type="text" th:field="*{city}" required class="form-control" id="inputCity" />
+                </div>
+                <div class="col-md-4">
+                    <label for="inputZip" class="form-label">Zip</label>
+                    <input type="text" th:field="*{zip}" required class="form-control" id="inputZip" />
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" required type="checkbox" id="gridCheck" />
+                        <label class="form-check-label" for="gridCheck">
+                            I agree to all Terms and Conditions.
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-grid gap-2">
+                        <button type="button" id="btn" class="thm-btn static-banner-one__form-btn"
+                            onclick="sweetalertclick()">
+                            Register
+                        </button>
+                        <button type="submit" id="btn1" hidden class="btn btn-outline-primary btn-lg">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/SweetAlert/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" th:inline="javascript">
+        var cond = true;
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#popupmain").css("display", "block");
+                localStorage.setItem("popState", "shown");
+            }, 1000);
+        });
+
+        $("#instruction").click(function () {
+            $("#popupmain").css("display", "block");
+        });
+
+        $("#btnid").click(function () {
+            $("#popupmain").css("display", "none");
+        });
+
+        var vid = document.getElementById("videomute");
+
+        function enableMute() {
+            vid.muted = true;
+        }
+
+
+
+        var myInput = document.getElementById("pass");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function () {
+            document.getElementById("message").style.display = "block";
+        };
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function () {
+            document.getElementById("message").style.display = "none";
+        };
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+                cond = true;
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+                cond = false;
+            }
+
+            // Validate capital letters
+
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+                cond = false;
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+                cond = false;
+            }
+
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+                cond = false;
+            }
+        };
+
+        // ----------------------------------------------------------------
+
+        function sweetalertclick() {
+            var fname = $("#fname").val();
+            var lname = $("#lname").val();
+            var pass = $("#pass").val();
+            var birth = $("#birth").val();
+            var gender = $("#gender").val();
+            var adhaar = $("#adhaar").val();
+            var photo = $("#fileimage").val();
+            var pdf = $("#filepdf").val();
+            var add = $("#inputAddress2").val();
+            var inputState = $("#inputstate").val();
+            var city = $("#inputCity").val();
+            var zip = $("#inputZip").val();
+            var phone = $("#inputmobile").val();
+
+            var gridcheck = document.getElementById("gridCheck").checked;
+
+            if (
+                fname == "" ||
+                lname == "" ||
+                pass == "" ||
+                birth == "" ||
+                gender == "" ||
+                adhaar == "" ||
+                photo == "" ||
+                add == "" ||
+                inputState == "" ||
+                city == "" ||
+                zip == "" ||
+                phone == "" ||
+                gridcheck == false ||
+                pdf == ""
+            ) {
+                swal({
+                    title: "Fields are empty!",
+                    text: "Please check the fields",
+                    icon: "warning",
+                    button: "ok",
+                });
+            } else if (adhaar.length != 12) {
+                swal({
+                    title: "Please enter a 12 digit Adhar ID",
+                    text: "Please check your details",
+                    icon: "warning",
+                    button: "ok",
+                });
+            } else if (cond == false) {
+                swal({
+                    title: "Please check your password again",
+                    text: "You need to satisfy all the mentioned conditions",
+                    icon: "warning",
+                    button: "ok",
+                });
+            } else if (phone.length != 10) {
+                swal({
+                    title: "Please enter a 10 digit mobile number",
+                    text: "Please check your details",
+                    icon: "warning",
+                    button: "ok",
+                });
+            } else {
+                swal({
+                    title: "Are you sure ?",
+                    text: "Click OK to continue and CANCEL to go back.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        document.getElementById("btn1").click();
+                        swal({
+                            title: "Registration Successful",
+                            text: "Redirecting you to the Login Page",
+                            icon: "success",
+                            buttons: false,
+                        }).then(function () {
+                            //document.getElementById("btn1").click();
+                            document.write("Redirecting to Index Page");
+                            //document.location.href = "/index";
+                        });
+                    } else {
+                        swal("Please review your changes before submitting!");
+                    }
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            $("#fileimage").change(function () {
+                showImageThumbnail(this);
+            });
+        });
+
+        function showImageThumbnail(fileInput) {
+            file = fileInput.files[0];
+            reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#thumbnail").attr("src", e.target.result);
+                $("#thumbnail").css("display", "block");
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+
+    <script>
+        function myShow() {
+            var x = document.getElementById("pass");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/TweenMax.min.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/typed-2.0.11.js"></script>
+    <script src="/js/vegas.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/bootstrap-select.min.js"></script>
+    <script src="/js/countdown.min.js"></script>
+
+    <!-- template scripts -->
+    <script src="/js/theme.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem("popState") != "shown") {
+                setTimeout(function () {
+                    $("#popupmain").css("display", "block");
+                    localStorage.setItem("popState", "shown");
+                    document.querySelector("#videomute").autoplay = false;
+                }, 0000);
+
+                $("#buttonid").click(function () {
+                    $("#popupmain").css("display", "none");
+                });
+            }
+
+            if (!localStorage.getItem("videoState")) {
+                disableAutoplay(); // Run the function below.
+            }
+        });
+
+        $("#instruction").click(function () {
+            $("#popupmain").css("display", "block");
+        });
+
+        $("#buttonid").click(function () {
+            $("#popupmain").css("display", "none");
+        });
+
+        var vid = document.getElementById("videomute");
+
+        function enableMute() {
+            vid.muted = true;
+        }
+
+        function disableAutoplay() {
+            vid.autoplay = false;
+            vid.load();
+        }
+    </script>
+</body>
+
+</html>

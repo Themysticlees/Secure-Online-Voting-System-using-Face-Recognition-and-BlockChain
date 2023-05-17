@@ -1,0 +1,102 @@
+<html>
+    <head> 
+        <title> save and upload image </title> 
+    </head>
+    <body>
+            <style> img{ height:100px; width:200px}</style>
+
+                     Image Name <input id="namebox" type=test> <br><br>
+                <img id="myimg"><label id ="upProgress"></label> <br><br>
+
+                <button id="Select">Select Image</button>
+                <button id="upload">upload Image</button>
+                <button id="Retrive">Retrive</button>
+<!--------------------------FIRBASE LIBRARIES-------------------------------------------------->
+<script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage.js"></script> 
+
+
+<script id="MainScript">
+
+            var ImgName,ImgUrl;
+            var files=[];
+            var reader;
+
+
+           
+
+            
+
+  document.getElementById("Select").onclick = function(e) {
+      var input= document.createElement('input');
+      input.type= 'file';
+      
+      input.onchange=e=>{
+          files = e.target.files;
+          reader=new FileReader();
+          reader.onload=function(){
+              document.getElementById("myimg").src = reader.result;
+          }
+          reader.readAsDataURL(files[0]);
+      }
+      input.click();
+
+  }
+
+
+  const firebaseConfig = {
+              apiKey: "AIzaSyBFhwF2Sn7-NAApIgonKZSC6EdQStVNNGc",
+              authDomain: "image-u.firebaseapp.com",
+              projectId: "image-u",
+              storageBucket: "image-u.appspot.com",
+              messagingSenderId: "351471725433",
+              appId: "1:351471725433:web:c2184a6ecb1523151c1da8",
+              measurementId: "G-7J3XC5Y4JH"
+            };   
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            
+
+  document.getElementById('upload').onclick = function(){
+             ImgName = document.getElementById('namebox').value;
+             var uploadTask = firebase.storage().ref('Images/'+ImgName+".png").put(files[0])
+             console.log(uploadTask)
+             uploadTask.on('state_changed', function(snapshot){
+                 var progress = (snapshot.bytesTranferred / snapshot.totalBytes) * 100;
+                 document.getElementById('UpProgress').innerHTML = 'Upload'+progress+'%';
+             },
+             function(error){
+                 alert('error')
+             },
+       
+             function(){
+                 uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+                     ImgUrl = url;
+                 
+       
+                 firebase.database().ref('Pictures/'+ImgName).set({
+                     Name: ImgName,
+                     Link: ImgUrl
+                 });
+                 alert('image added successfully')
+             }
+             
+             );
+           });
+         }
+  </script>
+
+         </body>
+
+
+         <script>
+             
+            
+         </script>
+    
+  
+
+ </html>     
+                  

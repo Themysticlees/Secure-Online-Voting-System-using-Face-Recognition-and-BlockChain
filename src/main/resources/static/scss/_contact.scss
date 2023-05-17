@@ -1,0 +1,501 @@
+.google-map__contact {
+    display: block;
+    width: 100%;
+    height: 675px;
+    border: none;
+    outline: none;
+}
+
+.contact-info-one {
+    position: relative;
+
+
+
+    .container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media(max-width: 1199px) {
+            position: relative;
+            bottom: auto;
+            left: auto;
+            transform: translateX(0);
+            padding-top: 70px;
+            padding-bottom: 0px;
+        }
+    }
+
+    .inner-container {
+        padding: 30px 60px;
+        background-color: $thm-base-color-2;
+
+        @media(max-width: 375px) {
+            padding: 30px 15px;
+        }
+
+        [class*=col-xl-] {
+            padding-top: 29px;
+            padding-bottom: 29px;
+        }
+
+        [class*=col-xl-]:nth-child(2) {
+            position: relative;
+
+            &:before,
+            &:after {
+                content: '';
+                width: 5px;
+                height: 100%;
+                border-left: 1px solid rgba(#fff, .2);
+                border-right: 1px solid rgba(#fff, .2);
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+
+                @media(max-width: 1199px) {
+                    width: 100%;
+                    height: 5px;
+                    border-left: 0;
+                    border-right: 0;
+                    top: 0;
+                    left: 0;
+                    transform: translateY(0);
+                    border-top: 1px solid rgba(#fff, .2);
+                    border-bottom: 1px solid rgba(#fff, .2);
+                }
+            }
+
+            &:before {
+                left: 0;
+            }
+
+            &:after {
+                right: 0;
+
+                @media(max-width: 1199px) {
+                    top: auto;
+                    right: auto;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__single {
+        text-align: center;
+    }
+
+    &__title {
+        margin: 0;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media(max-width: 375px) {
+            font-size: 18px;
+            line-height: 1.2em;
+        }
+
+        a {
+            color: inherit;
+            transition: all .4s ease;
+
+            &:hover {
+                color: $thm-black;
+            }
+        }
+
+        i {
+            font-size: 31px;
+            margin-right: 20px;
+        }
+    }
+}
+
+
+.contact-form-one {
+    padding-top: 110px;
+    padding-bottom: 120px;
+
+    .container {
+        @media (min-width: 1200px) {
+            max-width: 800px;
+        }
+    }
+
+    &__form {
+
+        input,
+        textarea {
+            display: block;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            background-color: $thm-gray;
+            width: 100%;
+            height: 75px;
+            margin-bottom: 10px;
+            padding-left: 30px;
+        }
+
+        textarea {
+            height: 211px;
+            padding-top: 15px;
+        }
+    }
+
+    &__btn {
+        font-size: 20px;
+
+        &:hover {
+            color: #fff;
+            background-color: $thm-black;
+        }
+    }
+
+    .row.low-gutters {
+        margin-left: -5px;
+        margin-right: -5px;
+
+        >[class*=col-lg-] {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+
+    .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .bootstrap-select>.dropdown-toggle {
+        border: none !important;
+        padding: 0;
+        padding-left: 30px;
+        padding-right: 30px;
+        color: $thm-text-color;
+        background-color: $thm-gray;
+        border-radius: 0;
+        height: 75px;
+        line-height: 75px;
+    }
+
+    .dropdown-toggle::after {
+        border-right-width: 4px;
+        border-left-width: 4px;
+        border-bottom-width: 4px;
+        border-top-width: 4px;
+    }
+
+
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+    }
+
+    [type="radio"]:checked+label,
+    [type="radio"]:not(:checked)+label {
+        position: relative;
+        padding-left: 55px;
+        cursor: pointer;
+        display: inline-block;
+        color: #7c859b;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    [type="radio"]:checked+label:before,
+    [type="radio"]:not(:checked)+label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 36px;
+        height: 36px;
+
+        background: #eef1f6;
+    }
+
+    [type="radio"]:checked+label:after,
+    [type="radio"]:not(:checked)+label:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: $thm-base-color-2;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        transition: all 0.2s ease;
+    }
+
+    [type="radio"]:not(:checked)+label:after {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    [type="radio"]:checked+label:after {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.volunteer-gallery {
+    padding-top: 90px;
+
+    img {
+        margin-top: 30px;
+    }
+}
+
+.contact-form-one.donation-page {
+    .container {
+        @media (min-width: 1200px) {
+            max-width: 1200px;
+        }
+    }
+
+    p {
+        margin: 0;
+
+        +p {
+            margin-top: 10px;
+        }
+    }
+
+    .row+.row {
+        margin-top: 50px;
+    }
+}
+
+.donation-page__title {
+    font-size: 30px;
+    font-weight: bold;
+    color: $thm-black;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.donation-page__amount {
+    background-color: #d41e44;
+    position: relative;
+
+    .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+        margin-bottom: 0;
+        width: auto;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .bootstrap-select>.dropdown-toggle {
+        width: 130px;
+        height: 135px;
+        background-color: #c6183c;
+        text-align: center;
+        font-size: 50px;
+        color: #fff;
+        padding: 0;
+        line-height: 135px;
+        margin: 0;
+    }
+
+    .dropdown-toggle::after {
+        display: none !important;
+    }
+
+    .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+        text-align: center;
+    }
+
+    input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 50px;
+        font-family: $heading-font;
+        color: #fff;
+        padding-left: 170px;
+        height: 135px;
+    }
+}
+
+.donation-page__payment-time {
+    .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+        margin-top: 10px;
+    }
+}
+
+
+.donation-contribute {
+    .inner-container {
+        padding: 40px 50px;
+    }
+
+    &__amount {
+        background-color: rgba(#0c1a3c, .1);
+        position: relative;
+        width: calc(100% - 172px);
+
+        .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+            margin-bottom: 0;
+            width: auto;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .bootstrap-select>.dropdown-toggle {
+            width: 80px;
+            height: 75px;
+            background-color: rgba(#0c1a3c, .1);
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            padding: 0;
+            line-height: 75px;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .dropdown-toggle::after {
+            display: none !important;
+        }
+
+        .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+            text-align: center;
+        }
+
+        input {
+            text-align: left;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            padding-left: 110px;
+            height: 75px;
+            width: 100%;
+        }
+    }
+
+    &__form {
+        position: relative;
+    }
+
+    &__btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        color: $thm-black;
+
+        &:hover {
+            color: #fff;
+            background-color: $thm-black;
+        }
+    }
+
+    &__title {
+        text-align: left;
+        color: #fff;
+        font-size: 30px;
+        font-weight: bold;
+    }
+}
+
+.donation-contribute__home-two {
+    background-color: #0c1a3c;
+
+    .inner-container {
+        padding: 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .donation-contribute__btn {
+        background-color: $thm-base-color-2;
+        color: #fff;
+    }
+
+    .donation-contribute__amount {
+        background-color: #ffffff;
+
+        input {
+            color: $thm-black;
+        }
+
+        .bootstrap-select>.dropdown-toggle {
+            background-color: #eef1f6;
+            color: $thm-black;
+        }
+    }
+}
+
+
+.mailchimp-one {
+    
+
+    .container {
+        position: relative;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        &::before {
+            content: '';
+            width: 100%;
+            max-width: 1170px;
+            height: 5px;
+            border-top: 1px solid #e8ebf2;
+            border-bottom: 1px solid #e8ebf2;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        color: $thm-black;
+        font-size: 26px;
+        font-weight: bold;
+        letter-spacing: -.02em;
+    }
+
+    &__form {
+        position: relative;
+
+        input {
+            border: none;
+            outline: none;
+            width: calc(100% - 197px);
+            height: 75px;
+            background-color: $thm-gray;
+            color: #7c859b;
+            font-size: 16px;
+            font-weight: 500;
+            padding-left: 30px;
+
+            @include placeholder {
+                color: #7c859b;
+            }
+        }
+
+        &-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 20.5px 49.5px;
+        }
+    }
+}

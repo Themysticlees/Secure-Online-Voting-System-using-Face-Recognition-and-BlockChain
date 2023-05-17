@@ -1,0 +1,106 @@
+$thm-font: 'Barlow';
+$heading-font: 'Libre Baskerville';
+$thm-base-color: #1f5ad2;
+$thm-base-color-2: #d41e44;
+$thm-black: #0c1a3c;
+$thm-gray: #eef1f6;
+$thm-text-color: #7c859b;
+
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        @content;
+    }
+
+    &::-moz-placeholder {
+        /* Firefox 19+ */
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        /* IE 10+ */
+        @content;
+    }
+
+    &:-moz-placeholder {
+        /* Firefox 18- */
+        @content;
+    }
+}
+
+@mixin dropDownMenuBase ($selector: 'sub-menu', $position_top: 100%, $position_left: 0, $right_align_position: 0) {
+    >.#{$selector} {
+        position: absolute;
+        top: $position_top;
+        left: $position_left;
+        z-index: 911;
+        float: left;
+        min-width: 220px;
+        padding: 0px 0px;
+        text-align: left;
+        list-style: none;
+        background-color: $thm_black;
+        background-clip: padding-box;
+        opacity: 0;
+        border-radius: 0px;
+        visibility: hidden;
+        transition: opacity .4s ease, visibility .4s ease;
+        box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.1);
+
+        @media (min-width: 1200px) {
+            display: block !important;
+        }
+
+        &.right-align {
+            left: auto;
+            right: $right_align_position;
+        }
+
+        &.center-align {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+        >li {
+            display: block;
+            position: relative;
+            transition: all .4s ease;
+
+
+
+            +li {
+                border-top: 1px solid rgba(#fff, .1)
+            }
+
+            >a {
+                font-size: 15px;
+                color: #fff;
+                font-weight: 500;
+                padding: 12px 30px;
+                display: block;
+                line-height: 26px;
+                white-space: nowrap;
+                position: relative;
+                transition: all .4s ease;
+
+            }
+
+            &:hover>a {
+                color: #fff;
+                background: $thm-base-color-2;
+            }
+
+
+        }
+    }
+}
+
+@mixin dropDownMenuHover ($selector: 'sub-menu') {
+    >.#{$selector} {
+        opacity: 1;
+        visibility: visible;
+    }
+}

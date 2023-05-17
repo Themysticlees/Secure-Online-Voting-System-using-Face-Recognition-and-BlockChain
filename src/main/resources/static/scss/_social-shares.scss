@@ -1,0 +1,142 @@
+.social-shares {
+    padding-top: 120px;
+    padding-bottom: 90px;
+
+    &__facebook,
+    &__twitter {
+        padding: 60px;
+        margin-bottom: 30px;
+    }
+
+    &__facebook {
+        i {
+            color: #fff;
+            font-size: 30px;
+        }
+
+        &-name {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1em;
+            margin-bottom: 20px;
+            margin-top: 50px;
+        }
+
+        &-count {
+            margin: 0;
+            line-height: 1em;
+            color: #fff;
+            font-size: 50px;
+            font-weight: bold;
+            letter-spacing: -.02em;
+            margin-bottom: 63px;
+        }
+
+        &-link {
+            font-size: 18px;
+            color: #fff;
+            font-weight: 800;
+            text-decoration: underline;
+            transition: all .4s ease;
+
+            &:hover {
+                color: $thm-black;
+            }
+        }
+    }
+
+    &__twitter {
+        &-title {
+            margin: 0;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: $thm-font;
+            line-height: 1em;
+            margin-bottom: 50px;
+        }
+
+        &-text {
+            margin: 0;
+            color: #fff;
+            font-size: 20px;
+            line-height: 36px;
+            font-weight: 500;
+
+            a {
+                color: inherit;
+                transition: all .4s ease;
+
+                &:hover {
+                    color: $thm-black;
+                }
+            }
+        }
+
+        &-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+
+            p {
+                margin: 0;
+                display: flex;
+                align-items: center;
+
+                a {
+                    font-size: 18px;
+                    color: #fff;
+                    font-weight: 800;
+                    text-decoration: underline;
+                    transition: all .4s ease;
+
+                    &:hover {
+                        color: $thm-black;
+                    }
+                }
+
+                span {
+                    color: #ffffff;
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin-left: 20px;
+                }
+            }
+
+            i {
+                color: #fff;
+                font-size: 30px;
+            }
+        }
+
+
+        .owl-theme .owl-dots .owl-dot {
+            border: none;
+            outline: none;
+            line-height: 1em;
+        }
+
+        .owl-theme .owl-dots .owl-dot span {
+            width: 11px;
+            height: 11px;
+            border-radius: 0px;
+            opacity: .3;
+            background-color: #fff;
+            margin: 0 5px;
+            transition: all .4s ease;
+        }
+
+        .owl-theme .owl-dots .owl-dot.active span {
+            opacity: 1;
+        }
+
+        .owl-theme .owl-nav.disabled+.owl-dots {
+            position: absolute;
+            bottom: calc(100% + 34px);
+            right: 0;
+        }
+    }
+}

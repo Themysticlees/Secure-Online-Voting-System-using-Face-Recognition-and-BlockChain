@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="ISO-8859-1" http-equiv="refresh" content="10">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>List of Users</title>
+
+    <style type="text/css">
+        .total {
+            padding: 50px;
+            margin: 50px;
+            background-color: white;
+        }
+        
+        body {
+            /* background-image: url(https://i.pinimg.com/736x/96/7b/92/967b92f0d679139ef0e3ec42202448d8.jpg); */
+            background-size: cover;
+            margin: 30px;
+            height: auto;
+            width: auto;
+        }
+    </style>
+
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/favicons/site.webmanifest" />
+
+    <!-- plugin scripts -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/swiper.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
+    <link rel="stylesheet" href="/css/vegas.min.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+  </head>
+
+</head>
+
+<body>
+
+    <header class="site-header site-header__header-one">
+        <nav
+          class="navbar navbar-expand-lg navbar-light header-navigation stricky"
+        >
+          <div class="container clearfix">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="logo-box clearfix">
+              <a class="navbar-brand" th:href="@{'/index'}">
+                <img
+                  src="/images/logo-dark.png"
+                  class="main-logo"
+                  width="177"
+                  alt="Awesome image"
+                />
+              </a>
+              <button class="menu-toggler" data-target=".main-navigation">
+                <span class="fa fa-bars"></span>
+              </button>
+            </div>
+            <!-- /.logo-box -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="main-navigation">
+              <ul class="navigation-box">
+                <li class="current" style="margin-left: 150px">
+                  <a href="/index">Home</a>
+                  <!-- /.sub-menu -->
+                </li>
+                <li>
+                  <a href="about.html">About</a>
+                  <ul class="sub-menu">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="history.html">History</a></li>
+                  </ul>
+                  <!-- /.sub-menu -->
+                </li>
+
+                <li>
+                  <a href="#">Pages</a>
+                  <ul class="sub-menu">
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="event-details.html">Event Details</a></li>
+                  </ul>
+                  <!-- /.sub-menu -->
+                </li>
+
+                <li>
+                  <a href="#news">News</a>
+                  <ul class="sub-menu">
+                    <li><a th:href="@{'/news'}">News Page</a></li>
+                    <!-- <li><a href="news-details.html">News Details</a></li> -->
+                  </ul>
+                  <!-- /.sub-menu -->
+                </li>
+                <li>
+                  <a href="contact.html">Contact</a>
+                </li>
+                <!-- <li>
+                                
+                                
+                            </li> -->
+                <li style="margin-left: 300px">
+                  <a href="#news">
+                    Welcome
+                    <span
+                      href="#"
+                      style="
+                        margin-right: 10px;
+                        margin-top: 10px;
+                        font-weight: bolder;
+                      "
+                      th:text="Admin"
+                      >&npsp</span
+                    >
+                    <img
+                      src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg"
+                     
+                      alt="Avatar"
+                      style="width: 50px; border-radius: 60%"
+                    />
+                  </a>
+                  <ul class="sub-menu">
+                    <li>
+                      <a th:href="@{'/public/home/account'}"
+                        >Account Settings</a
+                      >
+                    </li>
+                    <li><a th:href="@{'/logout'}">Logout</a></li>
+                    <!-- <li><a href="news-details.html">News Details</a></li> -->
+                  </ul>
+                  <!-- /.sub-menu -->
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+            <!-- 
+                    <div class="right-side-box">
+                        <div class="header-social">
+
+                            <p style="margin-top: 10px">Welcome! &nbsp</p>
+                            <li>
+                            <a href="#" style="margin-right:10px; margin-top: 10px; font-weight: bolder;" th:text="${currentUser.Firstname}">&npsp</a>
+                            </li>
+                            
+
+                            <img th:src="${currentUser.photosImagePath}" alt="Avatar" style=" width: 50px; border-radius: 60%" />
+
+                        </div>
+                         /.header-social
+                    </div> -->
+            <!-- /.right-side-box -->
+          </div>
+          <!-- /.container -->
+        </nav>
+      </header>
+
+     <section class="inner-banner">
+            <div class="container">
+                <h2 class="inner-banner__title">Users Details</h2><!-- /.inner-banner__title -->
+                <ul class="list-unstyled thm-breadcrumb">
+                    <li><a href="/index">Home</a></li>
+                    <li>Admin</li>
+                </ul><!-- /.list-unstyled -->
+            </div><!-- /.container -->
+        <!-- /.inner-banner -->
+
+    <div class="total shadow-lg mb-5" style="border-radius: 2%; margin-top: 10;">
+
+      
+      <div class="table-responsive">
+        <a th:href="@{'/users/pending'}"><button>Pending Users </button></a>
+        <table cellpadding="10" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Profile Image</th>
+                    <th>Adhar ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${pendingUsers}">
+                    <td><img th:src="${user.photosImagePath}" height="50px" width="50px" />
+                        <td th:text="${user.username}">Adhar ID</td>
+                        <td th:text="${user.firstname}">First Name</td>
+                        <td th:text="${user.lastname}">Last Name</td>
+                        <td th:text="${user.email}">Email ID</td>
+                        <td>
+                            <a th:href="@{'/users/approveFile/'+${user.username}+'/'+${user.photos}}" onclick="return confirm('Are you sure you want to Approve?');"><button  class="thm-btn static-banner-one__form-btn" style="padding: 10px;">Approve</button> </a>
+                            
+                        </td>
+
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+    </section>
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/TweenMax.min.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/typed-2.0.11.js"></script>
+    <script src="/js/vegas.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/bootstrap-select.min.js"></script>
+    <script src="/js/countdown.min.js"></script>
+
+    <!-- template scripts -->
+    <script src="/js/theme.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<div class="col-md-3 col-sm-4">
+					<div class="profile-card">
+						<div class="profile-card_cover">
+							<img src="/images/cpm.jpeg" alt="">
+						</div>
+						<div class="profile-card_padding">
+							<div class="profile-card_image">
+								<img src="/images/users/cpim.jpg" alt="">
+							</div>
+							<div class="profile-card_details">
+								<h3>Jyoti Basu</h3>
+								<p class="text-muted">Left Front </p>
+							</div>
+							<div class="profile-card_social">
+								<a th:href="@{/vote/votecasted/+${left}}"><button  class="button button2">Vote</button> </a>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-4">
+					<div class="profile-card">
+						<div class="profile-card_cover">
+							<img src="/images/aap.jpeg" alt="">
+						</div>
+						<div class="profile-card_padding">
+							<div class="profile-card_image">
+								<img src="/images/users/arvind.jfif" alt="">
+							</div>
+							<div class="profile-card_details">
+								<h3>Arvind Kejriwal</h3>
+								<p class="text-muted">Aam Admi Party</p>
+							</div>
+							<div class="profile-card_social">
+								<a th:href="@{/vote/votecasted/+${aap}}"><button  class="button button3">Vote</button> </a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-4">
+					<div class="profile-card">
+						<div class="profile-card_cover">
+							<img src="/images/tmc.jpeg" alt="">
+						</div>
+						<div class="profile-card_padding">
+							<div class="profile-card_image">
+								<img src="/images/users/mamata.jfif" alt="">
+							</div>
+							<div class="profile-card_details">
+								<h3>Mamata Banerjee</h3>
+								<p class="text-muted">Trinomool Congress</p>
+							</div>
+							<div class="profile-card_social">
+								
+								<a th:href="@{/vote/votecasted/+${tmc}}"><button  class="button button4">Vote</button> </a>
+								
+							</div>
+						</div>
+					</div>
+				</div>

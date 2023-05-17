@@ -1,0 +1,27 @@
+.brand-one {
+    padding-top: 357px;
+    margin-top: -357px;
+}
+
+.brand-one__carousel {
+    padding-left: 48px;
+    padding-right: 48px;
+    border-bottom: 2px solid #eff0f9;
+    padding-top: 119px;
+    padding-bottom: 119px;
+
+    img {
+        opacity: 0.3;
+        transition: opacity .4s ease;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.brand-one__home-two {
+    padding-bottom: 120px;
+    margin-top: 0;
+    padding-top: 0;
+}

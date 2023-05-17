@@ -1,0 +1,104 @@
+.fact-one {
+    .container {
+        position: relative;
+		padding-top: 123px;
+		padding-bottom: 123px;
+        &::before {
+            content: '';
+            width: 100%;
+            max-width: 1170px;
+            height: 5px;
+            border-top: 1px solid #e8ebf2;
+            border-bottom: 1px solid #e8ebf2;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__title {
+        color: $thm-base-color-2;
+        font-size: 100px;
+        font-weight: bold;
+        margin: 0;
+        line-height: 1em;
+        margin-bottom: 10px;
+        @media (max-width: 575px) {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        color: $thm-black;
+        font-weight: 300;
+        font-size: 40px;
+        @media (max-width: 575px) {
+            font-size: 20px;
+        }
+    }
+}
+
+[class*=fact-one__star-] {
+    position: absolute;
+    top: calc(50% - 100px);
+    opacity: .05;
+    animation-fill-mode: both;
+    animation-name: flipInY;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    @media (max-width: 767px) {
+            display: none !important;
+        }
+}
+
+.fact-one__star-1 {
+    left: 15px;
+}
+
+.fact-one__star-2 {
+    right: 15px;
+}
+
+
+.fact-two {
+    .container {
+        position: relative;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        &::before {
+            content: '';
+            width: 100%;
+            max-width: 1170px;
+            height: 5px;
+            border-top: 1px solid #e8ebf2;
+            border-bottom: 1px solid #e8ebf2;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__single {
+        margin-bottom: 30px;
+    }
+
+    &__count {
+        line-height: 1em;
+        margin: 0;
+        color: $thm-black;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    &__text {
+        line-height: 1em;
+        margin: 0;
+        color: #7c859b;
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 25px;
+    }
+}

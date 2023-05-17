@@ -1,0 +1,200 @@
+.sidebar {
+    @media(max-width: 991px) {
+        margin-top: 50px;
+    }
+
+    &__title {
+        margin: 0;
+        color: $thm-black;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    &__single {
+        padding: 50px;
+        background-color: #eef1f6;
+    }
+
+
+    &__single+&__single {
+        margin-top: 30px;
+    }
+
+    &__post {
+        &__single+&__single {
+            padding-top: 20px;
+            margin-top: 20px;
+            position: relative;
+
+            &:before {
+                content: '';
+                width: 100%;
+                height: 5px;
+                border-top: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+                position: absolute;
+                top: -5px;
+                left: 0;
+            }
+        }
+
+        &-image,
+        &-content {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        &-image {
+            width: 66px;
+
+            .inner-block {
+                width: 100%;
+
+                >img {
+                    width: 100%;
+                }
+            }
+        }
+
+        &-content {
+            padding-left: 20px;
+        }
+
+        &-title {
+            margin: 0;
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 700;
+            color: $thm-black;
+            font-family: $heading-font;
+
+            a {
+                color: inherit;
+                transition: all .4s ease;
+
+                &:hover {
+                    color: $thm-base-color-2;
+                }
+            }
+        }
+    }
+
+    &__category-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &-item {
+
+            line-height: 1em;
+
+            a {
+                color: #7c859b;
+                font-size: 18px;
+                font-weight: 500;
+                display: block;
+                position: relative;
+                transition: all .4s ease;
+
+                &:before {
+                    content: '\f105';
+                    font-family: 'FontAwesome';
+                    color: #7b7b8c;
+                    font-weight: 900;
+                    font-size: 14px;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                    transition: all .4s ease;
+                }
+
+                &:hover {
+                    color: $thm-black;
+                }
+            }
+        }
+
+        &-item+&-item {
+            margin-top: 27px;
+        }
+    }
+
+    &__tags-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        margin-top: -10px;
+        margin-left: -5px;
+        margin-right: -5px;
+
+        &-item {
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 5px;
+            padding-right: 5px;
+            line-height: 1em;
+            margin-top: 10px;
+
+            a {
+                display: block;
+                background-color: #fff;
+                color: $thm-black;
+                font-size: 14px;
+                font-weight: 500;
+                padding-left: 15px;
+                padding-right: 15px;
+                line-height: 33px;
+                transition: all .4s ease;
+
+                &:hover {
+                    color: #fff;
+                    background-color: $thm-base-color-2;
+                }
+            }
+        }
+    }
+
+    &__search-form {
+        width: 100%;
+        height: 75px;
+        background-color: #fff;
+        position: relative;
+
+        input {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: $thm-text-color;
+            padding-left: 30px;
+            padding-right: 30px;
+
+            @include placeholder {
+                color: $thm-text-color;
+            }
+        }
+
+        button[type=submit] {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 0;
+            transition: all .4s ease;
+
+
+            i {
+                font-size: 16px;
+                color: $thm-base-color-2;
+                transition: all .4s ease;
+            }
+        }
+    }
+}

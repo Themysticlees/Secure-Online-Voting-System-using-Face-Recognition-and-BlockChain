@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Username exits || SOVS</title>
+  </head>
+
+  <body>
+    <!-- Shows if username already exists -->
+  </body>
+  <script src="/SweetAlert/sweetalert2.all.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    swal({
+      title: "Adhaar ID already exist !",
+      text: "Please check and enter the correct Adhaar ID",
+      icon: "warning",
+      button: "ok",
+    }).then(function () {
+      document.location.href = "/register";
+    });
+  </script>
+</html>

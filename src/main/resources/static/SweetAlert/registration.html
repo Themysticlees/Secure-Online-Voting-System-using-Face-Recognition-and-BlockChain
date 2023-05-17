@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="sweetalert2.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form >
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value=""><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value=""><br><br>
+  <button type="button" value="Submit" onclick="sweetalertclick()">Try me </button>
+</form> 
+<script src ="sweetalert2.all.min.js"></script>
+<script>
+    function sweetalertclick(){
+        Swal.fire(
+        'Registration Successful',
+        'Redirecting you to the Login Page',
+        'success'
+).then(function(){
+  window.location = "https://www.google.com"
+})
+    }
+</script>
+</body>
+</html>

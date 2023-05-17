@@ -1,0 +1,205 @@
+.testimonials-one {
+    background-color: $thm-gray;
+    position: relative;
+    padding: 109px 0;
+
+    &:before {
+        content: '\f099';
+        font-family: 'FontAwesome';
+        color: #fff;
+        font-size: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -250%);
+    }
+
+    .container {
+        @media (min-width: 1200px) {
+            max-width: 1060px;
+        }
+    }
+
+
+    &__single {
+        text-align: center;
+    }
+
+    &__text {
+        margin: 0px;
+        color: $thm-black;
+        font-size: 30px;
+        line-height: 56px;
+        font-family: $heading-font;
+
+        @media(max-width: 480px) {
+            font-size: 25px;
+            line-height: 1.75em;
+        }
+
+        @media(max-width: 375px) {
+            font-size: 22px;
+        }
+
+        a {
+            color: $thm-base-color;
+            transition: all .4s ease;
+
+            &:hover {
+                color: $thm-base-color-2;
+            }
+        }
+    }
+
+    &__info {
+        font-size: 18px;
+        color: #7c859b;
+        font-weight: 500;
+        margin: 0px;
+        margin-top: 40px;
+
+        @media(max-width: 375px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        a {
+            transition: all .4s ease;
+            color: $thm-base-color-2;
+            text-decoration: underline;
+
+            &:hover {
+                color: $thm-base-color;
+            }
+        }
+
+        span {
+            margin-left: 20px;
+
+            @media(max-width: 375px) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .owl-theme .owl-dots .owl-dot {
+        border: none;
+        outline: none;
+        line-height: 1em;
+    }
+
+    .owl-theme .owl-dots .owl-dot span {
+        width: 11px;
+        height: 11px;
+        border-radius: 0px;
+        opacity: .3;
+        background-color: $thm-black;
+        margin: 0 5px;
+        transition: all .4s ease;
+    }
+
+    .owl-theme .owl-dots .owl-dot.active span {
+        opacity: 1;
+    }
+
+    .owl-theme .owl-nav.disabled+.owl-dots {
+        margin-top: 40px;
+    }
+}
+
+
+.testimonials-two {
+    &__single {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left center;
+        padding-bottom: 110px;
+        padding-top: 120px;
+
+    }
+
+    &__text {
+        margin: 0;
+        color: #fff;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 56px;
+        letter-spacing: -.02em;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    &__icon {
+        font-size: 67px;
+        color: #fff;
+        opacity: .1;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+        margin: 0;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 92px;
+        height: 92px;
+        background-color: $thm-base-color-2;
+
+
+        &-wrap {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        i {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        &-tag-line {
+            position: absolute;
+            top: calc(100% + 20px);
+            right: 10%;
+            font-size: 16px;
+            font-family: $heading-font;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            img {
+                transform: translateY(-40%);
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.testimonials-two__bottom {
+    padding: 60px 0;
+    .container {
+        position: relative;
+        overflow: hidden;
+    }
+    .swiper-slide {
+        background-color: $thm-black;
+        img {
+            transition: all .4s ease;
+            cursor: pointer;
+        }
+    }
+    .swiper-slide-thumb-active {
+        img {
+            opacity: .7;
+        }
+    }
+}

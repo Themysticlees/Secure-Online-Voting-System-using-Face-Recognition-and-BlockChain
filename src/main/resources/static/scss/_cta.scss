@@ -1,0 +1,208 @@
+.cta-one {
+    position: relative;
+    background-color: $thm-base-color;
+    padding: 118.5px 0px;
+
+    @media(max-width: 991px) {
+        padding: 80px 0;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url(../images/resources/dot-pattern-1-1.png);
+        opacity: .15;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media(max-width: 991px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+    }
+
+    &__title {
+        margin: 0;
+        color: #fff;
+        font-size: 36px;
+        font-weight: 700;
+        letter-spacing: -.02em;
+
+        @media(max-width: 1199px) {
+            font-size: 28px;
+        }
+
+        @media(max-width: 991px) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.cta-two {
+    background-image: url(../images/background/cta-1-1-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0c1a3c;
+        opacity: .8;
+    }
+
+    .container {
+        text-align: center;
+        position: relative;
+        padding-top: 112.5px;
+        padding-bottom: 112.5px;
+    }
+
+    &__tag-line {
+        margin: 0;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    &__title {
+        margin: 0;
+        font-weight: bold;
+        color: #fff;
+        font-size: 80px;
+        letter-spacing: -.04em;
+        margin-top: 15px;
+        margin-bottom: 60px;
+
+        @media(max-width: 575px) {
+            font-size: 40px;
+            line-height: 1.4em;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.cta-two__home-one {
+    padding-top: 120px;
+
+    .container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .donation-contribute {
+        padding-top: 120px;
+    }
+}
+
+
+.cta-three {
+    background-image: url(../images/background/cta-2-1-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding-top: 120px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0c1a3c;
+        opacity: .8;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .block-title {
+        margin-bottom: 35px;
+    }
+    .block-title__tag-line,
+    .block-title__title {
+        color: #fff;
+    }
+
+    &__text {
+        color: #fff;
+        font-size: 18px;
+        line-height: 34px;
+        opacity: .8;
+        margin: 0;
+        margin-bottom: 40px;
+    }
+    &__box+&__box {
+        margin-top: 50px;
+    }
+    &__box {
+        i {
+            font-size: 64px;
+            color: #fff;
+        }
+        &-title {
+            margin: 0;
+            font-size: 24px;font-weight: bold;
+            color: #fff;
+            letter-spacing: -.02em;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+        &-text {
+            color: #fff;
+            font-size: 18px;
+            line-height: 34px;
+            opacity: .8;
+            margin: 0;
+        }
+    }
+
+    &__bottom {
+        .inner-container {
+            margin-top: 120px;
+            padding: 31px 0;
+            padding-left: 15px;
+            padding-right: 15px;
+            position: relative;
+        }
+        &-title {
+            margin: 0;
+            font-size: 24px;font-weight: 400;
+            color: #fff;
+            letter-spacing: -.02em;
+        }
+    }
+}
+
+[class*=cta-three__bottom-star-] {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cta-three__bottom-star-1 {
+    left: 60px;
+}
+.cta-three__bottom-star-2 {
+    right: 60px;
+}

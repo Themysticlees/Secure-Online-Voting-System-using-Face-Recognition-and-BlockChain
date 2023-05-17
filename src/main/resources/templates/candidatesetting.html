@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!----======== CSS ======== -->
+  <link rel="stylesheet" href="/css/stylepage.css">
+  <link rel="stylesheet" href="/css/candidatepage.css">
+  <!----===== Boxicons CSS ===== -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" href="/images/loader.png">
+  <title>
+    Setting up Candidates || SOVS
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/css/nucleo-svg.css" rel="stylesheet" />
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .inner-banner{
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="sidebar close toggleover"
+    style="background-image: url(../images/background/inner-banner-bg.jpg);  box-shadow: 0 1rem 3rem rgba(0, 0, 255, 0.975)!important;">
+    <header>
+      <div class="image-text">
+        <span class="image" style="height: 110px;">
+          <!-- <img src="/images/loader.png" alt="" height="80px" width="80px"> -->
+        </span>
+      
+      </div>
+
+      <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+      <div class="menu">
+
+        <li class="search-box" style="visibility: hidden">
+
+
+        </li>
+
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a class="nav-link text-white " th:href="@{'/admin/'}">
+              <i class='bx bx-home-alt icon' title="Dashboard"></i>
+              <span class="text nav-text" title="Dashboard">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/users'}">
+              <i class='bx bxs-user-detail icon' title="Database Part"></i>
+              <span class="text nav-text" title="Database Part">List of Users</span>
+            </a>
+          </li>
+
+
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/pendingrequest'}">
+              <i class='bx bx-hourglass icon' title="Pending Request"></i>
+              <span class="text nav-text" title="Pending Request">Pending requests</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/notifications'}">
+              <i class='bx bx-bell icon' title="Notification"></i>
+              <span class="text nav-text" title="Notification">Notifications</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a th:href="@{'/admin/candidates'}">
+              <i class='bx bx-user-plus icon' title="Candidate"></i>
+              <span class="text nav-text" title=" Candidate Register" style="font-size:1rem;">
+                Candidate Register
+             </span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a th:href="@{'/admin/candidatelist'}">
+              <i class='bx bx-user icon' style='font-size:18px;'></i>
+
+              <span class="text nav-text" title="List of candidates">List of candidates</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <li class="">
+          <a th:href="@{'/logout'}">
+            <i class='bx bx-log-out icon' title="Logout"></i>
+            <span class="text nav-text" title="Logout">Logout</span>
+          </a>
+        </li>
+
+
+      </div>
+    </div>
+
+  </nav>
+
+  <section class="home">
+
+   <header class="site-header site-header__header-one">
+
+     <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+       <div class="container clearfix">
+
+
+         <div class="logo-box clearfix">
+           <a class="navbar-brand" th:href="@{'/index'}">
+             <img src="/images/loader.png" class="main-logo" width="80" alt="Awesome image" />
+           </a>
+           <button class="menu-toggler" data-target=".main-navigation">
+             <span class="fa fa-bars"></span>
+           </button>
+         </div>
+
+
+
+
+         <!-- Collect the nav links, forms, and other content for toggling -->
+         <div class="main-navigation">
+           <ul class="navigation-box" style="text-align: left;">
+             <li class="current" style="margin-left: 150px">
+               <a th:href="@{/index}">Home</a>
+               <!-- /.sub-menu -->
+             </li>
+             <li>
+               <a href="about.html">About</a>
+               <ul class="sub-menu">
+                 <li><a href="about.html">About Us</a></li>
+               </ul>
+               <!-- /.sub-menu -->
+             </li>
+
+             <li>
+               <a th:href="@{/public/home/faceverification}">Vote</a>
+               <!-- /.sub-menu -->
+             </li>
+
+             <li>
+               <a href="#news">News</a>
+               <ul class="sub-menu">
+                 <li><a th:href="@{'/news'}">News Page</a></li>
+                 <!-- <li><a href="news-details.html">News Details</a></li> -->
+               </ul>
+               <!-- /.sub-menu -->
+             </li>
+             <li>
+               <a href="contact.html">Contact</a>
+             </li>
+             <!-- Shows Username -->
+             <li style="margin-left: 100px;">
+               <a href="#">
+                 Welcome
+                 <span href="#" style="
+                      margin-right: 10px;
+                      margin-top: 10px;
+                      font-weight: bolder;
+                    ">Admin&nbsp</span>
+                 <!-- Shows Photo -->
+                 <img src="https://vitalistore.com/wp-content/uploads/2021/10/009_L.jpg" alt="Avatar"
+                   style="width: 50px; border-radius: 60%" />
+               </a>
+               <!-- /.sub-menu -->
+             </li>
+           </ul>
+         </div>
+         <!-- /.right-side-box -->
+       </div>
+       <!-- /.container -->
+     </nav>
+   </header>
+
+ 
+ <section class="inner-banner">
+   <div class="container">
+     <h2 class="inner-banner__title">Setting Up Candidates</h2>
+     <!-- /.inner-banner__title -->
+     <ul class="list-unstyled thm-breadcrumb">
+       <li><a href="index.html">Home</a></li>
+       <li>Setting Up Candidates</li>
+     </ul>
+     <!-- /.list-unstyled -->
+   </div>
+   <!-- Shows Success Message -->
+ </section>
+
+
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
+     
+
+      <!-- End Navbar -->
+      <div class="container-fluid py-4">
+
+        <div class="col-12">
+          <div class="card my-4" style="background-color: #f4433530 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2" >
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3" style="margin-top:10px ;">
+                <h6 class="text-white text-capitalize ps-3" style="text-align: center;font-size: 20px">Pending Request
+                </h6>
+              </div>
+            </div>
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              
+            </div>
+
+
+            <div class="form_wrapper">
+              <div class="form_container">
+                <div class="title_container">
+
+                </div>
+                <div class="row clearfix">
+                  <div class="">
+                    <form th:action="@{/admin/candidates/register}" method="post" th:object="${candidate}" enctype="multipart/form-data">
+
+
+                      <div class="input_field">
+                        <input style="padding: 5px; padding-left: 10px;" type="text" th:field="*{username}" min="3"
+                          placeholder="Enter username"  required />
+                      </div>
+
+                      <!-- <div class="input_field">
+                        <input style="padding: 5px; padding-left: 10px;" type="text" th:field="*{ward}" max="3" placeholder="Enter Ward Number" pattern="[0-9]" required />
+                      </div> -->
+
+                      <div class="input_field select_option" >
+                        <select required th:field="*{party}" id="displayPartyPic" onchange="displayParty()" >
+                          <!-- <option value="" disabled selected>Enter Party Name</option> -->
+                          <option 
+                            th:each="p : ${listparty}"
+                            th:value="${p}" 
+                            th:text="${p}">
+                          </option>
+                        </select>
+                        <div class="select_arrow"></div>
+                      </div>
+
+
+                      <div class="input_field" >
+                        <label>Party's Flag&nbsp;&nbsp;&nbsp;</label> 
+
+                        <!-- <h3> **Display Party Flag here from database**</h3> -->
+                        <center><img name="partypic" id ="partyflag" src="" alt="" ></center>
+
+                        <!--To be inserted Party flag automatically when choose party name from dropdown option-->
+
+
+
+                        <!-- <input type="file" style="border: thick;" name="image" th:field="*{firstname}" id="fileimage" required class="form-control"
+                  accept="image/png, image/jpeg, image/jpg" /><br />
+
+
+                <p>
+                <img id="thumbnail"  src="" height="200px" width="150px"
+                  style="margin: 100px; display: none" />
+              </p>-->
+
+
+                      </div>
+
+
+                      <div class="input_field">
+                        <input type="text" name="cname" placeholder="Enter Candidate's first Name" th:field="*{firstname}"
+                          required />
+                      </div>
+
+                       <div class="input_field">
+                         <input type="text" name="lname" placeholder="Enter Candidate's last Name" th:field="*{lastname}"
+                           required />
+                       </div>
+
+                      <div class="input_field">
+                        <label>Upload Candidate's Photo&nbsp;&nbsp;&nbsp;</label><br><br>
+                        <input type="file" name="image" id="fileimage1" required
+                          class="form-control" accept="image/png, image/jpeg, image/jpg" /><br />
+                        <p>
+                          <img id="thumbnail1" src="" height="200px" width="150px"
+                            style="margin: 10px; margin-left: 100px; display: none" />
+                        </p>
+
+                      </div>
+
+
+
+
+                      <input class="button" type="submit" value="Upload" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+          </div>
+        </div>
+
+
+
+      </div>
+  </section>
+  </main>
+
+
+   <script src="/js/scriptpage.js"></script>
+  <script src="/js/core/popper.min.js"></script>
+  <script src="/js/core/bootstrap.min.js"></script>
+  <script src="/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="/js/plugins/smooth-scrollbar.min.js"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+
+
+
+    $(document).ready(function () {
+      $("#fileimage1").change(function () {
+        showImageThumbnail(this);
+      });
+    });
+
+    function showImageThumbnail(fileInput) {
+      file = fileInput.files[0];
+      reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#thumbnail1").attr("src", e.target.result);
+        $("#thumbnail1").css("display", "block");
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function displayParty(){
+      var d = document.getElementById("displayPartyPic")
+      var partyname = d.options[d.selectedIndex].text;
+      console.log("party pic"+partyname)
+      var link="/images/"+partyname+".jpeg"
+      document.getElementById("partyflag").setAttribute("src",link)
+      document.getElementById("partyflag").setAttribute("height",150)
+    }
+
+
+
+    
+
+
+
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/js/material-dashboard.min.js?v=3.0.1"></script>
+
+
+</body>
+
+</html>

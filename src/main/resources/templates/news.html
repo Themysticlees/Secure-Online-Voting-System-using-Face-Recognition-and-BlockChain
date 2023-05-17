@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our News || SOVS </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/loader.png">
+    <link rel="icon" type="image/png" sizes="32x32" href=" /images/loader.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/loader.png ">
+    <link rel="manifest" href=" /images/favicons/site.webmanifest">
+
+    <!-- plugin scripts -->
+
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href=" /css/animate.min.css">
+    <link rel="stylesheet" href=" /css/bootstrap.min.css">
+    <link rel="stylesheet" href=" /css/owl.carousel.min.css">
+    <link rel="stylesheet" href=" /css/owl.theme.default.min.css">
+    <link rel="stylesheet" href=" /css/magnific-popup.css">
+    <link rel="stylesheet" href=" /css/font-awesome.min.css">
+    <link rel="stylesheet" href=" /css/swiper.min.css">
+    <link rel="stylesheet" href=" /css/bootstrap-select.min.css">
+    <link rel="stylesheet" href=" /plugins/potisen-icons/style.css">
+    <link rel="stylesheet" href=" /css/vegas.min.css">
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+
+ <!-- This page shows latest news from Twitter -->
+
+
+
+
+    <div class="preloader">
+        <img src=" /images/loader.png" class="preloader__image" alt="">
+    </div>
+    <!-- /.preloader -->
+    <div class="page-wrapper">
+        <div class="topbar-one">
+
+            <div id="popupmain" style="display: none">
+                <div id="popup" style="overflow-y: scroll">
+                    <h2 id="newsHeading" style="padding-top: 5%; padding-bottom: 3%">
+                        Instructions
+                    </h2>
+
+                    <video style="
+              width: 450px;
+              -moz-border-radius: 40px;
+              -webkit-border-radius: 40px;
+              border-radius: 40px;
+              border-style: solid;
+              overflow: hidden;
+            " id="videomute" width="400" controls disablefullscreen disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen">
+            <source
+              src="https://cdn.kapwing.com/final_61ed11f2a127cf003d7f7fe2_111724.mp4"
+              type="video/mp4"
+            />
+
+            Your browser does not support HTML video.
+          </video>
+
+                    <div style="padding: 5% 5% 5% 5%">
+                        <h6 style="text-align: justify">
+                            Hello everyone! Welcome to our website, where now you can cast your vote online, and that too from your home! Explore the various features of our website, and embrace the future! Read the instructions below carefully, before proceeding. And dont forget
+                            to Register, and be a part of this campain ! Thank you!
+                        </h6>
+                        <hr />
+
+                        <h4 style="text-align: left">
+                            <b><u>Register</u></b>
+                        </h4>
+                        <h6 style="text-align: justify">
+                            To create an account, Users need to register themselves to this website. You can head to the <b> Register Page</b> and register yourself today!
+                        </h6>
+                        <hr />
+                        <h4 style="text-align: left">
+                            <b><u>Login</u></b>
+                        </h4>
+                        <h6 style="text-align: justify">
+                            In order to login the User needs to use provide their Adhar ID and password which they provided during registration. Upon successful login, they will be redirected to the user home page. From there they can explore other features!
+                        </h6>
+                        <hr />
+                        <h4 style="text-align: left">
+                            <b><u>Voting process</u></b>
+                        </h4>
+                        <h6 style="text-align: justify; padding-bottom: 2px">
+                            This feature is accessible from the user home page, which means our user needs to be a registered user in oder to view this feature. Users will find the <b> Voting </b> option in the navigation bar. By clicking that user will
+                            undergo two different Verification processes and then they can cast their vote.
+                        </h6>
+
+                        <ul style="text-align: justify">
+                            <li>
+                                <h5>Face Verification</h5>
+                                <h6>
+                                    Users need to provide Camera access permission for this step. They will undergo a Verification for a few seconds. If the Verification is successful they will redirected to the next page. If the Verification fails then they will be logged out.
+                                </h6>
+                            </li>
+                            <li>
+                                <h5>OTP Verification</h5>
+                                <h6>
+                                    After successfully completing the Face Verification, users will receive an OTP in their registered email which they need to enter.
+                                </h6>
+                            </li>
+                        </ul>
+
+                        <hr />
+                        <h6>
+                            After successfully completing all the steps, the user can cast their vote digitally and enjoy their voting rights ! <br />We hope you have an amazing experience. Thank you !
+                        </h6>
+                        <hr />
+                    </div>
+
+                    <button onclick="enableMute()" style="margin: 10px" class="btn btn-primary btn-success" id="buttonid">
+            OK
+          </button>
+                </div>
+            </div>
+
+            <header class="site-header site-header__header-one site-header__header-one ">
+                <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+                    <div class="container clearfix" >
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="logo-box clearfix">
+                            <a class="navbar-brand" href="index.html">
+                                <img src=" /images/loader.png" class="main-logo" width="80" alt="Awesome Image" />
+                            </a>
+                            <button class="menu-toggler" data-target=".main-navigation">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        </div>
+                        <!-- /.logo-box -->
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="main-navigation">
+                            <ul class=" navigation-box">
+                                <li>
+                                    <a th:href="@{'/index'}">Home</a>
+                                </li>
+                                <li>
+                                    <a href="about.html">About</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="history.html">History</a></li>
+                                    </ul>
+                                    <!-- /.sub-menu -->
+                                </li>
+                                <li>
+                                    <a href="#" id="instruction">Instructions</a>
+                                    <!-- /.sub-menu -->
+                                </li>
+
+
+                                <li class="current ">
+                                    <a href="#news ">News</a>
+                                    <ul class="sub-menu ">
+                                        <li><a href="news.html ">News Page</a></li>
+                                        <!--<li><a href="news-details.html ">News Details</a></li>-->
+                                    </ul>
+                                    <!-- /.sub-menu -->
+                                </li>
+                                <li>
+                                    <a href="contact.html ">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <div class="right-side-box ">
+                            <div class="header-social ">
+                                <a href="# " class="fa fa-twitter "></a>
+                                <a href="# " class="fa fa-facebook-square "></a>
+                                <a href="# " class="fa fa-pinterest-p "></a>
+                                <a href="# " class="fa fa-instagram "></a>
+                            </div>
+                            <!-- /.header-social -->
+                        </div>
+                        <!-- /.right-side-box -->
+                    </div>
+                    <!-- /.container -->
+                </nav>
+            </header>
+            <!-- /.site-header -->
+
+
+            <section class="inner-banner ">
+                <div class="container " >
+                    <h2 class="inner-banner__title ">News</h2>
+                    <!-- /.inner-banner__title -->
+                    <ul class="list-unstyled thm-breadcrumb ">
+                        <li><a href="index.html ">Home</a></li>
+                        <li>News</li>
+                    </ul>
+                    <!-- /.list-unstyled -->
+                </div>
+                <!-- /.container -->
+            </section>
+            <!-- /.inner-banner -->
+
+            <section class="blog-one ">
+                <div class="container ">
+                    <div class="row ">
+                        <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInUp " style="overflow-y: scroll">
+                            <div class="blog-one__single ">
+
+                                <article class="columns1_4 column_item_1 " style="height: 550px; ">
+                                    <a class="twitter-timeline " href="https://twitter.com/ECISVEEP?ref_src=twsrc%5Etfw ">Tweets
+                                                 by ECISVEEP</a>
+                                    <script async src="https://platform.twitter.com/widgets.js " charset="utf-8 "></script>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInUp " style="overflow-y: scroll">
+                            <div class="blog-one__single ">
+
+                                <article class="columns1_4 column_item_2 " style="height: 350px; ">
+                                    <a class="twitter-timeline " href="https://twitter.com/News18India?ref_src=twsrc%5Etfw ">Tweets
+                                        by News18India</a>
+                                    <script async src="https://platform.twitter.com/widgets.js " charset="utf-8 "></script>
+                                </article>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInUp " style="overflow-y: scroll">
+                            <div class="blog-one__single ">
+
+                                <article class="columns1_4 column_item_3 " style="height: 350px; ">
+                                    <a class="twitter-timeline " href="https://twitter.com/mygovindia?ref_src=twsrc%5Etfw ">Tweets
+                                    by mygovindia</a>
+                                    <script async src="https://platform.twitter.com/widgets.js " charset="utf-8 "></script>
+                                </article>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInUp " style="overflow-y: scroll">
+                            <div class="blog-one__single ">
+                                <article class="columns1_4 column_item_4 " style="height: 350px; ">
+                                    <a class="twitter-timeline " href="https://twitter.com/ABPNews?ref_src=twsrc%5Etfw ">Tweets by
+                                           ABPNews</a>
+                                    <script async src="https://platform.twitter.com/widgets.js " charset="utf-8 "></script>
+                                </article>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row ">
+                        <p>news</p>
+                    </div>
+                    <div class="post-pagination ">
+                        <a href="# "><i class="fa fa-angle-double-left "></i><!-- /.fa fa-angle-double-left --></a>
+                        <a class="active " href="# ">1</a>
+                        <a href="# ">2</a>
+                        <a href="# ">3</a>
+                        <a href="# ">4</a>
+                        <a href="# "><i class="fa fa-angle-double-right "></i><!-- /.fa fa-angle-double-left --></a>
+                    </div>
+                </div>
+                <!-- /.container -->
+            </section>
+            <!-- /.blog-one -->
+            <footer class="site-footer ">
+                <div class="site-footer__logo text-center ">
+                    <a href="index.html "><img src=" /images/loader.png " alt=" " width="174 "></a>
+                </div>
+                <!-- /.site-footer__logo -->
+                <div class="site-footer__upper ">
+                    <div class="container ">
+                        <div class="row ">
+                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 ">
+                                <div class="footer-widget ">
+                                    <h3 class="footer-widget__title ">About</h3>
+                                    <!-- /.footer-widget__title -->
+                                    <p class="footer-widget__text ">Lorem ipsum is simply dolor sit ametcn <br> sectetur adipiscing elit. Phasellus vehic <br> sagittis euismod.</p>
+                                    <!-- /.footer-widget__text -->
+                                    <div class="footer-widget__social ">
+                                        <a href="# " class="fa fa-twitter "></a>
+                                        <!-- /.fa fa-twitter -->
+                                        <a href="# " class="fa fa-facebook-square "></a>
+                                        <!-- /.fa fa-facebook-square -->
+                                        <a href="# " class="fa fa-pinterest-p "></a>
+                                        <!-- /.fa fa-pinterest-p -->
+                                        <a href="# " class="fa fa-instagram "></a>
+                                        <!-- /.fa fa-instagram -->
+                                    </div>
+                                    <!-- /.footer-widget__social -->
+                                </div>
+                                <!-- /.footer-widget -->
+                            </div>
+                            <!-- /.col-lg-3 -->
+                            <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 ">
+                                <div class="footer-widget footer-widget__links ">
+                                    <h3 class="footer-widget__title ">Explore</h3>
+                                    <!-- /.footer-widget__title -->
+                                    <ul class="list-unstyled footer-widget__links-list ">
+                                        <li><a href="# ">About Potisen</a></li>
+                                        <li><a href="# ">Volunteering</a></li>
+                                        <li><a href="# ">Contribute</a></li>
+                                        <li><a href="# ">Join Our Community</a></li>
+                                        <li><a href="# ">Latest News</a></li>
+                                    </ul>
+                                    <!-- /.list-unstyled footer-widget__links-list -->
+                                </div>
+                                <!-- /.footer-widget -->
+                            </div>
+                            <!-- /.col-lg-3 -->
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 ">
+                                <div class="footer-widget footer-widget__posts ">
+                                    <h3 class="footer-widget__title ">Updates</h3>
+                                    <!-- /.footer-widget__title -->
+                                    <ul class="list-unstyled footer-widget__posts-list ">
+                                        <li>
+                                            <div class="footer-widget__posts-image ">
+                                                <img src=" /images/resources/footer-post-1-1.png " alt=" ">
+                                            </div>
+                                            <!-- /.footer-widget__posts-image -->
+                                            <div class="footer-widget__posts-content ">
+                                                <h4 class="footer-widget__posts-title "><a href="news-details.html ">International
+                                                    conference</a></h4>
+                                                <!-- /.footer-widget__posts-title -->
+                                                <p class="footer-widget__posts-date ">20 Oct, 2019</p>
+                                                <!-- /.footer-widget__posts-date -->
+                                            </div>
+                                            <!-- /.footer-widget__posts-content -->
+                                        </li>
+                                        <li>
+                                            <div class="footer-widget__posts-image ">
+                                                <img src=" /images/resources/footer-post-1-2.png " alt=" ">
+                                            </div>
+                                            <!-- /.footer-widget__posts-image -->
+                                            <div class="footer-widget__posts-content ">
+                                                <h4 class="footer-widget__posts-title "><a href="news-details.html ">The strength of
+                                                    democracy</a></h4>
+                                                <!-- /.footer-widget__posts-title -->
+                                                <p class="footer-widget__posts-date ">20 Oct, 2019</p>
+                                                <!-- /.footer-widget__posts-date -->
+                                            </div>
+                                            <!-- /.footer-widget__posts-content -->
+                                        </li>
+                                    </ul>
+                                    <!-- /.list-unstyled footer-widget__posts-list -->
+                                </div>
+                                <!-- /.footer-widget -->
+                            </div>
+                            <!-- /.col-lg-3 -->
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 ">
+                                <div class="footer-widget footer-widget__contact ">
+                                    <h3 class="footer-widget__title ">Contact</h3>
+                                    <!-- /.footer-widget__title -->
+                                    <ul class="list-unstyled footer-widget__contact-list ">
+                                        <li>
+                                            <i class="potisen-icon-phone "></i>
+                                            <!-- /. -->
+                                            <a href="tel:666-888-000 ">666 888 000</a>
+                                        </li>
+                                        <li>
+                                            <i class="potisen-icon-mail "></i>
+                                            <!-- /. -->
+                                            <a href="mailto:needhelp@example.com ">needhelp@example.com</a>
+                                        </li>
+                                        <li>
+                                            <i class="potisen-icon-pin "></i>
+                                            <!-- /. -->
+                                            22 Broklyn Street 30 Road. New <br> York United States
+                                        </li>
+                                    </ul>
+                                    <!-- /.list-unstyled footer-widget__post-list -->
+                                </div>
+                                <!-- /.footer-widget -->
+                            </div>
+                            <!-- /.col-lg-3 -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.site-footer__upper -->
+                <div class="site-footer__bottom ">
+                    <div class="container ">
+                        <div class="inner-container text-center ">
+                            <p class="site-footer__copy ">&copy; copyright 2022 by <a href="# "></a></p>
+                            <!-- /.site-footer__copy -->
+                        </div>
+                        <!-- /.inner-container -->
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.site-footer__bottom -->
+            </footer>
+            <!-- /.site-footer -->
+        </div>
+        <!-- /.page-wrapper -->
+
+
+        <a href="# " data-target="html " class="scroll-to-target scroll-to-top "><i class="fa fa-angle-up "></i></a>
+
+
+        <script src=" /js/jquery.min.js "></script>
+        <script src=" /js/bootstrap.bundle.min.js "></script>
+        <script src=" /js/owl.carousel.min.js "></script>
+        <script src=" /js/waypoints.min.js "></script>
+        <script src=" /js/jquery.counterup.min.js "></script>
+        <script src=" /js/TweenMax.min.js "></script>
+        <script src=" /js/wow.js "></script>
+        <script src=" /js/jquery.magnific-popup.min.js "></script>
+        <script src=" /js/jquery.ajaxchimp.min.js "></script>
+        <script src=" /js/swiper.min.js "></script>
+        <script src=" /js/typed-2.0.11.js "></script>
+        <script src=" /js/vegas.min.js "></script>
+        <script src=" /js/jquery.validate.min.js "></script>
+        <script src=" /js/bootstrap-select.min.js "></script>
+        <script src=" /js/countdown.min.js "></script>
+
+        <!-- template scripts -->
+        <script src=" /js/theme.js "></script>
+        <script>
+            $(document).ready(function() {
+                if (localStorage.getItem("popState") != "shown") {
+                    setTimeout(function() {
+                        $("#popupmain").css("display", "block");
+                        localStorage.setItem("popState", "shown");
+                        document.querySelector("#videomute").autoplay = false;
+                    }, 0000);
+
+                    $("#buttonid").click(function() {
+                        $("#popupmain").css("display", "none");
+                    });
+                }
+
+                if (!localStorage.getItem("videoState")) {
+                    disableAutoplay(); // Run the function below.
+                }
+            });
+
+            $("#instruction").click(function() {
+                $("#popupmain").css("display", "block");
+            });
+
+            $("#buttonid").click(function() {
+                $("#popupmain").css("display", "none");
+            });
+        </script>
+</body>
+
+</html>

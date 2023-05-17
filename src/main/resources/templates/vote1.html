@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voting page || SOVS</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/favicons/site.webmanifest" />
+
+    <!-- plugin scripts -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/swiper.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
+    <link rel="stylesheet" href="/css/vegas.min.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
+
+
+
+
+ <!-- Voting Page with Countdown-->
+    <header class="site-header site-header__header-one">
+      <nav
+        class="navbar navbar-expand-lg navbar-light header-navigation stricky"
+      >
+        <div class="container clearfix">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="logo-box clearfix">
+            <a class="navbar-brand" th:href="@{/index}">
+              <img
+                src="/images/logo-dark.png"
+                class="main-logo"
+                height="100"
+                width="150"
+                alt="Awesome Image"
+              />
+            </a>
+            <button class="menu-toggler" data-target=".main-navigation">
+              <span class="fa fa-bars"></span>
+            </button>
+          </div>
+          <!-- /.logo-box -->
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="main-navigation">
+            <ul class="navigation-box">
+              <li class="current">
+                <a th:href="@{/index}">Home</a>
+              </li>
+              <li>
+                <a href="about.html">About</a>
+                <ul class="sub-menu">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="history.html">History</a></li>
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a href="#" id="instruction">Instructions</a>
+
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a th:href="@{'/register'}">Register/Sign Up</a>
+
+                <!-- /.sub-menu -->
+              </li>
+
+              <li>
+                <a href="#">News</a>
+                <ul class="sub-menu">
+                  <li><a th:href="@{'/news'}">News Page</a></li>
+                  
+                </ul>
+                <!-- /.sub-menu -->
+              </li>
+              <li>
+                <a th:href="@{'/contact'}">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="right-side-box">
+            <div class="header-social">
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-facebook-square"></a>
+              <a href="#" class="fa fa-pinterest-p"></a>
+              <a href="#" class="fa fa-instagram"></a>
+            </div>
+            <!-- /.header-social -->
+          </div>
+          <!-- /.right-side-box -->
+        </div>
+        <!-- /.container -->
+      </nav>
+    </header>
+    <section class="inner-banner">
+      <div class="container">
+        <h2 class="inner-banner__title">Voting Page</h2>
+        <!-- /.inner-banner__title -->
+        <ul class="list-unstyled thm-breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Voting Page</li>
+        </ul>
+        <!-- /.list-unstyled -->
+      </div>
+      <!-- /.container -->
+    </section>
+    
+    <section
+      class="countdown-one thm-gray-bg countdown-one__home-one"
+      style="margin-top: 10%"
+    >
+      <div class="container">
+        <div class="inner-container">
+          <div class="row align-items-xl-center align-items-lg-center">
+            <div class="col-xl-6">
+              <h3 class="countdown-one__title">
+                The next part of the project will <br /><br />
+                finished in :
+              </h3>
+              <!-- /.countdown-one__title -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div
+              class="col-xl-6 d-flex justify-content-xl-end justify-content-lg-center justify-content-sm-center"
+            >
+              <div class="countdown-one__right">
+                <ul class="countdown-one__list list-unstyled"></ul>
+                <!-- /.coundown-one__list -->
+              </div>
+              <!-- /.countdown-one__right -->
+            </div>
+            <!-- /.col-lg-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.inner-container -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/TweenMax.min.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/typed-2.0.11.js"></script>
+    <script src="/js/vegas.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/bootstrap-select.min.js"></script>
+    <script src="/js/countdown.min.js"></script>
+
+    <!-- template scripts -->
+    <script src="/js/theme.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </body>
+</html>

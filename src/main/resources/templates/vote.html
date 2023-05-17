@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Voting Page || SOVS</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/vote.css">
+</head>
+<body>
+	<section class="main-content" style="border-radius: 25px; background-color: rgb(222, 228, 231);">
+		
+		<div class="container" >
+			<h1 class="page-title text-center"><b>Candidates</b></h1>
+			<div class="row" >
+				<div class="col-md-3 col-sm-4" th:each="candidate : ${candidates}">
+					<div class="profile-card">
+						<div class="profile-card_cover">
+							<img th:src="${candidate.partypic}" alt="">
+						</div>
+						<div class="profile-card_padding">
+							<div class="profile-card_image">
+								<img th:src="${candidate.candidateImagePath}" alt="">
+							</div>
+							<div class="profile-card_details">
+								<h3><span th:text="${candidate.firstname}"></span> 
+									<span th:text="${candidate.lastname}"></span>
+								</h3>
+								<p th:text="${candidate.party}" class="text-muted"></p>
+							</div>
+							<div class="profile-card_social">
+	
+							<a th:href="@{'/vote/votecasted/'+${candidate.party}}"><button  class="button button1">Vote</button> </a>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+
+				
+			</div>
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

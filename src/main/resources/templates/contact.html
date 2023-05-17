@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contact || Election</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href=" /images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href=" /images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href=" /images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href=" /images/favicons/site.webmanifest" />
+
+    <!-- plugin scripts -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/swiper.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="/plugins/potisen-icons/style.css" />
+    <link rel="stylesheet" href="/css/vegas.min.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+
+  <body>
+    <div class="preloader">
+      <img src="/images/loader.png" class="preloader__image" alt="" />
+    </div>
+    <!-- /.preloader -->
+    <div class="page-wrapper">
+      <!-- /.topbar-one -->
+      <header class="site-header site-header__header-one">
+        <nav
+          class="navbar navbar-expand-lg navbar-light header-navigation stricky"
+        >
+          <div class="container clearfix">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="logo-box clearfix">
+              <a class="navbar-brand" href="index.html">
+                <img
+                  src="/images/logo-dark.png"
+                  class="main-logo"
+                  width="177"
+                  alt="Awesome Image"
+                />
+              </a>
+              <button class="menu-toggler" data-target=".main-navigation">
+                <span class="fa fa-bars"></span>
+              </button>
+            </div>
+            <!-- /.logo-box -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="main-navigation">
+              <ul class="navigation-box">
+                <li>
+                  <a th:href="@{'/index'}">Home</a>
+
+                  <!-- /.sub-menu -->
+                </li>
+                <li>
+                  <a href="about.html">About</a>
+
+                  <!-- /.sub-menu -->
+                </li>
+                <li>
+                  <a href="donation.html">Contribute</a>
+
+                  <!-- /.sub-menu -->
+                </li>
+                <li>
+                  <a href="#">Pages</a>
+
+                  <!-- /.sub-menu -->
+                </li>
+
+                <li>
+                  <a th:href="@{'/news'}">News</a>
+
+                  <!-- /.sub-menu -->
+                </li>
+                <li class="current">
+                  <a th:href="@{'/contact'}">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+            <div class="right-side-box">
+              <div class="header-social">
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-facebook-square"></a>
+                <a href="#" class="fa fa-pinterest-p"></a>
+                <a href="#" class="fa fa-instagram"></a>
+              </div>
+              <!-- /.header-social -->
+            </div>
+            <!-- /.right-side-box -->
+          </div>
+          <!-- /.container -->
+        </nav>
+      </header>
+      <!-- /.site-header -->
+      <section class="inner-banner">
+        <div class="container">
+          <h2 class="inner-banner__title">Contact</h2>
+          <!-- /.inner-banner__title -->
+          <ul class="list-unstyled thm-breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>Contact</li>
+          </ul>
+          <!-- /.list-unstyled -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.inner-banner -->
+      <div class="contact-info-one">
+        <iframe
+          src="https://maps.google.com/maps?q=baishnabghata&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          class="google-map__contact"
+          allowfullscreen
+        ></iframe>
+        <div class="container">
+          <div class="inner-container wow fadeInUp" data-wow-duration="1500ms">
+            <div class="row">
+              <div class="col-xl-4">
+                <div class="contact-info-one__single">
+                  <h4 class="contact-info-one__title">
+                    <i class="potisen-icon-pin"></i> Baishnabghata Patuli
+                    Township
+                  </h4>
+                </div>
+                <!-- /.contact-info-one__single -->
+              </div>
+              <!-- /.col-xl-4 -->
+              <div class="col-xl-4">
+                <div class="contact-info-one__single">
+                  <h4 class="contact-info-one__title">
+                    <i class="potisen-icon-phone"></i>
+                    <a href="tel:+91 6290551213">+91 6290551213</a>
+                  </h4>
+                </div>
+                <!-- /.contact-info-one__single -->
+              </div>
+              <!-- /.col-xl-4 -->
+              <div class="col-xl-4">
+                <div class="contact-info-one__single">
+                  <h4 class="contact-info-one__title">
+                    <i class="potisen-icon-mail"></i>
+                    <a href="mailto:needhelp@potisen.com"
+                      >donotreplysovs@gmail.com</a
+                    >
+                  </h4>
+                </div>
+                <!-- /.contact-info-one__single -->
+              </div>
+              <!-- /.col-xl-4 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.inner-container -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.contact-info-one -->
+      <section class="contact-form-one">
+        <div class="container">
+          <div class="block-title text-center">
+            <img
+              src="/images/resources/sec-title-star.png"
+              alt="Awesome Image"
+              class="wow rotateIn"
+              data-wow-duration="1500ms"
+            />
+            <p class="block-title__tag-line">Contact With Us</p>
+            <h2 class="block-title__title">Leave a Message</h2>
+            <!-- /.block-title__title -->
+          </div>
+          <!-- /.block-title -->
+          <form
+            method="post"
+            th:action="@{/sendemail}"
+            class="contact-form-one__form contact-form-validated"
+          >
+            <div class="row low-gutters">
+              <div class="col-lg-6">
+                <input
+                  type="text"
+                  th:name="fullname"
+                  placeholder="Your Name "
+                />
+              </div>
+              <!-- /.col-lg-6 -->
+              <div class="col-lg-6">
+                <input
+                  type="text "
+                  th:name="email"
+                  placeholder="Email Address "
+                />
+              </div>
+              <!-- /.col-lg-6 -->
+              <div class="col-lg-12">
+                <textarea
+                  th:name="message"
+                  placeholder="Write Message "
+                ></textarea>
+                <div class="text-center">
+                  <button type="submit" class="thm-btn contact-form-one__btn">
+                    Send Message
+                  </button>
+                </div>
+                <!-- /.text-center -->
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          </form>
+          <!-- /.contact-form-one__form -->
+          <div class="result"></div>
+          <!-- /.result -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <footer class="site-footer">
+        <div class="site-footer__logo text-center">
+          <a href="index.html "
+            ><img src="/images/loader.png" alt=" " width="174 "
+          /></a>
+        </div>
+        <!-- /.site-footer__logo -->
+        <div class="site-footer__upper">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget">
+                  <h3 class="footer-widget__title">About</h3>
+                  <!-- /.footer-widget__title -->
+                  <p class="footer-widget__text">Hi all</p>
+                  <!-- /.footer-widget__text -->
+                  <div class="footer-widget__social">
+                    <a href="# " class="fa fa-twitter"></a>
+                    <!-- /.fa fa-twitter -->
+                    <a href="# " class="fa fa-facebook-square"></a>
+                    <!-- /.fa fa-facebook-square -->
+                    <a href="# " class="fa fa-pinterest-p"></a>
+                    <!-- /.fa fa-pinterest-p -->
+                    <a href="# " class="fa fa-instagram"></a>
+                    <!-- /.fa fa-instagram -->
+                  </div>
+                  <!-- /.footer-widget__social -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+              <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget footer-widget__links">
+                  <h3 class="footer-widget__title">Explore</h3>
+                  <!-- /.footer-widget__title -->
+                  <ul class="list-unstyled footer-widget__links-list">
+                    <li><a href="# ">About Po</a></li>
+                    <li><a href="# ">Volunteering</a></li>
+                    <li><a href="# ">Contribute</a></li>
+                    <li><a href="# ">Join Our Community</a></li>
+                    <li><a href="# ">Latest News</a></li>
+                  </ul>
+                  <!-- /.list-unstyled footer-widget__links-list -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget footer-widget__posts">
+                  <h3 class="footer-widget__title">Updates</h3>
+                  <!-- /.footer-widget__title -->
+                  <ul class="list-unstyled footer-widget__posts-list">
+                    <li>
+                      <div class="footer-widget__posts-image">
+                        <img
+                          src=" /images/resources/footer-post-1-1.png "
+                          alt=" "
+                        />
+                      </div>
+                      <!-- /.footer-widget__posts-image -->
+                      <div class="footer-widget__posts-content">
+                        <h4 class="footer-widget__posts-title">
+                          <a href="news-details.html "
+                            >International conference</a
+                          >
+                        </h4>
+                        <!-- /.footer-widget__posts-title -->
+                        <p class="footer-widget__posts-date">20 Oct, 2019</p>
+                        <!-- /.footer-widget__posts-date -->
+                      </div>
+                      <!-- /.footer-widget__posts-content -->
+                    </li>
+                    <li>
+                      <div class="footer-widget__posts-image">
+                        <img
+                          src=" /images/resources/footer-post-1-2.png "
+                          alt=" "
+                        />
+                      </div>
+                      <!-- /.footer-widget__posts-image -->
+                      <div class="footer-widget__posts-content">
+                        <h4 class="footer-widget__posts-title">
+                          <a href="news-details.html "
+                            >The strength of democracy</a
+                          >
+                        </h4>
+                        <!-- /.footer-widget__posts-title -->
+                        <p class="footer-widget__posts-date">20 Oct, 2019</p>
+                        <!-- /.footer-widget__posts-date -->
+                      </div>
+                      <!-- /.footer-widget__posts-content -->
+                    </li>
+                  </ul>
+                  <!-- /.list-unstyled footer-widget__posts-list -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="footer-widget footer-widget__contact">
+                  <h3 class="footer-widget__title">Contact</h3>
+                  <!-- /.footer-widget__title -->
+                  <ul class="list-unstyled footer-widget__contact-list">
+                    <li>
+                      <i class="potisen-icon-phone"></i>
+                      <!-- /. -->
+                      <a href="tel:666-888-000 ">+91 6290551214</a>
+                    </li>
+                    <li>
+                      <i class="potisen-icon-mail"></i>
+                      <!-- /. -->
+                      <a href="mailto:needhelp@example.com "
+                        >donotreplysovs@gmail.com</a
+                      >
+                    </li>
+                    <li>
+                      <!-- /. -->
+                      Baishnabghata Patuli Township, Kolkata
+                    </li>
+                  </ul>
+                  <!-- /.list-unstyled footer-widget__post-list -->
+                </div>
+                <!-- /.footer-widget -->
+              </div>
+              <!-- /.col-lg-3 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.site-footer__upper -->
+        <div class="site-footer__bottom">
+          <div class="container">
+            <div class="inner-container text-center">
+              <p class="site-footer__copy">
+                &copy; copyright 2019 by <a href="# "></a>
+              </p>
+              <!-- /.site-footer__copy -->
+            </div>
+            <!-- /.inner-container -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.site-footer__bottom -->
+      </footer>
+      <!-- /.site-footer -->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <a href="# " data-target="html " class="scroll-to-target scroll-to-top"
+      ><i class="fa fa-angle-up"></i
+    ></a>
+
+    <script src=" /js/jquery.min.js "></script>
+    <script src=" /js/bootstrap.bundle.min.js "></script>
+    <script src=" /js/owl.carousel.min.js "></script>
+    <script src=" /js/waypoints.min.js "></script>
+    <script src=" /js/jquery.counterup.min.js "></script>
+    <script src=" /js/TweenMax.min.js "></script>
+    <script src=" /js/wow.js "></script>
+    <script src=" /js/jquery.magnific-popup.min.js "></script>
+    <script src=" /js/jquery.ajaxchimp.min.js "></script>
+    <script src=" /js/swiper.min.js "></script>
+    <script src=" /js/typed-2.0.11.js "></script>
+    <script src=" /js/vegas.min.js "></script>
+    <script src=" /js/jquery.validate.min.js "></script>
+    <script src=" /js/bootstrap-select.min.js "></script>
+    <script src=" /js/countdown.min.js "></script>
+
+    <!-- template scripts -->
+    <script src=" /js/theme.js "></script>
+  </body>
+</html>

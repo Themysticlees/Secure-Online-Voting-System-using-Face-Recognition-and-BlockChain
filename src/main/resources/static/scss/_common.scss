@@ -1,0 +1,255 @@
+body {
+    font-family: $thm-font;
+    color: $thm-text-color;
+    font-size: 18px;
+    line-height: 34px;
+    font-weight: 500;
+}
+
+a:active,
+a:hover,
+a:focus,
+a:visited {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font;
+}
+
+.page-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 300px;
+    overflow: hidden;
+}
+
+.thm-base-bg {
+    background-color: $thm-base-color;
+}
+
+.thm-base-bg-2 {
+    background-color: $thm-base-color-2;
+}
+
+.thm-gray-bg {
+    background-color: $thm-gray;
+}
+
+@keyframes bgSlide {
+    0% {
+        background-position: 0 0;
+    }
+
+    20% {
+        background-position: -100px 0;
+    }
+
+    40% {
+        background-position: -200px 0;
+    }
+
+    60% {
+        background-position: -150px 0;
+    }
+
+    80% {
+        background-position: -100px 0;
+    }
+
+    100% {
+        background-position: 0px 0;
+    }
+}
+
+@media(min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+.rotated {
+    transform: rotate(180deg);
+    display: inline-block;
+}
+
+
+.block-title {
+    margin-bottom: 60px;
+    &__tag-line {
+        color: $thm-base-color-2;
+        margin: 0;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1em;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__title {
+        margin: 0;
+        color: $thm-black;
+        font-weight: 700;
+        font-size: 50px;
+        letter-spacing: -.02em;
+    }
+}
+
+
+
+.thm-btn {
+    display: inline-block;
+    vertical-align: middle;
+    border: none;
+    outline: none;
+    background-color: $thm-base-color-2;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    padding: 20.5px 50.5px;
+    transition: all .4s ease;
+
+    &:hover {
+        background-color: #fff;
+        color: $thm-black;
+    }
+}
+
+
+.bootstrap-select .btn-light:not(:disabled):not(.disabled).active,
+.bootstrap-select .btn-light:not(:disabled):not(.disabled):active,
+.bootstrap-select .show > .btn-light.dropdown-toggle {
+  background-color: transparent !important;
+          box-shadow: none !important;
+  outline: none !important;
+}
+
+.bootstrap-select > .dropdown-toggle {
+          box-shadow: none !important;
+}
+
+.bootstrap-select .dropdown-toggle:focus,
+.bootstrap-select > select.mobile-device:focus + .dropdown-toggle {
+  outline: none !important;
+}
+
+.bootstrap-select .dropdown-menu {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  z-index: 991;
+  border-radius: 0;
+}
+
+.bootstrap-select .dropdown-menu > li + li > a {
+  border-top: 1px solid $thm-gray;
+}
+
+
+.bootstrap-select .dropdown-menu > li.selected > a {
+  background: $thm-base-color;
+  color: #fff;
+}
+
+.bootstrap-select .dropdown-menu > li > a {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px 20px;
+  color: $thm-black;
+  transition: all .4s ease;
+}
+
+.bootstrap-select .dropdown-menu > li > a:hover {
+  background: $thm-base-color;
+  color: #fff;
+  cursor: pointer;
+}
+
+.post-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        border-radius: 50%;
+        background-color: $thm-gray;
+        font-size: 15px;
+        font-weight: 600;
+        text-align: center;
+        padding: 8px 19px;
+        color: $thm-black;
+        transition: all .4s ease;
+
+        &:hover,
+        &.active {
+            background-color: $thm-black;
+            color: #fff;
+        }
+
+        +a {
+            margin-left: 15px;
+        }
+    }
+}
+
+
+.preloader {
+    position: fixed;
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9991;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__image {
+        animation-fill-mode: both;
+        animation-name: flipInY;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+}
+
+.scroll-to-top {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: $thm-base-color;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99;
+    text-align: center;
+    transition: all .4s ease;
+    display: none;
+    border-radius: 50%;
+    transition: all .4s ease;
+
+    i {
+        color: #ffffff;
+        font-size: 18px;
+        line-height: 45px;
+    }
+
+    &:hover {
+        background-color: $thm-black;
+
+        i {
+            color: #fff;
+        }
+    }
+
+
+}

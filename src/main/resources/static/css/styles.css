@@ -1,0 +1,126 @@
+.backpic {
+    background-image: url(https://drive.google.com/file/d/1NVtTQfVj7-6659Yh8mSjSOA6FHiqiF59/view?usp=sharing);
+    background-size: cover;
+    /* margin: 30px; */
+    /* height: auto; */
+    /* width: auto; */
+   
+}
+
+.voting-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 400px;
+}
+
+.row {
+    margin: 100px 20px;
+}
+
+
+
+.col-lg-7 {
+    padding: 4%;
+}
+
+h3 {
+    color: rgb(0, 0, 0);
+    margin: 50px auto;
+    font-weight: 700;
+}
+
+.instructions {
+    margin: auto;
+    padding: 30px;
+}
+
+#popupmain {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255, 0.6);
+    z-index: 1001;
+}
+
+#popup {
+    width: 40%;
+    height: 90%;
+    background-image: url('https://media.istockphoto.com/photos/the-gray-and-silver-are-light-black-with-white-the-gradient-is-the-picture-id1322292759?b=1&k=20&m=1322292759&s=170667a&w=0&h=FtcK2R11RjeMUkMUWu5kxFmYR8pY-G8OLs99PnWIJpE=');
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 2px 20px 3px black;
+    text-align: center;
+}
+
+#newsHeading {
+    transform: translateY();
+    color: black;
+}
+
+#btnid {
+    border: none;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    width: 50%;
+}
+
+/* =================================================================================================== */
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display: none;
+    
+    color: #000;
+    position: relative;
+    padding: 0px;
+    margin-top: 2px;
+}
+
+#message p {
+    padding: 5px 35px;
+    font-size: 10px;
+    
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    padding-left: 20px;
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    padding-left: 20px;
+    position: relative;
+    left: -35px;
+    content: "❌";
+}
+
+input,select{
+    border-radius: 2%;
+    /* border-right: 1px solid blue !important; */
+    /* border-bottom: 1px solid blue !important; */
+    border-right: 1px solid blue !important;
+    border-top: 1px solid red !important;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
